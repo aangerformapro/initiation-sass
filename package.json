@@ -2,19 +2,22 @@
     "name": "initiation-sass",
     "version": "1.0.0",
     "description": "Projet Intégration avec SASS",
-    "main": "index.js",
+    "type": "module",
     "scripts": {
-        "sass-watch": "sass --watch ./src/sass/index.scss ./public/assets/bundle.css"
+        "sass-watch": "sass --watch ./src/sass/index.scss ./public/assets/bundle.css",
+        "rollup-watch": "node ./node_modules/rollup/dist/bin/rollup -c -w",
+        "watch": "run-p -n sass-watch rollup-watch",
+        "build": "node ./node_modules/rollup/dist/bin/rollup -c"
     },
     "author": "Aymeric Anger",
-    "license": "ISC",
     "private": true,
     "devDependencies": {
+        "@rollup/plugin-babel": "^6.0.3",
         "@rollup/plugin-commonjs": "^24.0.1",
         "@rollup/plugin-node-resolve": "^15.0.1",
+        "npm-run-all": "^4.1.5",
         "rollup": "^3.18.0",
         "rollup-plugin-postcss": "^4.0.2",
         "sass": "^1.59.2"
-    },
-    "dependencies": {}
+    }
 }
