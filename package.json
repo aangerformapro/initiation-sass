@@ -1,0 +1,20 @@
+{
+    "name": "initiation-sass",
+    "version": "1.0.0",
+    "description": "Projet Intégration avec SASS",
+    "main": "index.js",
+    "scripts": {
+        "sass-watch": "sass --watch ./src/sass/index.scss ./public/assets/bundle.css"
+    },
+    "author": "Aymeric Anger",
+    "license": "ISC",
+    "private": true,
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "rollup": "^3.18.0",
+        "rollup-plugin-postcss": "^4.0.2",
+        "sass": "^1.59.2"
+    },
+    "dependencies": {}
+}
