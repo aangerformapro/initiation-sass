@@ -5,9 +5,7 @@
 
 
 html {
-
-    @include setFont('Inter', 15px);
-    line-height: 25px;
+    @include setFont('Inter', 15px, 400, normal, 25px);
 
 }
 

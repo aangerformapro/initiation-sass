@@ -40,8 +40,8 @@
 @mixin margin-x($value: auto) {
 
     margin: {
-        left: auto;
-        right: auto;
+        left: $value;
+        right: $value;
     }
 }
 
@@ -49,7 +49,11 @@
 @mixin margin-y($value: auto) {
 
     margin: {
-        top: auto;
-        bottom: auto;
+        top: $value;
+        bottom: $value;
     }
+}
+
+@mixin pseudo {
+    content: '';
 }

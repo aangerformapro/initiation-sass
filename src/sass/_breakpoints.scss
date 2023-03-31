@@ -7,6 +7,19 @@ $breakpoints: (
     "xxl": 1400px
 );
 
+@mixin breakpoint($minWidth: null, $media: screen) {
+    @if $minWidth !=null {
+        @media #{$media} and (min-width: $minWidth) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+
+}
+
 @mixin xs {
     @media (min-width: map-get($breakpoints, "xs")) {
         @content;
