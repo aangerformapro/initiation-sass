@@ -1,13 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 @import 'variables';
-@import 'functions';
-@import 'breakpoints';
+@import 'helpers/functions';
+@import 'helpers/breakpoints';
 
-%body-width {
-    max-width: 1200px;
-    @include margin-x(5%);
-    overflow: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 html {
     @include setFont('Inter', 15px, 400, normal, 25px);
@@ -21,6 +16,8 @@ html {
 body {
     min-height: 100vw;
     margin: 0;
+    padding: 64px 5%;
+    max-width: 1200px;
 }
 
 
@@ -28,27 +25,25 @@ body {
 header {
     @include setFontSize(17px, 400, 21px);
 
-    @extend %body-width;
+    background: $mainBgColor;
+    margin-bottom: 60px;
 
-    margin: {
-        top: 90px;
-        bottom: 60px;
-    }
+
 
     height: 60px;
     display: flex;
     color: $headerColor;
 
-    & a {
+    a {
         color: $headerColor;
         text-decoration: none;
     }
 
-    & nav {
+    nav {
         margin-left: auto;
         display: none;
 
-        & a {
+        a {
             padding: 0 5%;
         }
 
@@ -59,7 +54,7 @@ header {
         }
     }
 
-    & .burger {
+    .burger {
         margin-left: auto;
 
         @include md {
@@ -74,19 +69,30 @@ header {
 
 
 .container {
-    @extend %body-width;
 
 
-    & .content {
-        & .image {}
 
-        & h1 {
-            @include setFontSize(60px, 900, 60px);
+
+
+    .content {
+        .image {
+            width: 793px;
+            height: 324px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
         }
 
-        &.excerpt {}
+        h1 {
+            @include setFontSize(60px, 900, 60px);
+            color: $mainHeadingColor;
+        }
 
-        & .read-article {}
+        .excerpt {}
+
+        .read-article {}
     }
 
 
@@ -100,15 +106,15 @@ header {
 
         overflow: hidden;
 
-        & .title {
+        .title {
             @include setFontSize(40px, 900, 60px);
             color: $newsHeadingColor;
         }
 
-        & .news {
+        .news {
 
 
-            & h4 {
+            h4 {
                 @include setFontSize(19px, 900, 25px);
                 color: $newsTitleColor;
             }
@@ -138,50 +144,57 @@ header {
             flex-direction: row;
         }
 
-        & .subnews {
-
-            display: flex;
 
 
-            & .left {
-
-                overflow: hidden;
-
-                width: 20%;
-                aspect-ratio: 1/2;
-
-                & img {
-
-
-                    object-fit: center;
-                    width: 100%;
-
-                }
-            }
-
-            & .right {
-
-                & .number {
-                    @include setFontSize(31px, 900, 25px);
-                    color: $subNewsNumberColor;
-                }
-
-                & .title {
-                    @include setFontSize(19px, 900, 25px);
-                    color: $subNewsHeadingColor;
-                }
-
-            }
-
-
-
-        }
 
     }
 
 
 }
 
+
+.subnews {
+
+    display: flex;
+
+    width: 350px;
+    height: 139px;
+
+    justify-content: space-between;
+
+    .thumb {
+        width: 109px;
+
+        background: {
+            image: url('./pictures/thumb.jpg');
+            position: center center;
+            size: cover;
+        }
+
+    }
+
+    .card {
+
+        padding: 5px 0 0 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .number {
+            @include setFontSize(31px, 900, 25px);
+            color: $subNewsNumberColor;
+        }
+
+        .title {
+            @include setFontSize(19px, 900, 25px);
+            color: $subNewsHeadingColor;
+        }
+
+    }
+
+
+
+}
 
 .btn {
 

@@ -1,39 +1,20 @@
-@import 'variables';
+@import '../variables';
 
-@mixin breakpoint($minWidth: null) {
-    @if $minWidth !=null {
-        @media (min-width: $minWidth) {
-            @content;
-        }
+@mixin breakpoint($min) {
+
+    @media (min-width: $min) {
+        @content;
     }
+}
 
-    @else {
+@mixin breakpoint-between($min, $max) {
+
+    @media (min-width: $min) and (max-width: $max) {
         @content;
     }
 
 }
 
-@mixin breakpoint-between($min: null, $max: null) {
-    @if($min !=null) {
-        @if($max !=null) {
-            @media (min-width: $min) and (max-width: $max) {
-                @content;
-            }
-        }
-
-        @else {
-            @error "Property #{$max} must be a size.";
-        }
-    }
-
-    @else {
-        @error "Property #{$min} must be a size.";
-    }
-
-
-
-
-}
 
 @mixin xs {
     @media (min-width: map-get($breakpoints, "xs")) {

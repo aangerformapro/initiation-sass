@@ -6,9 +6,11 @@ import postcss from 'rollup-plugin-postcss';
 import { babel } from '@rollup/plugin-babel';
 
 export default {
+
     input: path.resolve('src/mjs/index.mjs'),
     output: {
         format: 'es',
+        sourcemap: true,
         file: path.resolve('public/assets/bundle.js')
     },
     plugins: [

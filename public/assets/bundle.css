@@ -1,11 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-.container, header {
-  max-width: 1200px;
-  margin-left: 5%;
-  margin-right: 5%;
-  overflow: hidden;
-}
-
 html {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -21,13 +14,15 @@ html {
 body {
   min-height: 100vw;
   margin: 0;
+  padding: 64px 5%;
+  max-width: 1200px;
 }
 
 header {
   font-weight: 400;
   font-size: 17px;
   line-height: 21px;
-  margin-top: 90px;
+  background: white;
   margin-bottom: 60px;
   height: 60px;
   display: flex;
@@ -60,10 +55,19 @@ header .burger {
   }
 }
 
+.container .content .image {
+  width: 793px;
+  height: 324px;
+  overflow: hidden;
+}
+.container .content .image img {
+  width: 100%;
+}
 .container .content h1 {
   font-weight: 900;
   font-size: 60px;
   line-height: 60px;
+  color: #333333;
 }
 .container .news-container {
   background: #333333;
@@ -101,25 +105,32 @@ header .burger {
     flex-direction: row;
   }
 }
-.container .subnews-container .subnews {
+
+.subnews {
   display: flex;
+  width: 350px;
+  height: 139px;
+  justify-content: space-between;
 }
-.container .subnews-container .subnews .left {
-  overflow: hidden;
-  width: 20%;
-  aspect-ratio: 1/2;
+.subnews .thumb {
+  width: 109px;
+  background-image: url("./pictures/thumb.jpg");
+  background-position: center center;
+  background-size: cover;
 }
-.container .subnews-container .subnews .left img {
-  object-fit: center;
-  width: 100%;
+.subnews .card {
+  padding: 5px 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-.container .subnews-container .subnews .right .number {
+.subnews .card .number {
   font-weight: 900;
   font-size: 31px;
   line-height: 25px;
   color: #333333;
 }
-.container .subnews-container .subnews .right .title {
+.subnews .card .title {
   font-weight: 900;
   font-size: 19px;
   line-height: 25px;
