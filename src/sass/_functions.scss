@@ -1,0 +1,36 @@
+@mixin setFontSize($size: null, $weight: 400, $lineHeight: null) {
+
+    @if $size !=null {
+        font: {
+            weight: $weight;
+            size: $size;
+        }
+    }
+
+    @if $lineHeight !=null {
+        line-height: $lineHeight;
+    }
+}
+
+
+
+
+@mixin setFont($family: null, $size: 12pt, $weight: 400, $style: normal, $lineHeight: null) {
+    @if $family !=null {
+        font: {
+            family: $family, sans-serif;
+            style: $style;
+        }
+
+        @include setFontSize($size, $weight, $lineHeight)
+    }
+
+}
+
+
+@mixin hidden {
+    color: #00000000;
+    background: #00000000;
+    z-index: -1;
+    visibility: hidden;
+}
