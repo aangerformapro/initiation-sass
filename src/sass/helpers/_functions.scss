@@ -10,7 +10,7 @@
         font: {
             size: $font-size;
             weight: $font-weight;
-            style: $style;
+            style: $font-style;
             stretch: $font-stretch;
         }
 
@@ -84,7 +84,11 @@
 }
 
 
-@mixin overlay ($top: 0, $left: 0, $width: 100%, $height: 100%, $z-index: 99) {
+@mixin overlay ($top: 0,
+    $left: 0,
+    $width: 100%,
+    $height: 100%,
+    $z-index: 99) {
     position: absolute;
     top: $top;
     left: $left;
@@ -98,6 +102,16 @@
     box-sizing: border-box;
 }
 
-#overflow {
+#no-overflow {
     overflow: hidden;
+}
+
+/**
+ * From https://getbootstrap.com/docs/5.0/layout/containers/
+ */
+
+@mixin make-container($padding-x: 0) {
+    width: 100%;
+    @include padding-x($padding-x);
+    @include margin-x(auto);
 }

@@ -1,32 +1,55 @@
-@import 'helpers/constants';
+//constants
+// https://www.color-name.com/
+$white: #FFFFFF;
+$black: #000000;
+$dark-charcoal: #333333;
+$pale-pink: #F1DEDE;
+$black-shadows: #BBACC1;
+$invisible: rgba(0, 0, 0, 0);
+
+$bootstrap-breakpoints: (
+    "xs": 0px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px
+);
+
 
 // breakpoints
 $breakpoints: $bootstrap-breakpoints;
 
 // body
-$mainColor: $black;
-$mainBgColor: $white;
+$main-color: $black;
+$main-bg-color: $white;
+
+$main-heading-color: $dark-charcoal;
+$main-content-color: $black;
 
 // header
-$headerColor: $darkCharcoal;
+$header-color: $dark-charcoal;
+$header-bg-color: $white;
+$header-hover-color: $dark-charcoal;
 
-//button
-$btnColor: $palePink;
-$btnBgColor: $blackShadows;
+// pink button
+$pink-btn-color: $pale-pink;
+$pink-btn-bg-color: $black-shadows;
+$pink-btn-border: none;
+$pink-btn-hover-color: $white;
+$pink-btn-hover-bg-color: $black-shadows;
+$pink-btn-hover-border: 1px solid $pale-pink;
 
-// news
-$newsHeadingColor: $blackShadows;
-$newsBgColor: $darkCharcoal;
-$newsTitleColor: $palePink;
-$newsColor: $white;
-$newsSepColor: $white;
+// featured news
+$featured-news-main-heading-color: $black-shadows;
+$featured-news-bg-color: $dark-charcoal;
+$featured-news-title-color: $pale-pink;
+$featured-news-color: $white;
+$featured-news-separator-color: $white;
 
-// subnews
-$subNewsNumberColor: $darkCharcoal;
-$subNewsHeadingColor: $blackShadows;
-$subNewsColor: $black;
-$subNewsBGColor: $white;
-
-//main
-$mainHeadingColor: $darkCharcoal;
-//$mainHeadingFont: setFont('Inter', 45pt, 900);
+// Cards
+// https://flowbite.com/docs/components/card/
+$card-heading-color: $dark-charcoal;
+$card-title-color: $black-shadows;
+$card-content-color: $black;
+$card-bg-color: $white;

@@ -1,0 +1,189 @@
+header {
+    @include setFontSize(17px, 400, 21px);
+
+    background: $mainBgColor;
+    margin-bottom: 60px;
+
+
+
+    height: 60px;
+    display: flex;
+    color: $headerColor;
+
+    a {
+        color: $headerColor;
+        text-decoration: none;
+    }
+
+    nav {
+        margin-left: auto;
+        display: none;
+
+        a {
+            padding: 0 5%;
+        }
+
+        @include md {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    .burger {
+        margin-left: auto;
+
+        @include md {
+            display: none;
+        }
+
+    }
+
+}
+
+
+
+
+.container {
+
+
+
+
+
+    .content {
+        .image {
+            width: 793px;
+            height: 324px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h1 {
+            @include setFontSize(60px, 900, 60px);
+            color: $mainHeadingColor;
+        }
+
+        .excerpt {}
+
+        .read-article {}
+    }
+
+
+
+    .news-container {
+        background: $newsBgColor;
+        color: $newsColor;
+        display: flex;
+        flex-direction: column;
+        padding: 7%;
+
+        overflow: hidden;
+
+        .title {
+            @include setFontSize(40px, 900, 60px);
+            color: $newsHeadingColor;
+        }
+
+        .news {
+
+
+            h4 {
+                @include setFontSize(19px, 900, 25px);
+                color: $newsTitleColor;
+            }
+
+            &:not(:last-of-type)::after {
+                @include pseudo;
+
+                height: 1px;
+                width: 80%;
+                background-color: $newsColor;
+                display: inline-block;
+
+
+            }
+
+
+        }
+    }
+
+    .subnews-container {
+
+
+        display: flex;
+        flex-direction: column;
+
+        @include md {
+            flex-direction: row;
+        }
+
+
+
+
+    }
+
+
+}
+
+
+.subnews {
+
+    display: flex;
+
+    width: 350px;
+    height: 139px;
+
+    justify-content: space-between;
+
+    .thumb {
+        width: 109px;
+
+        background: {
+            image: url('./pictures/thumb.jpg');
+            position: center center;
+            size: cover;
+        }
+
+    }
+
+    .card {
+
+        padding: 5px 0 0 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .number {
+            @include setFontSize(31px, 900, 25px);
+            color: $subNewsNumberColor;
+        }
+
+        .title {
+            @include setFontSize(19px, 900, 25px);
+            color: $subNewsHeadingColor;
+        }
+
+    }
+
+
+
+}
+
+.btn {
+
+    border-radius: 50px;
+    display: inline-block;
+    text-transform: uppercase;
+
+    @include setFontSize(17px, 700, 25px);
+    padding: 8px 24px;
+
+    &.btn-pink {
+
+        background: $btnBgColor;
+        color: $btnColor;
+    }
+}

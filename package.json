@@ -20,5 +20,8 @@
         "rollup": "^3.18.0",
         "rollup-plugin-postcss": "^4.0.2",
         "sass": "^1.59.2"
+    },
+    "dependencies": {
+        "lorem-ipsum": "^2.0.8"
     }
 }

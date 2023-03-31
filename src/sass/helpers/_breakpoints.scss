@@ -51,3 +51,33 @@
         @content;
     }
 }
+
+@mixin sm-down {
+    @media (max-width: map-get($breakpoints, "sm")) {
+        @content;
+    }
+}
+
+@mixin md-down {
+    @media (max-width: map-get($breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin lg-down {
+    @media (max-width: map-get($breakpoints, "lg")) {
+        @content;
+    }
+}
+
+@mixin xl-down {
+    @media (max-width: map-get($breakpoints, "xl")) {
+        @content;
+    }
+}
+
+@mixin xxl-down {
+    @media (max-width: map-get($breakpoints, "xxl")) {
+        @content;
+    }
+}

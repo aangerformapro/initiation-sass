@@ -10,213 +10,154 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
+
+/**
+ * Main styles
+ */
+
 html {
-
-    font-size: 100%;
-
-    @include setFont('Inter', 15px, 400, normal, 25px);
-
+    font-size: 16px;
 }
 
-* {
+*,
+::before,
+::after {
     box-sizing: border-box;
 }
 
 body {
     min-height: 100vw;
     margin: 0;
-    padding: 64px 5%;
-    max-width: 1200px;
+    @include font-family('Inter', 1rem);
+    color: $main-color;
+    background-color: $main-bg-color;
 }
 
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    @extend #no-overflow;
+    width: 90%;
+    max-width: __remify(1200px);
+    @include margin-x(auto);
+    margin-bottom: 5%;
+    padding: 0;
+}
 
 
 header {
-    @include setFontSize(17px, 400, 21px);
 
-    background: $mainBgColor;
-    margin-bottom: 60px;
-
-
-
-    height: 60px;
-    display: flex;
-    color: $headerColor;
+    height: __remify(60px);
+    margin-top: 4rem;
+    color: $header-color;
+    background: $header-bg-color;
 
     a {
-        color: $headerColor;
-        text-decoration: none;
+        color: $header-color;
+
+        &:hover,
+        &:active {
+            color: $header-color;
+        }
     }
 
     nav {
-        margin-left: auto;
-        display: none;
+        text-align: center;
+
+        @include font-size(__remify(17px), __remify(21px));
 
         a {
-            padding: 0 5%;
+            padding: .75rem 1rem;
         }
 
-        @include md {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+        @include md-down {
+            display: none;
         }
     }
 
-    .burger {
-        margin-left: auto;
+    .logo {
+        z-index: 999;
+    }
 
+
+    .nav-btn {
+        z-index: 999;
+
+        //margin-left: auto;
         @include md {
             display: none;
         }
-
     }
 
 }
 
+#main {
+
+    @include font-size(__remify(15px), __remify(25px));
+
+    >.article {
+
+        color: $main-content-color;
 
 
 
-.container {
+        .picture {
 
-
-
-
-
-    .content {
-        .image {
-            width: 793px;
-            height: 324px;
             overflow: hidden;
+
+            width: __remify(350px);
+
+
+
+            @include md {
+                width: __remify(793px);
+            }
+
 
             img {
                 width: 100%;
+                height: __remify(324px);
+
+                object: {
+                    position: center;
+                    fit: cover;
+                }
             }
         }
 
-        h1 {
-            @include setFontSize(60px, 900, 60px);
-            color: $mainHeadingColor;
+        .heading {
+            @include font-size(__remify(60px), __remify(60px), 900);
+            color: $main-content-color;
         }
-
-        .excerpt {}
-
-        .read-article {}
-    }
-
-
-
-    .news-container {
-        background: $newsBgColor;
-        color: $newsColor;
-        display: flex;
-        flex-direction: column;
-        padding: 7%;
-
-        overflow: hidden;
-
-        .title {
-            @include setFontSize(40px, 900, 60px);
-            color: $newsHeadingColor;
-        }
-
-        .news {
-
-
-            h4 {
-                @include setFontSize(19px, 900, 25px);
-                color: $newsTitleColor;
-            }
-
-            &:not(:last-of-type)::after {
-                @include pseudo;
-
-                height: 1px;
-                width: 80%;
-                background-color: $newsColor;
-                display: inline-block;
-
-
-            }
-
-
-        }
-    }
-
-    .subnews-container {
-
-
-        display: flex;
-        flex-direction: column;
-
-        @include md {
-            flex-direction: row;
-        }
-
-
-
-
-    }
-
-
-}
-
-
-.subnews {
-
-    display: flex;
-
-    width: 350px;
-    height: 139px;
-
-    justify-content: space-between;
-
-    .thumb {
-        width: 109px;
-
-        background: {
-            image: url('./pictures/thumb.jpg');
-            position: center center;
-            size: cover;
-        }
-
-    }
-
-    .card {
-
-        padding: 5px 0 0 24px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        .number {
-            @include setFontSize(31px, 900, 25px);
-            color: $subNewsNumberColor;
-        }
-
-        .title {
-            @include setFontSize(19px, 900, 25px);
-            color: $subNewsHeadingColor;
-        }
-
     }
 
 
 
 }
 
+/**
+ * Pink Button
+ */
 .btn {
-
     border-radius: 50px;
     display: inline-block;
     text-transform: uppercase;
-
-    @include setFontSize(17px, 700, 25px);
-    padding: 8px 24px;
+    @include font-size(__remify(17px), __remify(25px), 700);
+    padding: __remify(8px) __remify(24px);
 
     &.btn-pink {
+        border: $pink-btn-border;
+        color: $pink-btn-color;
+        background-color: $pink-btn-bg-color;
 
-        background: $btnBgColor;
-        color: $btnColor;
+        &:hover,
+        &:active {
+            color: $pink-btn-hover-color;
+            background: $pink-btn-hover-bg-color;
+        }
     }
+
 }

@@ -1,17 +1,153 @@
-/* Error: Undefined mixin.
- *    ,
- * 17 |     @include setFont('Inter', 15px, 400, normal, 25px);
- *    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   src\sass\index.scss 17:5  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 17 \2502      @include setFont('Inter', 15px, 400, normal, 25px);\d\a    \2502      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\sass\\index.scss 17:5  root stylesheet";
+/**
+ * Made using https://docs.gerillass.com
+ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+#border-box {
+  box-sizing: border-box;
 }
+
+#no-overflow, .container {
+  overflow: hidden;
+}
+
+/**
+ * From https://getbootstrap.com/docs/5.0/layout/containers/
+ */
+/**
+ * Main styles
+ */
+html {
+  font-size: 16px;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vw;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  padding: 0;
+}
+
+header {
+  height: 3.75rem;
+  margin-top: 4rem;
+  color: #333333;
+  background: #FFFFFF;
+}
+header a {
+  color: #333333;
+}
+header a:hover, header a:active {
+  color: #333333;
+}
+header nav {
+  text-align: center;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.3125rem;
+}
+header nav a {
+  padding: 0.75rem 1rem;
+}
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+}
+header .logo {
+  z-index: 999;
+}
+header .nav-btn {
+  z-index: 999;
+}
+@media (min-width: 768px) {
+  header .nav-btn {
+    display: none;
+  }
+}
+
+#main {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
+}
+#main > .article {
+  color: #000000;
+}
+#main > .article .picture {
+  overflow: hidden;
+  width: 21.875rem;
+}
+@media (min-width: 768px) {
+  #main > .article .picture {
+    width: 49.5625rem;
+  }
+}
+#main > .article .picture img {
+  width: 100%;
+  height: 20.25rem;
+  object-position: center;
+  object-fit: cover;
+}
+#main > .article .heading {
+  font-size: 3.75rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3.75rem;
+  color: #000000;
+}
+
+/**
+ * Pink Button
+ */
+.btn {
+  border-radius: 50px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
+  padding: 0.5rem 1.5rem;
+}
+.btn.btn-pink {
+  border: none;
+  color: #F1DEDE;
+  background-color: #BBACC1;
+}
+.btn.btn-pink:hover, .btn.btn-pink:active {
+  color: #FFFFFF;
+  background: #BBACC1;
+}
+
+/*# sourceMappingURL=bundle.css.map */
