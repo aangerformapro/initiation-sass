@@ -28,9 +28,28 @@
 }
 
 
-@mixin hidden {
+@mixin visually-hidden {
+    position: absolute;
     color: #00000000;
     background: #00000000;
     z-index: -1;
     visibility: hidden;
+}
+
+
+@mixin margin-x($value: auto) {
+
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+
+@mixin margin-y($value: auto) {
+
+    margin: {
+        top: auto;
+        bottom: auto;
+    }
 }

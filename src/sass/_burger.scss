@@ -1,0 +1,36 @@
+.burger {
+    z-index: 3;
+
+    margin: {
+        left: auto;
+    }
+
+    position: relative;
+    height: 40px;
+    width: 40px;
+
+    & svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.burger.open {
+    color: $mainBgColor;
+}
+
+
+.burger.open .burger-btn,
+.burger:not(.open) .close-btn {
+    color: #00000000;
+    z-index: -1;
+}
+
+
+
+.burger.open+.overlay {
+    display: block;
+    background: $mainColor;
+
+}

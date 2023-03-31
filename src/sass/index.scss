@@ -11,12 +11,7 @@ html {
 
 }
 
-html.noscroll {
-    position: fixed;
-    overflow-y: hidden;
-    width: 100%;
-    z-index: -1;
-}
+@import 'noscroll';
 
 * {
     box-sizing: border-box;
@@ -39,45 +34,18 @@ header {
     display: flex;
     align-items: flex-start;
 
-    & nav,
-    .overlay {
-        display: none;
-    }
 
     & a {
         color: $headerColor;
         text-decoration: none;
     }
 
-    & .burger {
-        z-index: 3;
 
-        margin: {
-            left: auto;
-        }
-
-        position: relative;
-        height: 40px;
-        width: 40px;
-
-        & svg {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-    }
-
-
-
-    & nav.flex {
+    & nav {
         display: flex;
         flex-direction: column;
         justify-content: center;
         z-index: 2;
-
-        & a {
-            color: $mainBgColor;
-        }
     }
 
 
@@ -98,33 +66,19 @@ header {
 }
 
 
-.burger.open {
-    color: $mainBgColor;
-}
 
-
-.burger.open .burger-btn,
-.burger:not(.open) .close-btn {
-    color: #00000000;
-    z-index: -1;
-}
-
-
-
-.burger.open+.overlay {
-    display: block;
-    background: $mainColor;
-
-}
 
 
 .container {
 
-    margin: auto;
+    margin: {
+        top: 88px;
+        left: auto;
+        right: auto;
+    }
 
     &>h1 {
-        $size: 60px;
-        @include setFontSize($size, 900, $size);
+        @include setFontSize(60px, 900, 60px);
         color: $mainHeadingColor;
     }
 }

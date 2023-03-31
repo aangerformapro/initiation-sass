@@ -20,6 +20,8 @@ function toggleClass(elem, ...classNames) {
 }
 
 
+
+
 function toggleMenu(btn, e) {
 
     toggleClass(btn, 'open');

@@ -7,7 +7,7 @@ html {
   line-height: 25px;
 }
 
-html.noscroll {
+.noscroll {
   position: fixed;
   overflow-y: hidden;
   width: 100%;
@@ -32,34 +32,15 @@ header {
   display: flex;
   align-items: flex-start;
 }
-header nav,
-header .overlay {
-  display: none;
-}
 header a {
   color: #333333;
   text-decoration: none;
 }
-header .burger {
-  z-index: 3;
-  margin-left: auto;
-  position: relative;
-  height: 40px;
-  width: 40px;
-}
-header .burger svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-header nav.flex {
+header nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: 2;
-}
-header nav.flex a {
-  color: white;
 }
 
 .overlay {
@@ -72,23 +53,10 @@ header nav.flex a {
   overflow-y: scroll;
 }
 
-.burger.open {
-  color: white;
-}
-
-.burger.open .burger-btn,
-.burger:not(.open) .close-btn {
-  color: rgba(0, 0, 0, 0);
-  z-index: -1;
-}
-
-.burger.open + .overlay {
-  display: block;
-  background: black;
-}
-
 .container {
-  margin: auto;
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .container > h1 {
   font-weight: 900;
