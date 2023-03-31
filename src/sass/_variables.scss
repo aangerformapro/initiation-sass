@@ -1,5 +1,14 @@
 @import 'constants';
 
+// breakpoints
+$breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px
+);
 
 // body
 $mainColor: $black;
@@ -15,6 +24,7 @@ $btnBgColor: $blackShadows;
 // news
 $newsHeadingColor: $blackShadows;
 $newsBgColor: $darkCharcoal;
+$newsTitleColor: $palePink;
 $newsColor: $white;
 $newsSepColor: $white;
 

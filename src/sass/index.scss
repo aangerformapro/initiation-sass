@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 @import 'variables';
 @import 'functions';
+@import 'breakpoints';
 
-
+%body-width {
+    max-width: 1200px;
+    @include margin-x(5%);
+    overflow: hidden;
+}
 
 html {
     @include setFont('Inter', 15px, 400, normal, 25px);
 
 }
-
-@import 'noscroll';
 
 * {
     box-sizing: border-box;
@@ -18,65 +21,180 @@ html {
 body {
     min-height: 100vw;
     margin: 0;
-    padding: 80px 5%;
 }
-
 
 
 
 header {
     @include setFontSize(17px, 400, 21px);
 
+    @extend %body-width;
+
+    margin: {
+        top: 90px;
+        bottom: 60px;
+    }
+
     height: 60px;
-
     display: flex;
-    align-items: flex-start;
-
+    color: $headerColor;
 
     & a {
         color: $headerColor;
         text-decoration: none;
     }
 
-
     & nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        z-index: 2;
+        margin-left: auto;
+        display: none;
+
+        & a {
+            padding: 0 5%;
+        }
+
+        @include md {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     }
 
+    & .burger {
+        margin-left: auto;
 
+        @include md {
+            display: none;
+        }
 
+    }
 
 }
-
-
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    overflow-y: scroll;
-}
-
 
 
 
 
 .container {
+    @extend %body-width;
 
-    margin: {
-        top: 88px;
-        left: auto;
-        right: auto;
+
+    & .content {
+        & .image {}
+
+        & h1 {
+            @include setFontSize(60px, 900, 60px);
+        }
+
+        &.excerpt {}
+
+        & .read-article {}
     }
 
-    &>h1 {
-        @include setFontSize(60px, 900, 60px);
-        color: $mainHeadingColor;
+
+
+    .news-container {
+        background: $newsBgColor;
+        color: $newsColor;
+        display: flex;
+        flex-direction: column;
+        padding: 7%;
+
+        overflow: hidden;
+
+        & .title {
+            @include setFontSize(40px, 900, 60px);
+            color: $newsHeadingColor;
+        }
+
+        & .news {
+
+
+            & h4 {
+                @include setFontSize(19px, 900, 25px);
+                color: $newsTitleColor;
+            }
+
+            &:not(:last-of-type)::after {
+                @include pseudo;
+
+                height: 1px;
+                width: 80%;
+                background-color: $newsColor;
+                display: inline-block;
+
+
+            }
+
+
+        }
+    }
+
+    .subnews-container {
+
+
+        display: flex;
+        flex-direction: column;
+
+        @include md {
+            flex-direction: row;
+        }
+
+        & .subnews {
+
+            display: flex;
+
+
+            & .left {
+
+                overflow: hidden;
+
+                width: 20%;
+                aspect-ratio: 1/2;
+
+                & img {
+
+
+                    object-fit: center;
+                    width: 100%;
+
+                }
+            }
+
+            & .right {
+
+                & .number {
+                    @include setFontSize(31px, 900, 25px);
+                    color: $subNewsNumberColor;
+                }
+
+                & .title {
+                    @include setFontSize(19px, 900, 25px);
+                    color: $subNewsHeadingColor;
+                }
+
+            }
+
+
+
+        }
+
+    }
+
+
+}
+
+
+.btn {
+
+    border-radius: 50px;
+    display: inline-block;
+    text-transform: uppercase;
+
+    @include setFontSize(17px, 700, 25px);
+    padding: 8px 24px;
+
+    &.btn-pink {
+
+        background: $btnBgColor;
+        color: $btnColor;
     }
 }

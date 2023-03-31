@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+.container, header {
+  max-width: 1200px;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: hidden;
+}
+
 html {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 25px;
-}
-
-.noscroll {
-  position: fixed;
-  overflow-y: hidden;
-  width: 100%;
-  z-index: -1;
 }
 
 * {
@@ -21,48 +21,123 @@ html {
 body {
   min-height: 100vw;
   margin: 0;
-  padding: 80px 5%;
 }
 
 header {
   font-weight: 400;
   font-size: 17px;
   line-height: 21px;
+  margin-top: 90px;
+  margin-bottom: 60px;
   height: 60px;
   display: flex;
-  align-items: flex-start;
+  color: #333333;
 }
 header a {
   color: #333333;
   text-decoration: none;
 }
 header nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow-y: scroll;
-}
-
-.container {
-  margin-top: 88px;
   margin-left: auto;
-  margin-right: auto;
+  display: none;
 }
-.container > h1 {
+header nav a {
+  padding: 0 5%;
+}
+@media (min-width: 768px) {
+  header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+header .burger {
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  header .burger {
+    display: none;
+  }
+}
+
+.container .content h1 {
   font-weight: 900;
   font-size: 60px;
   line-height: 60px;
+}
+.container .news-container {
+  background: #333333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 7%;
+  overflow: hidden;
+}
+.container .news-container .title {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 60px;
+  color: #bbacc1;
+}
+.container .news-container .news h4 {
+  font-weight: 900;
+  font-size: 19px;
+  line-height: 25px;
+  color: #f1dede;
+}
+.container .news-container .news:not(:last-of-type)::after {
+  content: "";
+  height: 1px;
+  width: 80%;
+  background-color: white;
+  display: inline-block;
+}
+.container .subnews-container {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .container .subnews-container {
+    flex-direction: row;
+  }
+}
+.container .subnews-container .subnews {
+  display: flex;
+}
+.container .subnews-container .subnews .left {
+  overflow: hidden;
+  width: 20%;
+  aspect-ratio: 1/2;
+}
+.container .subnews-container .subnews .left img {
+  object-fit: center;
+  width: 100%;
+}
+.container .subnews-container .subnews .right .number {
+  font-weight: 900;
+  font-size: 31px;
+  line-height: 25px;
   color: #333333;
+}
+.container .subnews-container .subnews .right .title {
+  font-weight: 900;
+  font-size: 19px;
+  line-height: 25px;
+  color: #bbacc1;
+}
+
+.btn {
+  border-radius: 50px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 8px 24px;
+}
+.btn.btn-pink {
+  background: #bbacc1;
+  color: #f1dede;
 }
 
 /*# sourceMappingURL=bundle.css.map */

@@ -54,6 +54,23 @@
     }
 }
 
+@mixin padding-x($value: auto) {
+
+    padding: {
+        left: $value;
+        right: $value;
+    }
+}
+
+
+@mixin padding-y($value: auto) {
+
+    padding: {
+        top: $value;
+        bottom: $value;
+    }
+}
+
 @mixin pseudo {
     content: '';
 }

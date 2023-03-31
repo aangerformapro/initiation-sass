@@ -1,15 +1,8 @@
-$breakpoints: (
-    "xs": 0,
-    "sm": 576px,
-    "md": 768px,
-    "lg": 992px,
-    "xl": 1200px,
-    "xxl": 1400px
-);
+@import 'variables';
 
-@mixin breakpoint($minWidth: null, $media: screen) {
+@mixin breakpoint($minWidth: null) {
     @if $minWidth !=null {
-        @media #{$media} and (min-width: $minWidth) {
+        @media (min-width: $minWidth) {
             @content;
         }
     }
@@ -17,6 +10,28 @@ $breakpoints: (
     @else {
         @content;
     }
+
+}
+
+@mixin breakpoint-between($min: null, $max: null) {
+    @if($min !=null) {
+        @if($max !=null) {
+            @media (min-width: $min) and (max-width: $max) {
+                @content;
+            }
+        }
+
+        @else {
+            @error "Property #{$max} must be a size.";
+        }
+    }
+
+    @else {
+        @error "Property #{$min} must be a size.";
+    }
+
+
+
 
 }
 
