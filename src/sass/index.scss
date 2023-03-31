@@ -1,3 +1,9 @@
+/**
+ * Made using https://docs.gerillass.com
+ */
+
+
+@import 'helpers/gerillass';
 @import 'variables';
 @import 'helpers/functions';
 @import 'helpers/breakpoints';
@@ -5,6 +11,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 html {
+
+    font-size: 100%;
+
     @include setFont('Inter', 15px, 400, normal, 25px);
 
 }
