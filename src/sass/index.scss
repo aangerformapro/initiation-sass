@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+//@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
+//@import 'helpers/animate';
 @import 'helpers/gerillass';
 @import 'variables';
 @import 'helpers/functions';
 @import 'helpers/breakpoints';
-
-
 
 
 
@@ -32,7 +31,7 @@ html {
 // @import 'helpers/noscroll';
 
 body {
-    min-height: 100vw;
+    min-height: 100vh;
     margin: 0;
     @include font-family('Inter', 1rem);
     color: $main-color;
@@ -49,7 +48,7 @@ a {
     width: 90%;
     max-width: __remify(1200px);
 
-    @include margin-x(5%);
+    @include margin-x(auto);
     margin-bottom: 2rem;
     padding: 0;
 }
@@ -334,12 +333,14 @@ header {
 
         .logo {
             img {
+                -webkit-filter: invert(100%);
                 filter: invert(100%);
 
 
             }
 
             &:hover img {
+                -webkit-filter: invert(100%) contrast(100);
                 filter: invert(100%) contrast(100);
             }
         }

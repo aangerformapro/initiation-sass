@@ -5,7 +5,8 @@ $black: #000000;
 $dark-charcoal: #333333;
 $pale-pink: #F1DEDE;
 $black-shadows: #BBACC1;
-$transparent: rgba(0, 0, 0, 0);
+$box-shadow: 0px 4px 4px #00000040;
+$transparent: #00000000;
 
 $bootstrap-breakpoints: (
     "xs": 0px,

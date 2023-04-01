@@ -5,9 +5,9 @@
     "type": "module",
     "scripts": {
         "sass-watch": "sass --embed-sources --watch --poll ./src/sass/index.scss:./public/assets/bundle.css",
-        "rollup-watch": "node ./node_modules/rollup/dist/bin/rollup -c -w",
+        "rollup-watch": "rollup -c -w",
         "watch": "run-p -n sass-watch rollup-watch",
-        "build": "node ./node_modules/rollup/dist/bin/rollup -c"
+        "build": "rollup -c"
     },
     "author": "Aymeric Anger",
     "private": true,
@@ -19,10 +19,10 @@
         "npm-run-all": "^4.1.5",
         "rollup": "^3.18.0",
         "rollup-plugin-postcss": "^4.0.2",
+        "animate-scss": "^3.2.1",
         "sass": "^1.59.2"
     },
     "dependencies": {
-        "animate.css": "^4.1.1",
         "lorem-ipsum": "^2.0.8"
     }
 }

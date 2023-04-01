@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 #border-box {
   box-sizing: border-box;
 }
@@ -27,7 +26,7 @@ html {
 }
 
 body {
-  min-height: 100vw;
+  min-height: 100vh;
   margin: 0;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -46,8 +45,8 @@ a {
 .container {
   width: 90%;
   max-width: 75rem;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 2rem;
   padding: 0;
 }
@@ -299,9 +298,11 @@ header nav a {
   color: #FFF;
 }
 .overlay header .logo img {
+  -webkit-filter: invert(100%);
   filter: invert(100%);
 }
 .overlay header .logo:hover img {
+  -webkit-filter: invert(100%) contrast(100);
   filter: invert(100%) contrast(100);
 }
 .overlay header .burger-btn,
