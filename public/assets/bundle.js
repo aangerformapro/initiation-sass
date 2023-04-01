@@ -20,21 +20,21 @@ function toggleClass(elem, ...classNames) {
 
 
 
-function toggleMenu(btn, e) {
+function toggleMenu(nav) {
 
-    toggleClass(btn, 'open');
+    toggleClass(nav, 'open');
 
-    if (btn.classList.contains('open')) {
+    if (nav.classList.contains('open')) {
         dispatchEvent(Object.assign(new Event('menu.open'), {
             data: {
-                btn
+                nav
             }
         }));
     }
     else {
         dispatchEvent(Object.assign(new Event('menu.close'), {
             data: {
-                btn
+                nav
             }
         }));
     }
@@ -44,11 +44,11 @@ function toggleMenu(btn, e) {
 
 addEventListener('menu.open', e => {
     document.documentElement.classList.add('noscroll');
-    document.querySelector('nav').classList.add('flex');
+    //document.querySelector('nav').classList.add('open');
 });
 addEventListener('menu.close', e => {
     document.documentElement.classList.remove('noscroll');
-    document.querySelector('nav').classList.remove('flex');
+    // document.querySelector('nav').classList.remove('open');
 });
 
 
@@ -57,8 +57,8 @@ addEventListener('click', e => {
     e.preventDefault();
     let target;
     // menu click
-    if ((target = e.target.closest('.burger'))) {
-        toggleMenu(target);
+    if ((target = e.target.closest('.nav-btn'))) {
+        toggleMenu(target.closest('header'));
     }
 
 

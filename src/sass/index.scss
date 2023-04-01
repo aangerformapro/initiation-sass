@@ -25,6 +25,8 @@ html {
     box-sizing: border-box;
 }
 
+@import 'helpers/noscroll';
+
 body {
     min-height: 100vw;
     margin: 0;
@@ -296,4 +298,68 @@ header {
         display: flex;
 
     }
+}
+
+/**
+ * Hamburger Menu
+ */
+
+.nav-btn {
+
+    position: relative;
+    @include sizer(40px);
+    overflow: visible;
+
+    .burger-btn {
+
+        line-height: 0;
+        width: 20px;
+        height: 5px;
+        display: inline-block;
+        background-color: $header-color;
+        margin: 25px 0 0 20px;
+
+
+        &::before,
+        &::after {
+            line-height: 0;
+            transition: .75s;
+            position: absolute;
+            background-color: $header-color;
+            content: '';
+            left: 0px;
+            height: 5px;
+
+        }
+
+        &::before {
+            width: 40px;
+            top: 12.5px;
+        }
+
+        &::after {
+            width: 40px;
+            top: 0px;
+        }
+
+
+
+    }
+}
+
+.open .burger-btn {
+
+    width: 0;
+
+    &::before {
+        transform: rotate(45deg);
+
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+        top: 12.5px;
+    }
+
+
 }

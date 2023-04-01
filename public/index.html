@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sass Grid Implementation</title>
+    <title>Sass FlexBox Implementation</title>
     <link rel="shortcut icon" href="./assets/pictures/sass.png" type="image/png">
     <link rel="stylesheet" href="./assets/bundle.css">
     <script src="./assets/bundle.js" type="module" defer></script>
 </head>
 
-<body class="grid">
+<body class="flexbox">
 
-    <header class="container">
+    <header class="container open">
         <a href="#logo" title="W." class="logo">
             <img src="./assets/pictures/logo.png" alt="W.">
         </a>
@@ -23,6 +23,7 @@
             <a href="#tendance" class="nav-link">Tendance</a>
             <a href="#categories" class="nav-link">Categories</a>
         </nav>
+
 
         <a class="nav-btn" title="menu" href="#">
             <span class="burger-btn"></span>
@@ -45,7 +46,7 @@
                     Suspendisse ullamcorper sodales pharetra.
                     Morbi porta vel diam eu ultrices. Sed eget ipsum iaculis, rutrum tellus et, lobortis nibh.
                 </p>
-                <a class="btn btn-pink" title="Lire la suite">Lire la suite</a>
+                <a class="btn btn-pink" title="Lire la suite" href="#suite">Lire la suite</a>
             </div>
         </div>
         <aside class="news">
@@ -81,52 +82,52 @@
         </aside>
 
 
-        <div class="related">
 
-            <div class="card">
-
-                <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
-                <div class="content">
-                    <div class="heading">01</div>
-                    <a class="title" href="#related" alt="Lorem Ipsum Dolor">
-                        Lorem Ipsum Dolor
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-
-                <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
-                <div class="content">
-                    <div class="heading">01</div>
-                    <a class="title" href="#related" alt="Lorem Ipsum Dolor">
-                        Lorem Ipsum Dolor
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-
-                <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
-                <div class="content">
-                    <div class="heading">01</div>
-                    <a class="title" href="#related" alt="Lorem Ipsum Dolor">
-                        Lorem Ipsum Dolor
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-
-        </div>
     </div>
+    <div class="container related">
 
+        <div class="card">
+
+            <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
+            <div class="content">
+                <div class="heading">01</div>
+                <a class="title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+
+            <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
+            <div class="content">
+                <div class="heading">02</div>
+                <a class="title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+
+            <img class="thumb" alt="thumb" src="./assets/pictures/thumb.jpg">
+            <div class="content">
+                <div class="heading">03</div>
+                <a class="title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
 </body>
 
 </html>

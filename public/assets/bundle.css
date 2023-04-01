@@ -26,6 +26,13 @@ html {
   box-sizing: border-box;
 }
 
+.noscroll {
+  position: fixed !important;
+  overflow-y: hidden !important;
+  width: 100% !important;
+  z-index: -1 !important;
+}
+
 body {
   min-height: 100vw;
   margin: 0;
@@ -272,6 +279,52 @@ header .nav-btn {
 }
 .flexbox .card {
   display: flex;
+}
+
+/**
+ * Hamburger Menu
+ */
+.nav-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+.nav-btn .burger-btn {
+  line-height: 0;
+  width: 20px;
+  height: 5px;
+  display: inline-block;
+  background-color: #333;
+  margin: 25px 0 0 20px;
+}
+.nav-btn .burger-btn::before, .nav-btn .burger-btn::after {
+  line-height: 0;
+  transition: 0.75s;
+  position: absolute;
+  background-color: #333;
+  content: "";
+  left: 0px;
+  height: 5px;
+}
+.nav-btn .burger-btn::before {
+  width: 40px;
+  top: 12.5px;
+}
+.nav-btn .burger-btn::after {
+  width: 40px;
+  top: 0px;
+}
+
+.open .burger-btn {
+  width: 0;
+}
+.open .burger-btn::before {
+  transform: rotate(45deg);
+}
+.open .burger-btn::after {
+  transform: rotate(-45deg);
+  top: 12.5px;
 }
 
 /*# sourceMappingURL=bundle.css.map */
