@@ -1,14 +1,13 @@
-/**
- * Made using https://docs.gerillass.com
- */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 @import 'helpers/gerillass';
 @import 'variables';
 @import 'helpers/functions';
 @import 'helpers/breakpoints';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+
 
 
 /**
@@ -25,7 +24,12 @@ html {
     box-sizing: border-box;
 }
 
-@import 'helpers/noscroll';
+[hidden],
+[hidden] * {
+    display: none !important;
+}
+
+// @import 'helpers/noscroll';
 
 body {
     min-height: 100vw;
@@ -44,7 +48,8 @@ a {
     @extend #no-overflow;
     width: 90%;
     max-width: __remify(1200px);
-    @include margin-x(auto);
+
+    @include margin-x(5%);
     margin-bottom: 2rem;
     padding: 0;
 }
@@ -56,6 +61,7 @@ header {
     margin-top: 4rem;
     color: $header-color;
     background: $header-bg-color;
+
 
     a {
         color: $header-color;
@@ -73,22 +79,18 @@ header {
 
         a {
             padding: .75rem 1rem;
+            position: relative;
         }
 
         @include md-down {
             display: none;
         }
-    }
 
-    .logo {
-        z-index: 999;
     }
 
 
-    .nav-btn {
-        z-index: 999;
 
-        //margin-left: auto;
+    &:not(.open) .nav-btn {
         @include md {
             display: none;
         }
@@ -101,15 +103,12 @@ header {
     @include font-size(__remify(15px), __remify(25px));
 
     >.article {
-
         color: $main-content-color;
-
-        margin-bottom: 2rem;
+        padding-bottom: 2rem;
 
         .picture {
             overflow: hidden;
             width: 100%;
-
 
             img {
                 width: 100%;
@@ -134,8 +133,6 @@ header {
     }
 
     .news {
-
-
         padding: 2rem;
         background-color: $featured-news-bg-color;
         color: $featured-news-color;
@@ -174,10 +171,6 @@ header {
         }
     }
 
-
-
-
-
 }
 
 /**
@@ -189,6 +182,12 @@ header {
     text-transform: uppercase;
     @include font-size(__remify(17px), __remify(25px), 700);
     padding: __remify(8px) __remify(24px);
+    box-shadow: $ping-btn-box-shadow;
+
+    &:hover,
+    &:active {
+        box-shadow: inset $ping-btn-box-shadow;
+    }
 
     &.btn-pink {
         border: $pink-btn-border;
@@ -199,6 +198,7 @@ header {
         &:active {
             color: $pink-btn-hover-color;
             background: $pink-btn-hover-bg-color;
+            border: $pink-btn-hover-border;
         }
     }
 
@@ -216,7 +216,6 @@ header {
     @extend #no-overflow;
 
     .thumb {
-        float: left;
         @include sizer(__remify(109px), __remify(139px));
 
         object: {
@@ -260,45 +259,7 @@ header {
 
 }
 
-/**
- * Flexify Contents
- */
 
-.flexbox {
-    header {
-        align-items: center;
-
-        .logo {
-            margin-right: auto;
-        }
-    }
-
-    .container {
-        display: flex;
-    }
-
-    #main {
-        flex-direction: column;
-
-
-        @include md {
-            flex-direction: row;
-        }
-    }
-
-    .related {
-        flex-direction: column;
-
-        @include md {
-            flex-direction: row;
-        }
-    }
-
-    .card {
-        display: flex;
-
-    }
-}
 
 /**
  * Hamburger Menu
@@ -311,8 +272,6 @@ header {
     overflow: visible;
 
     .burger-btn {
-
-        line-height: 0;
         width: 20px;
         height: 5px;
         display: inline-block;
@@ -322,7 +281,6 @@ header {
 
         &::before,
         &::after {
-            line-height: 0;
             transition: .75s;
             position: absolute;
             background-color: $header-color;
@@ -341,25 +299,182 @@ header {
             width: 40px;
             top: 0px;
         }
-
-
-
     }
 }
 
-.open .burger-btn {
 
-    width: 0;
 
-    &::before {
-        transform: rotate(45deg);
+/**
+ * Mobile Menu
+ */
+.overlay {
 
+    @include overlay;
+    background-color: $overlay-bg-color;
+    color: $overlay-color;
+
+    header {
+        background-color: $transparent;
+
+        color: $overlay-color;
+
+        a {
+            color: $overlay-color;
+
+            &:hover,
+            &:active {
+                color: $overlay-hover-color;
+            }
+        }
+
+
+        .logo {
+            img {
+                filter: invert(100%);
+
+
+            }
+
+            &:hover img {
+                filter: invert(100%) contrast(100);
+            }
+        }
+
+
+        .burger-btn,
+        .burger-btn::before,
+        .burger-btn::after {
+            background: $overlay-color;
+
+        }
+
+        nav {
+            @include overlay(10rem, 5vw, 90%, calc(100vh - 10rem - 5vh));
+
+            display: block;
+
+            font-size: 3rem;
+            line-height: 4rem;
+
+            a {
+                display: block;
+                text-align: left;
+            }
+        }
+
+        &.open {
+
+            // animate__fadeInTopRight
+
+
+
+
+
+            .nav-btn {
+                .burger-btn {
+
+                    width: 0;
+
+                    &::before {
+                        transform: rotate(45deg);
+                    }
+
+                    &::after {
+                        transform: rotate(-45deg);
+                        top: 12.5px;
+                    }
+
+
+                }
+
+                &:hover {
+
+                    .burger-btn,
+                    .burger-btn::before,
+                    .burger-btn::after {
+                        background: $overlay-hover-color;
+                    }
+                }
+            }
+        }
     }
 
-    &::after {
-        transform: rotate(-45deg);
-        top: 12.5px;
+}
+
+/**
+ * Flexify Contents
+ */
+
+.flexbox {
+    header {
+        align-items: center;
+
+
+        .logo {
+            margin-right: auto;
+        }
+
+
+        @include md {
+            nav {
+                display: flex;
+                justify-items: center;
+                align-items: flex-start;
+            }
+
+        }
     }
 
 
+
+
+    .container {
+        display: flex;
+    }
+
+    #main {
+        flex-direction: column;
+
+
+        @include md {
+            flex-direction: row;
+        }
+    }
+
+
+    .news {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+
+        .heading {
+            margin-bottom: auto;
+        }
+    }
+
+    .related {
+        flex-direction: column;
+
+        @include md {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .card {
+        display: flex;
+    }
+
+
+
+
+    .overlay nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        a {
+            display: unset;
+        }
+    }
 }

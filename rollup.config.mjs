@@ -15,6 +15,7 @@ export default {
     },
     plugins: [
         // postcss({  extract: path.resolve('public/assets/bundle.css') }),
+        postcss(),
         resolve({
             moduleDirectories: ['node_modules'],
             extensions: ['.js', '.mjs', '.cjs']

@@ -5,7 +5,7 @@ $black: #000000;
 $dark-charcoal: #333333;
 $pale-pink: #F1DEDE;
 $black-shadows: #BBACC1;
-$invisible: rgba(0, 0, 0, 0);
+$transparent: rgba(0, 0, 0, 0);
 
 $bootstrap-breakpoints: (
     "xs": 0px,
@@ -35,10 +35,11 @@ $header-hover-color: #333;
 // pink button
 $pink-btn-color: #F1DEDE;
 $pink-btn-bg-color: #BBACC1;
-$pink-btn-border: none;
+$pink-btn-border: 1px solid #BBACC1;
 $pink-btn-hover-color: #FFF;
 $pink-btn-hover-bg-color: #BBACC1;
-$pink-btn-hover-border: 1px solid #F1DEDE;
+$pink-btn-hover-border: 1px solid #333;
+$ping-btn-box-shadow: 0px 4px 4px #00000040;
 
 // featured news
 $featured-news-main-heading-color: #BBACC1;
@@ -53,5 +54,10 @@ $featured-news-separator-color: #FFF;
 $card-heading-color: #333;
 $card-title-color: #BBACC1;
 $card-title-hover-color: #F1DEDE;
-$card-content-color: $black;
+$card-content-color: #000;
 $card-bg-color: #FFF;
+
+// Overlay
+$overlay-bg-color: #000;
+$overlay-color: #CCC;
+$overlay-hover-color: #FFF;

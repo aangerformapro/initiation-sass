@@ -82,9 +82,19 @@ export class EventManager {
 
 
     trigger(type, data = null) {
-        if (!isString(type)) {
-            throw new TypeError('Invalid event type, not a String.');
+
+        let event;
+
+        if (type instanceof Event) {
+            event = type;
+            event.data = data;
+            type = event.type;
         }
+
+        if (!isString(type) && type instanceof Event === false) {
+            throw new TypeError('Invalid event type, not a String|Event.');
+        }
+
 
         const listeners = Array.from(this.#listeners), types = [];
 
@@ -101,10 +111,10 @@ export class EventManager {
                 if (item.type === type) {
 
                     if (this.#useasync) {
-                        runAsync(item.listener, { type, data });
+                        runAsync(item.listener, event || { type, data });
 
                     } else {
-                        item.listener({ type, data });
+                        item.listener(event || { type, data });
                     }
 
                     if (item.once) {

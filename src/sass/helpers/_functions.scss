@@ -88,7 +88,7 @@
     $left: 0,
     $width: 100%,
     $height: 100%,
-    $z-index: 99) {
+    $z-index: 98) {
     position: absolute;
     top: $top;
     left: $left;
@@ -105,10 +105,6 @@
 #no-overflow {
     overflow: hidden;
 }
-
-/**
- * From https://getbootstrap.com/docs/5.0/layout/containers/
- */
 
 @mixin make-container($padding-x: 0) {
     width: 100%;

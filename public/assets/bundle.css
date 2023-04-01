@@ -1,7 +1,5 @@
-/**
- * Made using https://docs.gerillass.com
- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 #border-box {
   box-sizing: border-box;
 }
@@ -10,9 +8,6 @@
   overflow: hidden;
 }
 
-/**
- * From https://getbootstrap.com/docs/5.0/layout/containers/
- */
 /**
  * Main styles
  */
@@ -26,11 +21,9 @@ html {
   box-sizing: border-box;
 }
 
-.noscroll {
-  position: fixed !important;
-  overflow-y: hidden !important;
-  width: 100% !important;
-  z-index: -1 !important;
+[hidden],
+[hidden] * {
+  display: none !important;
 }
 
 body {
@@ -53,8 +46,8 @@ a {
 .container {
   width: 90%;
   max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-bottom: 2rem;
   padding: 0;
 }
@@ -81,20 +74,15 @@ header nav {
 }
 header nav a {
   padding: 0.75rem 1rem;
+  position: relative;
 }
 @media (max-width: 768px) {
   header nav {
     display: none;
   }
 }
-header .logo {
-  z-index: 999;
-}
-header .nav-btn {
-  z-index: 999;
-}
 @media (min-width: 768px) {
-  header .nav-btn {
+  header:not(.open) .nav-btn {
     display: none;
   }
 }
@@ -108,7 +96,7 @@ header .nav-btn {
 }
 #main > .article {
   color: #000;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 #main > .article .picture {
   overflow: hidden;
@@ -190,15 +178,20 @@ header .nav-btn {
   font-stretch: normal;
   line-height: 1.5625rem;
   padding: 0.5rem 1.5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+}
+.btn:hover, .btn:active {
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
 }
 .btn.btn-pink {
-  border: none;
+  border: 1px solid #BBACC1;
   color: #F1DEDE;
   background-color: #BBACC1;
 }
 .btn.btn-pink:hover, .btn.btn-pink:active {
   color: #FFF;
   background: #BBACC1;
+  border: 1px solid #333;
 }
 
 /**
@@ -211,7 +204,6 @@ header .nav-btn {
   height: 8.6875rem;
 }
 .card .thumb {
-  float: left;
   width: 6.8125rem;
   height: 8.6875rem;
   object-position: center;
@@ -220,7 +212,7 @@ header .nav-btn {
 .card .content {
   float: left;
   width: 15.0625rem;
-  color: #000000;
+  color: #000;
   padding: 0.3125rem 0 0 1.5rem;
 }
 .card .content .heading {
@@ -250,38 +242,6 @@ header .nav-btn {
 }
 
 /**
- * Flexify Contents
- */
-.flexbox header {
-  align-items: center;
-}
-.flexbox header .logo {
-  margin-right: auto;
-}
-.flexbox .container {
-  display: flex;
-}
-.flexbox #main {
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  .flexbox #main {
-    flex-direction: row;
-  }
-}
-.flexbox .related {
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  .flexbox .related {
-    flex-direction: row;
-  }
-}
-.flexbox .card {
-  display: flex;
-}
-
-/**
  * Hamburger Menu
  */
 .nav-btn {
@@ -291,7 +251,6 @@ header .nav-btn {
   overflow: visible;
 }
 .nav-btn .burger-btn {
-  line-height: 0;
   width: 20px;
   height: 5px;
   display: inline-block;
@@ -299,7 +258,6 @@ header .nav-btn {
   margin: 25px 0 0 20px;
 }
 .nav-btn .burger-btn::before, .nav-btn .burger-btn::after {
-  line-height: 0;
   transition: 0.75s;
   position: absolute;
   background-color: #333;
@@ -316,15 +274,127 @@ header .nav-btn {
   top: 0px;
 }
 
-.open .burger-btn {
+/**
+ * Mobile Menu
+ */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+  overflow-y: scroll;
+  background-color: #000;
+  color: #CCC;
+}
+.overlay header {
+  background-color: rgba(0, 0, 0, 0);
+  color: #CCC;
+}
+.overlay header a {
+  color: #CCC;
+}
+.overlay header a:hover, .overlay header a:active {
+  color: #FFF;
+}
+.overlay header .logo img {
+  filter: invert(100%);
+}
+.overlay header .logo:hover img {
+  filter: invert(100%) contrast(100);
+}
+.overlay header .burger-btn,
+.overlay header .burger-btn::before,
+.overlay header .burger-btn::after {
+  background: #CCC;
+}
+.overlay header nav {
+  position: absolute;
+  top: 10rem;
+  left: 5vw;
+  width: 90%;
+  height: calc(100vh - 10rem - 5vh);
+  z-index: 98;
+  overflow-y: scroll;
+  display: block;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+.overlay header nav a {
+  display: block;
+  text-align: left;
+}
+.overlay header.open .nav-btn .burger-btn {
   width: 0;
 }
-.open .burger-btn::before {
+.overlay header.open .nav-btn .burger-btn::before {
   transform: rotate(45deg);
 }
-.open .burger-btn::after {
+.overlay header.open .nav-btn .burger-btn::after {
   transform: rotate(-45deg);
   top: 12.5px;
+}
+.overlay header.open .nav-btn:hover .burger-btn,
+.overlay header.open .nav-btn:hover .burger-btn::before,
+.overlay header.open .nav-btn:hover .burger-btn::after {
+  background: #FFF;
+}
+
+/**
+ * Flexify Contents
+ */
+.flexbox header {
+  align-items: center;
+}
+.flexbox header .logo {
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .flexbox header nav {
+    display: flex;
+    justify-items: center;
+    align-items: flex-start;
+  }
+}
+.flexbox .container {
+  display: flex;
+}
+.flexbox #main {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flexbox #main {
+    flex-direction: row;
+  }
+}
+.flexbox .news {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.flexbox .news .heading {
+  margin-bottom: auto;
+}
+.flexbox .related {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flexbox .related {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.flexbox .card {
+  display: flex;
+}
+.flexbox .overlay nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.flexbox .overlay nav a {
+  display: unset;
 }
 
 /*# sourceMappingURL=bundle.css.map */

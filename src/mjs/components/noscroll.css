@@ -1,0 +1,6 @@
+.noscroll {
+    position: fixed !important;
+    overflow-y: hidden !important;
+    width: 100% !important;
+    z-index: -1 !important;
+}
