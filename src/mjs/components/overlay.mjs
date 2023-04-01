@@ -57,6 +57,7 @@ export default class Overlay {
 
 
 
+
     static get open() {
 
         if (!this.#overlay) {
@@ -81,7 +82,7 @@ export default class Overlay {
                 return resolve(true);
             }
 
-            this.trigger('show');
+            this.trigger('show', { header: this.#menu });
 
             NoScroll.enable().then(() => {
                 // show the overlay
@@ -133,7 +134,7 @@ export default class Overlay {
             }
             after = Math.max(0, after);
 
-            this.trigger('hide');
+            this.trigger('hide', { header: this.#menu });
 
             this.#menu.classList.remove('open');
 

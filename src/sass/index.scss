@@ -132,7 +132,7 @@ header {
         }
     }
 
-    .news {
+    .news-inner {
         padding: 2rem;
         background-color: $featured-news-bg-color;
         color: $featured-news-color;
@@ -166,7 +166,11 @@ header {
             }
         }
 
-        @include md {
+
+    }
+
+    @include md {
+        .news {
             margin-left: 1rem;
         }
     }
@@ -442,9 +446,8 @@ header {
     }
 
 
-    .news {
+    .news-inner {
         display: flex;
-        justify-content: flex-end;
         flex-direction: column;
 
         .heading {
@@ -455,7 +458,7 @@ header {
     .related {
         flex-direction: column;
 
-        @include md {
+        @include lg {
             flex-direction: row;
             justify-content: space-between;
         }

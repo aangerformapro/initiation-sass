@@ -153,7 +153,7 @@ class EventManager {
 
         if (type instanceof Event) {
             event = type;
-            event.data = data;
+            event.data ??= data;
             type = event.type;
         }
 
@@ -177,10 +177,10 @@ class EventManager {
                 if (item.type === type) {
 
                     if (this.#useasync) {
-                        runAsync(item.listener, event || { type, data });
+                        runAsync(item.listener, event ?? { type, data });
 
                     } else {
-                        item.listener(event || { type, data });
+                        item.listener(event ?? { type, data });
                     }
 
                     if (item.once) {
@@ -391,6 +391,7 @@ class Overlay {
 
 
 
+
     static get open() {
 
         if (!this.#overlay) {
@@ -415,7 +416,7 @@ class Overlay {
                 return resolve(true);
             }
 
-            this.trigger('show');
+            this.trigger('show', { header: this.#menu });
 
             NoScroll.enable().then(() => {
                 // show the overlay
@@ -467,7 +468,7 @@ class Overlay {
             }
             after = Math.max(0, after);
 
-            this.trigger('hide');
+            this.trigger('hide', { header: this.#menu });
 
             this.#menu.classList.remove('open');
 

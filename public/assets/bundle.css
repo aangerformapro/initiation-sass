@@ -122,12 +122,12 @@ header nav a {
     margin-bottom: 0;
   }
 }
-#main .news {
+#main .news-inner {
   padding: 2rem;
   background-color: #333;
   color: #FFF;
 }
-#main .news > .heading {
+#main .news-inner > .heading {
   font-size: 2.5rem;
   font-weight: 900;
   font-style: normal;
@@ -135,10 +135,10 @@ header nav a {
   line-height: 3.75rem;
   color: #BBACC1;
 }
-#main .news .article {
+#main .news-inner .article {
   padding: 1rem 0;
 }
-#main .news .article .heading {
+#main .news-inner .article .heading {
   font-size: 1.1875rem;
   font-weight: 900;
   font-style: normal;
@@ -147,10 +147,10 @@ header nav a {
   color: #F1DEDE;
   text-transform: capitalize;
 }
-#main .news .article .heading:hover, #main .news .article .heading:active {
+#main .news-inner .article .heading:hover, #main .news-inner .article .heading:active {
   color: #FFF;
 }
-#main .news .article:not(:last-of-type)::after {
+#main .news-inner .article:not(:last-of-type)::after {
   content: "";
   height: 1px;
   width: 100%;
@@ -368,18 +368,17 @@ header nav a {
     flex-direction: row;
   }
 }
-.flexbox .news {
+.flexbox .news-inner {
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
 }
-.flexbox .news .heading {
+.flexbox .news-inner .heading {
   margin-bottom: auto;
 }
 .flexbox .related {
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .flexbox .related {
     flex-direction: row;
     justify-content: space-between;

@@ -87,7 +87,7 @@ export class EventManager {
 
         if (type instanceof Event) {
             event = type;
-            event.data = data;
+            event.data ??= data;
             type = event.type;
         }
 
@@ -111,10 +111,10 @@ export class EventManager {
                 if (item.type === type) {
 
                     if (this.#useasync) {
-                        runAsync(item.listener, event || { type, data });
+                        runAsync(item.listener, event ?? { type, data });
 
                     } else {
-                        item.listener(event || { type, data });
+                        item.listener(event ?? { type, data });
                     }
 
                     if (item.once) {
