@@ -43,7 +43,7 @@ a {
     width: 90%;
     max-width: __remify(1200px);
     @include margin-x(auto);
-    margin-bottom: 5%;
+    margin-bottom: 2rem;
     padding: 0;
 }
 
@@ -99,15 +99,15 @@ header {
     @include font-size(__remify(15px), __remify(25px));
 
     >.article {
-        margin: 2rem 0;
 
         color: $main-content-color;
 
-
+        margin-bottom: 2rem;
 
         .picture {
             overflow: hidden;
-            width: __remify(350px);
+            width: 100%;
+
 
             img {
                 width: 100%;
@@ -122,22 +122,19 @@ header {
 
         .heading {
             @include font-size(__remify(60px), __remify(60px), 900);
-            color: $main-content-color;
+            color: $main-heading-color;
         }
 
         @include md {
-
-            &,
-            .picture {
-                width: __remify(793px);
-            }
+            width: __remify(793px);
+            margin-bottom: 0;
         }
     }
 
     .news {
-        margin: 2rem 0;
 
-        padding: __remify(30px);
+
+        padding: 2rem;
         background-color: $featured-news-bg-color;
         color: $featured-news-color;
 
@@ -152,6 +149,7 @@ header {
             .heading {
                 @include font-size(__remify(19px), __remify(25px), 900);
                 color: $featured-news-title-color;
+                text-transform: capitalize;
 
                 &:hover,
                 &:active {
@@ -167,6 +165,10 @@ header {
                 display: inline-block;
                 @include padding-x(auto);
             }
+        }
+
+        @include md {
+            margin-left: 1rem;
         }
     }
 
@@ -231,12 +233,15 @@ header {
         .heading {
             @include font-size(__remify(31px), __remify(25px), 900);
             color: $card-heading-color;
+            margin-bottom: .75rem;
 
         }
 
         .title {
             @include font-size(__remify(19px), __remify(25px), 900);
             color: $card-title-color;
+
+            text-transform: capitalize;
 
             &:hover,
             &:active {
@@ -245,9 +250,50 @@ header {
 
         }
 
+        p {
+            @include margin-y(.5rem);
+        }
+
     }
 
+}
+
+/**
+ * Flexify Contents
+ */
+
+.flexbox {
+    header {
+        align-items: center;
+
+        .logo {
+            margin-right: auto;
+        }
+    }
+
+    .container {
+        display: flex;
+    }
+
+    #main {
+        flex-direction: column;
 
 
+        @include md {
+            flex-direction: row;
+        }
+    }
 
+    .related {
+        flex-direction: column;
+
+        @include md {
+            flex-direction: row;
+        }
+    }
+
+    .card {
+        display: flex;
+
+    }
 }

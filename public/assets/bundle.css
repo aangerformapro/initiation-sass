@@ -35,8 +35,8 @@ body {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.2;
-  color: #000000;
-  background-color: #FFFFFF;
+  color: #000;
+  background-color: #fff;
 }
 
 a {
@@ -48,21 +48,21 @@ a {
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5%;
+  margin-bottom: 2rem;
   padding: 0;
 }
 
 header {
   height: 3.75rem;
   margin-top: 4rem;
-  color: #333333;
-  background: #FFFFFF;
+  color: #333;
+  background: #FFF;
 }
 header a {
-  color: #333333;
+  color: #333;
 }
 header a:hover, header a:active {
-  color: #333333;
+  color: #333;
 }
 header nav {
   text-align: center;
@@ -100,12 +100,12 @@ header .nav-btn {
   line-height: 1.5625rem;
 }
 #main > .article {
-  margin: 2rem 0;
-  color: #000000;
+  color: #000;
+  margin-bottom: 2rem;
 }
 #main > .article .picture {
   overflow: hidden;
-  width: 21.875rem;
+  width: 100%;
 }
 #main > .article .picture img {
   width: 100%;
@@ -119,19 +119,18 @@ header .nav-btn {
   font-style: normal;
   font-stretch: normal;
   line-height: 3.75rem;
-  color: #000000;
+  color: #333;
 }
 @media (min-width: 768px) {
-  #main > .article,
-  #main > .article .picture {
+  #main > .article {
     width: 49.5625rem;
+    margin-bottom: 0;
   }
 }
 #main .news {
-  margin: 2rem 0;
-  padding: 1.875rem;
-  background-color: #333333;
-  color: #FFFFFF;
+  padding: 2rem;
+  background-color: #333;
+  color: #FFF;
 }
 #main .news > .heading {
   font-size: 2.5rem;
@@ -151,18 +150,24 @@ header .nav-btn {
   font-stretch: normal;
   line-height: 1.5625rem;
   color: #F1DEDE;
+  text-transform: capitalize;
 }
 #main .news .article .heading:hover, #main .news .article .heading:active {
-  color: #FFFFFF;
+  color: #FFF;
 }
 #main .news .article:not(:last-of-type)::after {
   content: "";
   height: 1px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   display: inline-block;
   padding-left: auto;
   padding-right: auto;
+}
+@media (min-width: 768px) {
+  #main .news {
+    margin-left: 1rem;
+  }
 }
 
 /**
@@ -185,7 +190,7 @@ header .nav-btn {
   background-color: #BBACC1;
 }
 .btn.btn-pink:hover, .btn.btn-pink:active {
-  color: #FFFFFF;
+  color: #FFF;
   background: #BBACC1;
 }
 
@@ -217,7 +222,8 @@ header .nav-btn {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5625rem;
-  color: #333333;
+  color: #333;
+  margin-bottom: 0.75rem;
 }
 .card .content .title {
   font-size: 1.1875rem;
@@ -226,9 +232,46 @@ header .nav-btn {
   font-stretch: normal;
   line-height: 1.5625rem;
   color: #BBACC1;
+  text-transform: capitalize;
 }
 .card .content .title:hover, .card .content .title:active {
-  color: #FFFFFF;
+  color: #F1DEDE;
+}
+.card .content p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/**
+ * Flexify Contents
+ */
+.flexbox header {
+  align-items: center;
+}
+.flexbox header .logo {
+  margin-right: auto;
+}
+.flexbox .container {
+  display: flex;
+}
+.flexbox #main {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flexbox #main {
+    flex-direction: row;
+  }
+}
+.flexbox .related {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flexbox .related {
+    flex-direction: row;
+  }
+}
+.flexbox .card {
+  display: flex;
 }
 
 /*# sourceMappingURL=bundle.css.map */
