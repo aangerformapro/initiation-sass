@@ -4,12 +4,13 @@
     "description": "Projet Intégration avec SASS",
     "type": "module",
     "scripts": {
-        "sass-watch": "sass --embed-sources --watch --poll ./src/sass/index.scss:./public/assets/bundle.css",
-        "rollup-watch": "rollup -c -w",
-        "prefix": "postcss ./public/assets/bundle.css --replace --no-map",
-        "prefix-watch": "onchange ./public/assets/*.css -- npm run prefix",
-        "watch": "run-p -n sass-watch rollup-watch prefix-watch",
-        "build-js": "rollup -c"
+        "sass": "sass --embed-sources ./src/sass/index.scss:./public/assets/sass-bundle.css",
+        "sass:watch": "sass --embed-sources --watch ./src/sass/index.scss:./public/assets/sass-bundle.css",
+        "postcss": "postcss public/assets/sass-bundle.css --verbose --map --output public/assets/bundle.css",
+        "postcss:watch": "postcss public/assets/sass-bundle.css --map --watch --output public/assets/bundle.css",
+        "watch:all": "run-p -n rollup:watch sass:watch postcss:watch",
+        "rollup:watch": "rollup -c -w",
+        "rollup": "rollup -c"
     },
     "author": "Aymeric Anger",
     "private": true,

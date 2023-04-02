@@ -46,7 +46,7 @@ a {
     width: 90%;
     max-width: __remify(1200px);
     @include margin-x(auto);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 0;
 }
 
@@ -54,13 +54,10 @@ a {
 header {
 
     height: 8.75rem;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     color: $header-color;
     background: $header-bg-color;
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 
     a {
@@ -74,13 +71,17 @@ header {
 
     nav {
         text-align: center;
-
         @include font-size(__remify(17px), __remify(21px));
 
         a {
-            padding: .75rem 1rem;
+            padding: .75rem 0;
+            margin-right: 2rem;
             position: relative;
-            min-width: 7.5rem;
+            // min-width: 6rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
 
             &:before {
                 position: absolute;
@@ -94,9 +95,13 @@ header {
 
             }
 
-            &:hover {
+            &:hover,
+            &:active {
+                font: {
+                    //size: __remify(18px);
+                    weight: 700;
+                }
 
-                font-weight: 700;
 
                 text-shadow: $box-shadow;
 

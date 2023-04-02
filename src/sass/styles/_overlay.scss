@@ -46,7 +46,7 @@
 
 
     .header-inner {
-        margin: 4rem 5vw 2rem 5vw;
+        margin: 2.5rem 5vw 1rem 5vw;
     }
 
 
@@ -60,16 +60,16 @@
         color: $overlay-color;
         z-index: 100;
         visibility: visible;
-
         //@include zoomIn;
         @include fadeIn;
+
 
         nav {
             @include overlay(14.75rem, 5vw, 90vw, calc(95vh - 14.75rem));
             display: block;
             max-height: 95vh;
-            font-size: 3rem;
-            line-height: 4rem;
+            font-size: 2.5rem;
+            line-height: 3rem;
             width: 75vw;
             @include fadeInRightBig;
 
@@ -79,6 +79,11 @@
 
                 &:before {
                     content: none;
+                }
+
+                &:hover,
+                &:active {
+                    font-size: 2.75rem;
                 }
             }
         }

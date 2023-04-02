@@ -47,13 +47,13 @@ a {
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0;
 }
 
 header {
   height: 8.75rem;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   color: #333;
   background: #FFF;
   -webkit-user-select: none;
@@ -75,9 +75,12 @@ header nav {
   line-height: 1.3125rem;
 }
 header nav a {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
+  margin-right: 2rem;
   position: relative;
-  min-width: 7.5rem;
+}
+header nav a:last-child {
+  margin-right: 0;
 }
 header nav a:before {
   position: absolute;
@@ -89,11 +92,11 @@ header nav a:before {
   background: #333;
   transition: 0.75s;
 }
-header nav a:hover {
+header nav a:hover, header nav a:active {
   font-weight: 700;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
 }
-header nav a:hover:before {
+header nav a:hover:before, header nav a:active:before {
   left: 25%;
   right: 25%;
 }
@@ -136,10 +139,10 @@ header .nav-btn {
 #main > .article .picture img {
   width: 100%;
   height: 20.25rem;
-     -o-object-position: center;
-        object-position: center;
-     -o-object-fit: cover;
-        object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #main > .article .heading {
   font-size: 3.75rem;
@@ -222,10 +225,10 @@ header .nav-btn {
 .card .thumb {
   width: 6.8125rem;
   height: 8.6875rem;
-     -o-object-position: center;
-        object-position: center;
-     -o-object-fit: cover;
-        object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card .content {
   float: left;
@@ -351,7 +354,7 @@ header .nav-btn {
   filter: invert(100%) contrast(100);
 }
 .overlay .header-inner {
-  margin: 4rem 5vw 2rem 5vw;
+  margin: 2.5rem 5vw 1rem 5vw;
 }
 .overlay.open {
   background-color: #000;
@@ -376,8 +379,8 @@ header .nav-btn {
   z-index: 98;
   display: block;
   max-height: 95vh;
-  font-size: 3rem;
-  line-height: 4rem;
+  font-size: 2.5rem;
+  line-height: 3rem;
   width: 75vw;
   animation-name: fadeInRightBig;
   animation-iteration-count: 1;
@@ -394,6 +397,9 @@ header .nav-btn {
 }
 .overlay.open nav a:before {
   content: none;
+}
+.overlay.open nav a:hover, .overlay.open nav a:active {
+  font-size: 2.75rem;
 }
 .overlay:not(.closing) .burger-btn {
   rotate: -45deg;
@@ -459,11 +465,13 @@ header .nav-btn {
 .flexbox .overlay nav a {
   display: unset;
 }
+
 @media (max-width: 768px){
   header nav {
     display: none;
   }
 }
+
 @media (min-width: 768px){
   header:not(.overlay) .nav-btn {
     display: none;
@@ -484,9 +492,12 @@ header .nav-btn {
     align-items: flex-start;
   }
 }
+
 @media (min-width: 992px){
   .flexbox .related {
     flex-direction: row;
     justify-content: space-between;
   }
 }
+
+/*# sourceMappingURL=bundle.css.map */

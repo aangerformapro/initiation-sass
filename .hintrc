@@ -3,13 +3,6 @@
     "development"
   ],
   "hints": {
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "aspect-ratio"
-        ]
-      }
-    ]
+    "compat-api/css": "off"
   }
 }
