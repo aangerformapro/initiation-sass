@@ -1,3 +1,12 @@
+$bootstrap-breakpoints: (
+    "xs": 0px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px
+);
+
 @mixin breakpoint-up($min) {
 
     @media (min-width: $min) {
@@ -12,7 +21,7 @@
     }
 }
 
-@mixin breakpoint($min: 0px, $max: null) {
+@mixin add-breakpoint($min: 0px, $max: null) {
 
     @if $min {
         @if $max {
@@ -51,38 +60,38 @@
 
 
 @mixin xs {
-    @include breakpoint(map-get($bootstrap-breakpoints, "xs")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "xs")) {
         @content;
     }
 }
 
 @mixin sm {
-    @include breakpoint(map-get($bootstrap-breakpoints, "sm")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "sm")) {
         @content;
     }
 }
 
 @mixin md {
-    @include breakpoint(map-get($bootstrap-breakpoints, "md")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "md")) {
         @content;
     }
 }
 
 @mixin lg {
-    @include breakpoint(map-get($bootstrap-breakpoints, "lg")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "lg")) {
         @content;
     }
 }
 
 
 @mixin xl {
-    @include breakpoint(map-get($bootstrap-breakpoints, "xl")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "xl")) {
         @content;
     }
 }
 
 @mixin xxl {
-    @include breakpoint(map-get($bootstrap-breakpoints, "xxl")) {
+    @include breakpoint-up(map-get($bootstrap-breakpoints, "xxl")) {
         @content;
     }
 }
@@ -140,7 +149,7 @@
 }
 
 @mixin lg-to-xl {
-    @include breakpoint(map-get($bootstrap-breakpoints, "lg"), map-get($bootstrap-breakpoints, "md")) {
+    @include breakpoint(map-get($bootstrap-breakpoints, "lg"), map-get($bootstrap-breakpoints, "xl")) {
         @content;
     }
 }

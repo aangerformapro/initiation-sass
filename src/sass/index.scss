@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 //@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-//@import 'helpers/animate';
-@import 'helpers/gerillass';
-@import 'variables';
-@import 'helpers/functions';
-@import 'helpers/breakpoints';
+
+@use 'variables' as *;
+
+@use 'helpers' as *;
 
 
 
 /**
  * Main styles
  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
 
 html {
     font-size: 16px;
