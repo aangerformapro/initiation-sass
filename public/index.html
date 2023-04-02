@@ -13,9 +13,20 @@
 <body class="flexbox">
 
     <header class="container">
-        <a href="#logo" title="W." class="logo">
-            <img src="./assets/pictures/logo.svg" alt="W.">
-        </a>
+        <div class="header-inner" id="top">
+            <a href="#logo" title="W." class="logo">
+                <img src="./assets/pictures/logo.svg" alt="W.">
+            </a>
+
+            <a class="nav-btn" title="menu" href="#">
+                <svg class="burger-btn" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="0" width="40" height="5" fill="currentColor" />
+                    <rect y="13" width="40" height="5" fill="currentColor" />
+                    <rect x="20" y="25" width="20" height="5" fill="currentColor" />
+                </svg>
+            </a>
+        </div>
+
         <nav class="nav">
             <a href="#home" class="nav-link">Home</a>
             <a href="#nouveau" class="nav-link">Nouveau</a>
@@ -23,19 +34,6 @@
             <a href="#tendance" class="nav-link">Tendance</a>
             <a href="#categories" class="nav-link">Categories</a>
         </nav>
-
-
-        <a class="nav-btn" title="menu" href="#">
-            <!--
-             <span class="burger-btn"></span>   
-            -->
-
-            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <rect y="0" width="40" height="5" fill="currentColor" />
-                <rect y="13" width="40" height="5" fill="currentColor" />
-                <rect x="20" y="25" width="20" height="5" fill="currentColor" />
-            </svg>
-        </a>
 
     </header>
 

@@ -1,8 +1,8 @@
 @use '../helpers' as *;
 @use '../components' as *;
-@import 'variables';
+@use 'variables' as *;
 
-@import '../imports/gerillass';
+@import 'gerillass';
 
 /**
  * Main styles
@@ -11,7 +11,7 @@
 
 
 html {
-    font-size: 16px;
+    font-size: 100%;
 }
 
 *,
@@ -31,6 +31,7 @@ body {
     @include font-family('Inter', 1rem);
     color: $main-color;
     background-color: $main-bg-color;
+
 }
 
 
@@ -52,10 +53,15 @@ a {
 
 header {
 
-    height: __remify(60px);
+    height: 8.75rem;
     margin-top: 4rem;
     color: $header-color;
     background: $header-bg-color;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     a {
         color: $header-color;
@@ -74,6 +80,32 @@ header {
         a {
             padding: .75rem 1rem;
             position: relative;
+            min-width: 7.5rem;
+
+            &:before {
+                position: absolute;
+                content: '';
+                bottom: .25rem;
+                left: 50%;
+                right: 50%;
+                height: 3px;
+                background: $header-color;
+                transition: .75s;
+
+            }
+
+            &:hover {
+
+                font-weight: 700;
+
+                text-shadow: $box-shadow;
+
+                &:before {
+                    left: 25%;
+                    right: 25%;
+                }
+            }
+
         }
 
         @include md-down {
@@ -82,9 +114,35 @@ header {
 
     }
 
+    .burger-btn {
+        transition: 1s;
+
+        rect {
+            transition: .75s;
+        }
+    }
 
 
-    &:not(.open) .nav-btn {
+    .header-inner {
+        height: 8.75rem;
+        width: 90vw;
+        overflow: hidden;
+    }
+
+    .logo {
+        margin-right: auto;
+        height: __remify(44px);
+        overflow: hidden;
+    }
+
+    .nav-btn {
+        @include sizer(__remify(44px));
+        //overflow: hidden;
+    }
+
+
+
+    &:not(.overlay) .nav-btn {
         @include md {
             display: none;
         }

@@ -1,5 +1,5 @@
 import EventManager from "../helpers/event-manager.mjs";
-import { createElement, intVal, isFloat, isInt } from "../helpers/utils.mjs";
+import { intVal, isFloat, isInt } from "../helpers/utils.mjs";
 import NoScroll from "./noscroll.mjs";
 
 
@@ -7,161 +7,103 @@ import NoScroll from "./noscroll.mjs";
 
 export default class Overlay {
 
-
-    static #menu
-    static #bound
-    static #overlay
-
-
-    static register(elem) {
-
-        this.#menu ??= elem.cloneNode(true);
-
-        if (!this.#bound && this.#menu) {
-
-            const overlay = this.#overlay = createElement('div', { class: 'overlay', hidden: true });
-            overlay.appendChild(this.#menu);
-            document.body.appendChild(overlay);
+    #container
+    get open() {
+        return this.#container.classList.contains('open');
+    }
 
 
-            addEventListener('click', e => {
+    constructor(container) {
 
-                let btn = null;
-                try {
-                    btn = e.target.closest('.nav-btn, .overlay nav a');
-                } catch (err) {
-
-                }
-
-                if (btn !== null) {
-
-                    if (btn.classList.contains('nav-btn')) {
-                        e.preventDefault();
-                    }
-
-                    if (this.open) {
-                        this.hide();
-
-                    } else {
-                        this.show();
-                    }
-                }
-            });
-
-            this.#bound = true;
+        if (container instanceof Element === false) {
+            throw new TypeError('container not an Element');
         }
+
+        EventManager.mixin(this);
+        this.#container = container;
 
     }
 
 
-
-
-
-
-    static get open() {
-
-        if (!this.#overlay) {
-            return false;
+    async toggle(delay = 0) {
+        if (this.open) {
+            return await this.hide(delay);
         }
+        return await this.show(delay);
+    }
 
-        return this.#overlay.hidden !== true;
+    #getDelay(delay) {
+
+        if (delay < 31 || isFloat(delay)) {
+            delay = intVal(delay * 1000);
+        }
+        if (!isInt(delay)) {
+            throw new TypeError('delay is not an Integer');
+        }
+        return Math.max(0, delay);
+
     }
 
 
-
-    static async show() {
-
+    show(delay = 0) {
 
         return new Promise(resolve => {
-
-            if (!this.#menu) {
-                return resolve(false);
-            }
 
             if (this.open) {
                 return resolve(true);
             }
+            delay = this.#getDelay(delay);
 
-            this.trigger('show', { header: this.#menu });
+
+            this.trigger('show', this.#container);
 
             NoScroll.enable().then(() => {
-                // show the overlay
-                this.#overlay.hidden = null;
 
-                // wait a little for it to display
                 setTimeout(() => {
-                    // loads the animations
-                    this.#menu.classList.add('open');
-                    this.trigger('open', {
-                        header: this.#menu
-                    });
-
+                    this.#container.classList.add('overlay', 'open');
+                    this.trigger('open', this.#container);
                     resolve(true);
-                }, 50);
+                }, delay);
+
+
             });
+
+
+
 
         });
 
-
     }
 
+    hide(delay = 0) {
 
-
-    static hide(after = 1200) {
 
         return new Promise(resolve => {
-
-            if (!this.#menu) {
-                return resolve(false);
-            }
-
             if (!this.open) {
                 return resolve(true);
             }
 
+            delay = this.#getDelay(delay);
+            this.trigger('hide', this.#container);
 
-            // eg hide(1.2) hides after 1200 ms
 
-            if (isFloat(after)) {
-                if (after <= 30) {
-                    after *= 1000;
-                }
-                after = intVal(after);
-            }
+            this.#container.classList.add('closing');
 
-            if (!isInt(after)) {
-                throw new TypeError('after is not an Integer');
-            }
-            after = Math.max(0, after);
 
-            this.trigger('hide', { header: this.#menu });
-
-            this.#menu.classList.remove('open');
-
-            // let the close animations do their work
             setTimeout(() => {
 
-                this.#overlay.hidden = true;
-
                 NoScroll.disable().then(() => {
-                    this.trigger('close', {
-                        header: this.#menu
-                    });
-
+                    this.#container.classList.remove('open', 'closing');
+                    this.trigger('close', this.#container);
                     resolve(true);
                 });
 
-
-
-            }, after);
-
-
+            }, delay);
         });
+
 
 
     }
 
 }
 
-
-EventManager.mixin(Overlay);

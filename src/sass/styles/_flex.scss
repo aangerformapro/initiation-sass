@@ -1,29 +1,10 @@
 @use '../helpers/breakpoints' as *;
 
 .flexbox {
-    header {
-        align-items: center;
 
-
-        .logo {
-            margin-right: auto;
-        }
-
-
-        @include md {
-            nav {
-                display: flex;
-                justify-items: center;
-                align-items: flex-start;
-            }
-
-        }
-    }
-
-
-
-
-    .container {
+    .container,
+    .header-inner,
+    .card {
         display: flex;
     }
 
@@ -55,8 +36,29 @@
         }
     }
 
-    .card {
-        display: flex;
+
+
+
+    header {
+        align-items: center;
+
+        &.overlay {
+            align-items: flex-start;
+        }
+
+
+        .header-inner {
+            align-items: center;
+        }
+
+        @include md {
+            nav {
+                display: flex;
+                justify-items: center;
+                align-items: flex-start;
+            }
+
+        }
     }
 
     .overlay nav {

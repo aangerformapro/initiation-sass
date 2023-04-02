@@ -71,7 +71,7 @@ $root = findRoot(__DIR__) . '/node_modules/animate-scss/';
 
 
 $all = [
-    'properties' => $root . '/node_modules/animate-scss/_properties.scss',
+    'properties' => $root . '_properties.scss',
 ];
 
 foreach (getImports($root . 'animate.scss') as $animation => $file) {
