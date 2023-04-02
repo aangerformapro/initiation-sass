@@ -1,0 +1,71 @@
+@use '../helpers/breakpoints' as *;
+
+.flexbox {
+    header {
+        align-items: center;
+
+
+        .logo {
+            margin-right: auto;
+        }
+
+
+        @include md {
+            nav {
+                display: flex;
+                justify-items: center;
+                align-items: flex-start;
+            }
+
+        }
+    }
+
+
+
+
+    .container {
+        display: flex;
+    }
+
+    #main {
+        flex-direction: column;
+
+
+        @include md {
+            flex-direction: row;
+        }
+    }
+
+
+    .news-inner {
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            margin-bottom: auto;
+        }
+    }
+
+    .related {
+        flex-direction: column;
+
+        @include lg {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .card {
+        display: flex;
+    }
+
+    .overlay nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        a {
+            display: unset;
+        }
+    }
+}

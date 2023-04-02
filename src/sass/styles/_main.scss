@@ -1,0 +1,245 @@
+@use '../helpers' as *;
+@use '../components' as *;
+@import 'variables';
+
+@import '../imports/gerillass';
+
+/**
+ * Main styles
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+
+html {
+    font-size: 16px;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+[hidden],
+[hidden] * {
+    display: none !important;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    @include font-family('Inter', 1rem);
+    color: $main-color;
+    background-color: $main-bg-color;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+.container {
+    @extend #no-overflow;
+    width: 90%;
+    max-width: __remify(1200px);
+    @include margin-x(auto);
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+
+header {
+
+    height: __remify(60px);
+    margin-top: 4rem;
+    color: $header-color;
+    background: $header-bg-color;
+
+    a {
+        color: $header-color;
+
+        &:hover,
+        &:active {
+            color: $header-color;
+        }
+    }
+
+    nav {
+        text-align: center;
+
+        @include font-size(__remify(17px), __remify(21px));
+
+        a {
+            padding: .75rem 1rem;
+            position: relative;
+        }
+
+        @include md-down {
+            display: none;
+        }
+
+    }
+
+
+
+    &:not(.open) .nav-btn {
+        @include md {
+            display: none;
+        }
+    }
+
+}
+
+
+#main {
+
+    @include font-size(__remify(15px), __remify(25px));
+
+    >.article {
+        color: $main-content-color;
+        padding-bottom: 2rem;
+
+        .picture {
+            overflow: hidden;
+            width: 100%;
+
+            img {
+                width: 100%;
+                height: __remify(324px);
+
+                object: {
+                    position: center;
+                    fit: cover;
+                }
+            }
+        }
+
+        .heading {
+            @include font-size(__remify(60px), __remify(60px), 900);
+            color: $main-heading-color;
+        }
+
+        @include md {
+            width: __remify(793px);
+            margin-bottom: 0;
+        }
+    }
+
+    .news-inner {
+        padding: 2rem;
+        background-color: $featured-news-bg-color;
+        color: $featured-news-color;
+
+        >.heading {
+            @include font-size(__remify(40px), __remify(60px), 900);
+            color: $featured-news-main-heading-color;
+        }
+
+        .article {
+            padding: 1rem 0;
+
+            .heading {
+                @include font-size(__remify(19px), __remify(25px), 900);
+                color: $featured-news-title-color;
+                text-transform: capitalize;
+
+                &:hover,
+                &:active {
+                    color: $featured-news-title-hover-color;
+                }
+            }
+
+            &:not(:last-of-type)::after {
+                content: '';
+                height: 1px;
+                width: 100%;
+                background-color: $featured-news-separator-color;
+                display: inline-block;
+                @include padding-x(auto);
+            }
+        }
+
+
+    }
+
+    @include md {
+        .news {
+            margin-left: 1rem;
+        }
+    }
+
+}
+
+
+.btn {
+    @include button(__remify(17px), __remify(25px));
+
+    &.btn-pink {
+        border: $pink-btn-border;
+        color: $pink-btn-color;
+        background-color: $pink-btn-bg-color;
+
+        &:hover,
+        &:active {
+            color: $pink-btn-hover-color;
+            background: $pink-btn-hover-bg-color;
+            border: $pink-btn-hover-border;
+        }
+    }
+
+}
+
+
+
+.card {
+
+    @include margin-y(1.5rem);
+
+    @include sizer(__remify(350px), __remify(139px));
+    @extend #no-overflow;
+
+    .thumb {
+        @include sizer(__remify(109px), __remify(139px));
+
+        object: {
+            position: center;
+            fit: cover;
+        }
+    }
+
+    .content {
+        float: left;
+        width: __remify(241px);
+        color: $card-content-color;
+
+        padding: __remify(5px) 0 0 __remify(24px);
+
+        .heading {
+            @include font-size(__remify(31px), __remify(25px), 900);
+            color: $card-heading-color;
+            margin-bottom: .75rem;
+
+        }
+
+        .title {
+            @include font-size(__remify(19px), __remify(25px), 900);
+            color: $card-title-color;
+
+            text-transform: capitalize;
+
+            &:hover,
+            &:active {
+                color: $card-title-hover-color;
+            }
+
+        }
+
+        p {
+            @include margin-y(.5rem);
+        }
+
+    }
+
+}

@@ -44,7 +44,7 @@ a {
 
 .container {
   width: 90%;
-  max-width: __remify(1200px);
+  max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
@@ -52,7 +52,7 @@ a {
 }
 
 header {
-  height: __remify(60px);
+  height: 3.75rem;
   margin-top: 4rem;
   color: #333;
   background: #FFF;
@@ -65,11 +65,11 @@ header a:hover, header a:active {
 }
 header nav {
   text-align: center;
-  font-size: __remify(17px);
+  font-size: 1.0625rem;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(21px);
+  line-height: 1.3125rem;
 }
 header nav a {
   padding: 0.75rem 1rem;
@@ -87,11 +87,11 @@ header nav a {
 }
 
 #main {
-  font-size: __remify(15px);
+  font-size: 0.9375rem;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(25px);
+  line-height: 1.5625rem;
 }
 #main > .article {
   color: #000;
@@ -103,21 +103,21 @@ header nav a {
 }
 #main > .article .picture img {
   width: 100%;
-  height: __remify(324px);
+  height: 20.25rem;
   object-position: center;
   object-fit: cover;
 }
 #main > .article .heading {
-  font-size: __remify(60px);
+  font-size: 3.75rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(60px);
+  line-height: 3.75rem;
   color: #333;
 }
 @media (min-width: 768px) {
   #main > .article {
-    width: __remify(793px);
+    width: 49.5625rem;
     margin-bottom: 0;
   }
 }
@@ -127,22 +127,22 @@ header nav a {
   color: #FFF;
 }
 #main .news-inner > .heading {
-  font-size: __remify(40px);
+  font-size: 2.5rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(60px);
+  line-height: 3.75rem;
   color: #BBACC1;
 }
 #main .news-inner .article {
   padding: 1rem 0;
 }
 #main .news-inner .article .heading {
-  font-size: __remify(19px);
+  font-size: 1.1875rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(25px);
+  line-height: 1.5625rem;
   color: #F1DEDE;
   text-transform: capitalize;
 }
@@ -164,23 +164,20 @@ header nav a {
   }
 }
 
-/**
- * Pink Button
- */
 .btn {
   border-radius: 50px;
   display: inline-block;
   text-transform: uppercase;
-  font-size: __remify(17px);
+  font-size: 1.0625rem;
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(25px);
-  padding: __remify(8px) __remify(24px);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+  line-height: 1.5625rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2509803922);
 }
 .btn:hover, .btn:active {
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: inset 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2509803922);
 }
 .btn.btn-pink {
   border: 1px solid #BBACC1;
@@ -193,42 +190,39 @@ header nav a {
   border: 1px solid #333;
 }
 
-/**
- * Cards
- */
 .card {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  width: __remify(350px);
-  height: __remify(139px);
+  width: 21.875rem;
+  height: 8.6875rem;
 }
 .card .thumb {
-  width: __remify(109px);
-  height: __remify(139px);
+  width: 6.8125rem;
+  height: 8.6875rem;
   object-position: center;
   object-fit: cover;
 }
 .card .content {
   float: left;
-  width: __remify(241px);
+  width: 15.0625rem;
   color: #000;
-  padding: __remify(5px) 0 0 __remify(24px);
+  padding: 0.3125rem 0 0 1.5rem;
 }
 .card .content .heading {
-  font-size: __remify(31px);
+  font-size: 1.9375rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(25px);
+  line-height: 1.5625rem;
   color: #333;
   margin-bottom: 0.75rem;
 }
 .card .content .title {
-  font-size: __remify(19px);
+  font-size: 1.1875rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: __remify(25px);
+  line-height: 1.5625rem;
   color: #BBACC1;
   text-transform: capitalize;
 }
@@ -238,6 +232,58 @@ header nav a {
 .card .content p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.flexbox header {
+  align-items: center;
+}
+.flexbox header .logo {
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .flexbox header nav {
+    display: flex;
+    justify-items: center;
+    align-items: flex-start;
+  }
+}
+.flexbox .container {
+  display: flex;
+}
+.flexbox #main {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flexbox #main {
+    flex-direction: row;
+  }
+}
+.flexbox .news-inner {
+  display: flex;
+  flex-direction: column;
+}
+.flexbox .news-inner .heading {
+  margin-bottom: auto;
+}
+.flexbox .related {
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  .flexbox .related {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.flexbox .card {
+  display: flex;
+}
+.flexbox .overlay nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.flexbox .overlay nav a {
+  display: unset;
 }
 
 /**
@@ -340,61 +386,6 @@ header nav a {
 .overlay header.open .nav-btn:hover .burger-btn::before,
 .overlay header.open .nav-btn:hover .burger-btn::after {
   background: #FFF;
-}
-
-/**
- * Flexify Contents
- */
-.flexbox header {
-  align-items: center;
-}
-.flexbox header .logo {
-  margin-right: auto;
-}
-@media (min-width: 768px) {
-  .flexbox header nav {
-    display: flex;
-    justify-items: center;
-    align-items: flex-start;
-  }
-}
-.flexbox .container {
-  display: flex;
-}
-.flexbox #main {
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  .flexbox #main {
-    flex-direction: row;
-  }
-}
-.flexbox .news-inner {
-  display: flex;
-  flex-direction: column;
-}
-.flexbox .news-inner .heading {
-  margin-bottom: auto;
-}
-.flexbox .related {
-  flex-direction: column;
-}
-@media (min-width: 992px) {
-  .flexbox .related {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-.flexbox .card {
-  display: flex;
-}
-.flexbox .overlay nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.flexbox .overlay nav a {
-  display: unset;
 }
 
 /*# sourceMappingURL=bundle.css.map */
