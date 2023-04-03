@@ -8,6 +8,8 @@ const
     overlay = new Overlay(header);
 
 
+
+
 //header.hidden = true;
 
 header.classList.add('overlay');

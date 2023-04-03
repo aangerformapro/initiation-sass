@@ -39,6 +39,7 @@ body {
 }
 
 a {
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -57,7 +58,7 @@ header {
   color: #333;
   background: #FFF;
   -webkit-user-select: none;
-     -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 header a {
@@ -139,10 +140,8 @@ header .nav-btn {
 #main > .article .picture img {
   width: 100%;
   height: 20.25rem;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-position: center;
+  object-fit: cover;
 }
 #main > .article .heading {
   font-size: 3.75rem;
@@ -225,10 +224,8 @@ header .nav-btn {
 .card .thumb {
   width: 6.8125rem;
   height: 8.6875rem;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-position: center;
+  object-fit: cover;
 }
 .card .content {
   float: left;
@@ -331,15 +328,15 @@ header .nav-btn {
   z-index: -1;
   visibility: hidden;
   margin: 0;
-  max-width: unset;
+  max-width: none;
+  max-width: initial;
   animation-name: fadeOut;
   animation-iteration-count: 1;
   animation-duration: 1s;
   animation-delay: 0s;
   animation-timing-function: ease;
   animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .overlay a {
   color: #CCC;
@@ -367,8 +364,7 @@ header .nav-btn {
   animation-delay: 0s;
   animation-timing-function: ease;
   animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .overlay.open nav {
   position: absolute;
@@ -388,8 +384,7 @@ header .nav-btn {
   animation-delay: 0s;
   animation-timing-function: ease;
   animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .overlay.open nav a {
   display: block;
@@ -426,8 +421,7 @@ header .nav-btn {
   animation-delay: 0s;
   animation-timing-function: ease;
   animation-fill-mode: both;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .flexbox .container,
@@ -463,7 +457,8 @@ header .nav-btn {
   justify-content: flex-end;
 }
 .flexbox .overlay nav a {
-  display: unset;
+  display: inline;
+  display: initial;
 }
 
 @media (max-width: 768px){

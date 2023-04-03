@@ -12,7 +12,7 @@ const isPlainObject = (param) => param instanceof Object && Object.getPrototypeO
     isNumeric = (param) => isInt(param) || isFloat(param) || RE_NUMERIC.test(param),
     intVal = (param) => isNumeric(param) && parseInt(param),
     isCallable = (param) => typeof param === 'function',
-    isFunction = isCallable;
+    isFunction = isCallable;
 
 function runAsync(callback, ...args) {
     if (isFunction(callback)) {
@@ -445,6 +445,8 @@ const
     //btn = document.querySelector('.nav-btn'),
     header = document.querySelector('header').cloneNode(true),
     overlay = new Overlay(header);
+
+
 
 
 //header.hidden = true;
