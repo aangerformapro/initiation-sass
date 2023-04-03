@@ -2,7 +2,7 @@
  * Main styles
  */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-.container {
+.container, .card {
   overflow: hidden;
 }
 
@@ -44,6 +44,16 @@ h1 {
   font-style: normal;
   font-stretch: normal;
   line-height: 3.75rem;
+}
+
+p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -123,19 +133,20 @@ header .nav-btn {
   }
 }
 
-.article {
-  color: #000;
-  padding-bottom: 2rem;
-}
-.article .picture {
+.picture {
   overflow: hidden;
   width: 100%;
 }
-.article .picture img {
+.picture img {
   width: 100%;
   height: 20.25rem;
   object-position: center;
   object-fit: cover;
+}
+
+.article {
+  color: #000;
+  padding-bottom: 2rem;
 }
 .article .heading {
   color: #333;
@@ -173,12 +184,38 @@ header .nav-btn {
   border: 1px solid #333;
 }
 
-.news-inner {
+.card .card-img img {
+  object-position: center;
+  object-fit: cover;
+}
+.card .card-header {
+  font-size: 1.9375rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+.card .card-title {
+  font-size: 1.1875rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
+  text-transform: capitalize;
+  color: #BBACC1;
+}
+.card .card-title:hover, .card .card-title:active {
+  color: #F1DEDE;
+}
+
+.news {
   padding: 2rem;
   background-color: #333;
   color: #FFF;
 }
-.news-inner .news-heading {
+.news .news-heading {
   font-size: 2.5rem;
   font-weight: 900;
   font-style: normal;
@@ -186,10 +223,18 @@ header .nav-btn {
   line-height: 3.75rem;
   color: #BBACC1;
 }
-.news-inner .card {
-  padding: 1rem 0;
+.news .card {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-.news-inner .card .card-header {
+.news .card .card-title {
+  color: #F1DEDE;
+  text-transform: capitalize;
+}
+.news .card .card-title:hover, .news .card .card-title:active {
+  color: #FFF;
+}
+.news .card .card-header {
   font-size: 1.1875rem;
   font-weight: 900;
   font-style: normal;
@@ -198,10 +243,10 @@ header .nav-btn {
   color: #F1DEDE;
   text-transform: capitalize;
 }
-.news-inner .card .card-header:hover, .news-inner .card .card-header:active {
+.news .card .card-header:hover, .news .card .card-header:active {
   color: #FFF;
 }
-.news-inner .card:not(:last-of-type)::after {
+.news .card:not(:last-of-type)::after {
   content: "";
   height: 1px;
   width: 100%;
@@ -211,21 +256,308 @@ header .nav-btn {
   padding-right: auto;
 }
 
-.card {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-#main p {
-  font-size: 0.9375rem;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
-}
 @media (min-width: 768px) {
   #main .news {
     margin-left: 1rem;
+  }
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+.col-xs-1 {
+  width: 8.3333333333%;
+}
+.col-sm-1 {
+  width: 8.3333333333%;
+}
+.col-md-1 {
+  width: 8.3333333333%;
+}
+.col-lg-1 {
+  width: 8.3333333333%;
+}
+.col-xl-1 {
+  width: 8.3333333333%;
+}
+.col-xxl-1 {
+  width: 8.3333333333%;
+}
+.col-2 {
+  width: 16.6666666667%;
+}
+.col-xs-2 {
+  width: 16.6666666667%;
+}
+.col-sm-2 {
+  width: 16.6666666667%;
+}
+.col-md-2 {
+  width: 16.6666666667%;
+}
+.col-lg-2 {
+  width: 16.6666666667%;
+}
+.col-xl-2 {
+  width: 16.6666666667%;
+}
+.col-xxl-2 {
+  width: 16.6666666667%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-sm-3 {
+  width: 25%;
+}
+.col-md-3 {
+  width: 25%;
+}
+.col-lg-3 {
+  width: 25%;
+}
+.col-xl-3 {
+  width: 25%;
+}
+.col-xxl-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.3333333333%;
+}
+.col-xs-4 {
+  width: 33.3333333333%;
+}
+.col-sm-4 {
+  width: 33.3333333333%;
+}
+.col-md-4 {
+  width: 33.3333333333%;
+}
+.col-lg-4 {
+  width: 33.3333333333%;
+}
+.col-xl-4 {
+  width: 33.3333333333%;
+}
+.col-xxl-4 {
+  width: 33.3333333333%;
+}
+.col-5 {
+  width: 41.6666666667%;
+}
+.col-xs-5 {
+  width: 41.6666666667%;
+}
+.col-sm-5 {
+  width: 41.6666666667%;
+}
+.col-md-5 {
+  width: 41.6666666667%;
+}
+.col-lg-5 {
+  width: 41.6666666667%;
+}
+.col-xl-5 {
+  width: 41.6666666667%;
+}
+.col-xxl-5 {
+  width: 41.6666666667%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-sm-6 {
+  width: 50%;
+}
+.col-md-6 {
+  width: 50%;
+}
+.col-lg-6 {
+  width: 50%;
+}
+.col-xl-6 {
+  width: 50%;
+}
+.col-xxl-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.3333333333%;
+}
+.col-xs-7 {
+  width: 58.3333333333%;
+}
+.col-sm-7 {
+  width: 58.3333333333%;
+}
+.col-md-7 {
+  width: 58.3333333333%;
+}
+.col-lg-7 {
+  width: 58.3333333333%;
+}
+.col-xl-7 {
+  width: 58.3333333333%;
+}
+.col-xxl-7 {
+  width: 58.3333333333%;
+}
+.col-8 {
+  width: 66.6666666667%;
+}
+.col-xs-8 {
+  width: 66.6666666667%;
+}
+.col-sm-8 {
+  width: 66.6666666667%;
+}
+.col-md-8 {
+  width: 66.6666666667%;
+}
+.col-lg-8 {
+  width: 66.6666666667%;
+}
+.col-xl-8 {
+  width: 66.6666666667%;
+}
+.col-xxl-8 {
+  width: 66.6666666667%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-sm-9 {
+  width: 75%;
+}
+.col-md-9 {
+  width: 75%;
+}
+.col-lg-9 {
+  width: 75%;
+}
+.col-xl-9 {
+  width: 75%;
+}
+.col-xxl-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.3333333333%;
+}
+.col-xs-10 {
+  width: 83.3333333333%;
+}
+.col-sm-10 {
+  width: 83.3333333333%;
+}
+.col-md-10 {
+  width: 83.3333333333%;
+}
+.col-lg-10 {
+  width: 83.3333333333%;
+}
+.col-xl-10 {
+  width: 83.3333333333%;
+}
+.col-xxl-10 {
+  width: 83.3333333333%;
+}
+.col-11 {
+  width: 91.6666666667%;
+}
+.col-xs-11 {
+  width: 91.6666666667%;
+}
+.col-sm-11 {
+  width: 91.6666666667%;
+}
+.col-md-11 {
+  width: 91.6666666667%;
+}
+.col-lg-11 {
+  width: 91.6666666667%;
+}
+.col-xl-11 {
+  width: 91.6666666667%;
+}
+.col-xxl-11 {
+  width: 91.6666666667%;
+}
+.col-12 {
+  width: 100%;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-sm-12 {
+  width: 100%;
+}
+.col-md-12 {
+  width: 100%;
+}
+.col-lg-12 {
+  width: 100%;
+}
+.col-xl-12 {
+  width: 100%;
+}
+.col-xxl-12 {
+  width: 100%;
+}
+
+.container,
+.card {
+  display: flex;
+}
+
+#main {
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #main {
+    flex-direction: row;
+  }
+}
+
+.news-inner {
+  display: flex;
+  flex-direction: column;
+}
+.news-inner .news-heading {
+  margin-bottom: auto;
+}
+.news-inner .card {
+  flex-direction: column;
+}
+
+.related {
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  .related {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+header {
+  align-items: center;
+}
+@media (min-width: 768px) {
+  header nav {
+    display: flex;
+    justify-items: center;
+    align-items: flex-start;
   }
 }
 

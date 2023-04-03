@@ -2,133 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sass FlexBox Implementation</title>
-  <link rel="shortcut icon" href="./assets/pictures/sass.png" type="image/png">
-  <link rel="stylesheet" href="./assets/bundle.css">
-  <script src="./assets/bundle.js" type="module" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sass FlexBox Implementation</title>
+    <link rel="shortcut icon" href="./assets/pictures/sass.png" type="image/png">
+    <link rel="stylesheet" href="./assets/bundle.css">
+    <script src="./assets/bundle.js" type="module" defer></script>
 </head>
 
 <body>
 
-  <header class="container" id="top">
-    <div class="logo">
-      <a href="#logo" title="W.">
-        <img src="./assets/pictures/logo.svg" alt="W.">
-      </a>
-    </div>
-
-    <nav class="nav">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#nouveau" class="nav-link">Nouveau</a>
-      <a href="#populaire" class="nav-link">Populaire</a>
-      <a href="#tendance" class="nav-link">Tendance</a>
-      <a href="#categories" class="nav-link">Categories</a>
-    </nav>
-
-    <a class="nav-btn" title="menu" href="#">
-      <svg class="burger-btn" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect y="0" width="40" height="5" fill="currentColor" />
-        <rect y="13" width="40" height="5" fill="currentColor" />
-        <rect x="20" y="25" width="20" height="5" fill="currentColor" />
-      </svg>
-    </a>
-
-  </header>
-
-  <div class="container" id="main">
-
-    <div class="article">
-      <div class="picture">
-        <img src="./assets/pictures/thumb.jpg"
-          srcset="./assets/pictures/thumb.jpg 320w, ./assets/pictures/purse_512.jpg 512w, ./assets/pictures/purse_880.jpg 880w, ./assets/pictures/purse_1280.jpg 1280w"
-          alt="picture">
-      </div>
-      <h1 class="heading">Le brillant avenir du web 3.0 ?</h1>
-      <div class="content">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Suspendisse ullamcorper sodales pharetra.
-          Morbi porta vel diam eu ultrices. Sed eget ipsum iaculis, rutrum tellus et, lobortis nibh.
-        </p>
-        <a class="btn btn-pink" title="Lire la suite" href="#suite">Lire la suite</a>
-      </div>
-    </div>
-    <div class="news">
-      <div class="news-inner">
-        <div class="news-heading">
-          Nouveautés
+    <header class="container" id="top">
+        <div class="logo">
+            <a href="#logo" title="W.">
+                <img src="./assets/pictures/logo.svg" alt="W.">
+            </a>
         </div>
-        <div class="card">
-          <a href="#news" title="Lorem Ipsum Dolor" class="card-header">
-            Lorem Ipsum Dolor
-          </a>
-          <p class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
-        <div class="card">
-          <a href="#news" title="Lorem Ipsum Dolor" class="card-header">
-            Lorem Ipsum Dolor
-          </a>
-          <p class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
-        <div class="card">
-          <a href="#news" title="Lorem Ipsum Dolor" class="card-header">
-            Lorem Ipsum Dolor
-          </a>
-          <p class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container related">
 
-    <div class="card">
-      <img class="card-img" alt="thumb" src="./assets/pictures/thumb.jpg">
-      <div class="card-header">01</div>
-      <div class="card-body">
-        <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
-          Lorem Ipsum Dolor
+        <nav class="nav">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#nouveau" class="nav-link">Nouveau</a>
+            <a href="#populaire" class="nav-link">Populaire</a>
+            <a href="#tendance" class="nav-link">Tendance</a>
+            <a href="#categories" class="nav-link">Categories</a>
+        </nav>
+
+        <a class="nav-btn" title="menu" href="#">
+            <svg class="burger-btn" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <rect y="0" width="40" height="5" fill="currentColor" />
+                <rect y="13" width="40" height="5" fill="currentColor" />
+                <rect x="20" y="25" width="20" height="5" fill="currentColor" />
+            </svg>
         </a>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </div>
+
+    </header>
+
+    <div class="container" id="main">
+
+        <div class="left">
+            <div class="picture">
+                <img src="./assets/pictures/thumb.jpg"
+                    srcset="./assets/pictures/thumb.jpg 320w, ./assets/pictures/purse_512.jpg 512w, ./assets/pictures/purse_880.jpg 880w, ./assets/pictures/purse_1280.jpg 1280w"
+                    alt="picture">
+            </div>
+
+            <div class="content">
+                <h1 class="heading">Le brillant avenir du web 3.0 ?</h1>
+                <div class="article">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Suspendisse ullamcorper sodales pharetra.
+                        Morbi porta vel diam eu ultrices. Sed eget ipsum iaculis, rutrum tellus et, lobortis nibh.
+                    </p>
+                    <a class="btn btn-pink" title="Lire la suite" href="#suite">Lire la suite</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="news">
+                <div class="news-heading">
+                    Nouveautés
+                </div>
+                <div class="card">
+                    <a href="#news" title="Lorem Ipsum Dolor" class="card-title">
+                        Lorem Ipsum Dolor
+                    </a>
+                    <p class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+                <div class="card">
+                    <a href="#news" title="Lorem Ipsum Dolor" class="card-title">
+                        Lorem Ipsum Dolor
+                    </a>
+                    <p class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+                <div class="card">
+                    <a href="#news" title="Lorem Ipsum Dolor" class="card-title">
+                        Lorem Ipsum Dolor
+                    </a>
+                    <p class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="card">
-      <img class="card-img" alt="thumb" src="./assets/pictures/thumb.jpg">
-      <div class="card-header">01</div>
-      <div class="card-body">
-        <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
-          Lorem Ipsum Dolor
-        </a>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img" alt="thumb" src="./assets/pictures/thumb.jpg">
-      <div class="card-header">01</div>
-      <div class="card-body">
-        <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
-          Lorem Ipsum Dolor
-        </a>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </div>
+    <div class="container related">
+
+        <div class="card col-4">
+            <img class="card-img" alt="thumb" src="./assets/pictures/thumb.jpg">
+            <div class="card-header">01</div>
+            <div class="card-body">
+                <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+
+        <div class="card col-4">
+            <img class="card-img" alt="thumb" src="./assets/pictures/thumb.jpg">
+            <div class="card-header">01</div>
+            <div class="card-body">
+                <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+        <div class="card col-4">
+            <div class="card-img">
+                <img alt="thumb" src="./assets/pictures/thumb.jpg">
+            </div>
+            <div class="card-header">01</div>
+            <div class="card-body">
+                <a class="card-title" href="#related" alt="Lorem Ipsum Dolor">
+                    Lorem Ipsum Dolor
+                </a>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+
+
     </div>
 
-  </div>
-
-  <footer class="container"></footer>
+    <footer class="container"></footer>
 </body>
 
 </html>

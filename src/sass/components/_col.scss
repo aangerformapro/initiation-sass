@@ -1,0 +1,29 @@
+@use '../helpers' as *;
+
+
+
+
+
+@mixin col($min: 1, $max: 12) {
+
+    @for $i from $min through $max {
+        $width: ($i / ($max/$min)) * 100%;
+
+        &-#{$i} {
+            width: $width;
+        }
+
+        @each $name,
+        $size in $bootstrap-breakpoints {
+
+            &-#{$name}-#{$i} {
+                width: $width;
+            }
+
+
+        }
+
+
+    }
+
+}

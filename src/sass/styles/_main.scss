@@ -11,223 +11,284 @@
 
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
+
 
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 [hidden],
 [hidden] * {
-  display: none !important;
+    display: none !important;
 }
 
 body {
-  min-height: 100vh;
-  margin: 0;
-  @include font-family('Inter', 1rem);
-  color: $main-color;
-  background-color: $main-bg-color;
+    min-height: 100vh;
+    margin: 0;
+    @include font-family('Inter', 1rem);
+    color: $main-color;
+    background-color: $main-bg-color;
 
 }
 
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h1 {
-  @include font-size(__remify(60px), __remify(60px), 900);
+    @include font-size(__remify(60px), __remify(60px), 900);
 }
 
+
+p {
+    @include font-size(__remify(15px), __remify(25px));
+
+    margin: {
+        top: 0;
+        bottom: 2rem;
+    }
+}
+
+
 .container {
-  @extend %no-overflow;
-  width: 90vw;
-  max-width: __remify(1200px);
-  @include margin-x(auto);
-  margin-bottom: 1rem;
-  padding: 0;
+    @extend %no-overflow;
+    width: 90vw;
+    max-width: __remify(1200px);
+    @include margin-x(auto);
+    margin-bottom: 1rem;
+    padding: 0;
 }
 
 
 header {
-  height: 8.75rem;
-  margin-top: 2.5rem;
-  color: $header-color;
-  background: $header-bg-color;
-
-  user-select: none;
-
-  a {
+    height: 8.75rem;
+    margin-top: 2.5rem;
     color: $header-color;
+    background: $header-bg-color;
 
-    &:hover,
-    &:active {
-      color: $header-color;
-    }
-  }
-
-  nav {
-    text-align: center;
-    @include font-size(__remify(17px), __remify(21px));
+    user-select: none;
 
     a {
-      padding: .75rem 0;
-      margin-right: 2rem;
-      position: relative;
+        color: $header-color;
 
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:before {
-        position: absolute;
-        content: '';
-        bottom: .25rem;
-        left: 50%;
-        right: 50%;
-        height: 3px;
-        background: $header-color;
-        transition: .75s;
-
-      }
-
-      &:hover,
-      &:active {
-        font-weight: 700;
-        text-shadow: $box-shadow;
-
-        &:before {
-          left: 25%;
-          right: 25%;
+        &:hover,
+        &:active {
+            color: $header-color;
         }
-      }
+    }
+
+    nav {
+        text-align: center;
+        @include font-size(__remify(17px), __remify(21px));
+
+        a {
+            padding: .75rem 0;
+            margin-right: 2rem;
+            position: relative;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:before {
+                position: absolute;
+                content: '';
+                bottom: .25rem;
+                left: 50%;
+                right: 50%;
+                height: 3px;
+                background: $header-color;
+                transition: .75s;
+
+            }
+
+            &:hover,
+            &:active {
+                font-weight: 700;
+                text-shadow: $box-shadow;
+
+                &:before {
+                    left: 25%;
+                    right: 25%;
+                }
+            }
+
+        }
+
+        @include md-down {
+            display: none;
+        }
 
     }
 
-    @include md-down {
-      display: none;
+    .logo {
+        margin-right: auto;
+        height: __remify(44px);
+        line-height: __remify(44px);
+        overflow: hidden;
     }
 
-  }
+    .nav-btn {
+        @include sizer(__remify(40px));
 
-  .logo {
-    margin-right: auto;
-    height: __remify(44px);
-    line-height: __remify(44px);
-    overflow: hidden;
-  }
-
-  .nav-btn {
-    @include sizer(__remify(40px));
-
-    @include md {
-      display: none;
+        @include md {
+            display: none;
+        }
     }
-  }
 
 
 }
 
-.article {
-  color: $main-content-color;
-  padding-bottom: 2rem;
-
-  .picture {
+.picture {
     overflow: hidden;
     width: 100%;
 
     img {
-      width: 100%;
-      height: __remify(324px);
+        width: 100%;
+        height: 20.25rem;
 
-      object: {
-        position: center;
-        fit: cover;
-      }
+        object: {
+            position: center;
+            fit: cover;
+        }
     }
-  }
+}
 
-  .heading {
-    color: $main-heading-color;
-  }
+.article {
+    color: $main-content-color;
+    padding-bottom: 2rem;
 
-  @include md {
-    width: __remify(793px);
-    margin-bottom: 0;
-  }
+
+
+    .heading {
+        color: $main-heading-color;
+    }
+
+    @include md {
+        width: __remify(793px);
+        margin-bottom: 0;
+    }
 }
 
 .btn {
-  @include button(__remify(17px), __remify(25px));
+    @include button(__remify(17px), __remify(25px));
 
-  &.btn-pink {
-    border: $pink-btn-border;
-    color: $pink-btn-color;
-    background-color: $pink-btn-bg-color;
+    &.btn-pink {
+        border: $pink-btn-border;
+        color: $pink-btn-color;
+        background-color: $pink-btn-bg-color;
 
-    &:hover,
-    &:active {
-      color: $pink-btn-hover-color;
-      background: $pink-btn-hover-bg-color;
-      border: $pink-btn-hover-border;
+        &:hover,
+        &:active {
+            color: $pink-btn-hover-color;
+            background: $pink-btn-hover-bg-color;
+            border: $pink-btn-hover-border;
+        }
     }
-  }
 }
-
-.news-inner {
-  padding: 2rem;
-  background-color: $featured-news-bg-color;
-  color: $featured-news-color;
-
-  .news-heading {
-    @include font-size(__remify(40px), __remify(60px), 900);
-    color: $featured-news-main-heading-color;
-  }
-
-  .card {
-    padding: 1rem 0;
-
-    .card-header {
-      @include font-size(__remify(19px), __remify(25px), 900);
-      color: $featured-news-title-color;
-      text-transform: capitalize;
-
-      &:hover,
-      &:active {
-        color: $featured-news-title-hover-color;
-      }
-    }
-
-    &:not(:last-of-type)::after {
-      content: '';
-      height: 1px;
-      width: 100%;
-      background-color: $featured-news-separator-color;
-      display: inline-block;
-      @include padding-x(auto);
-    }
-  }
-}
-
 
 .card {
-  @include margin-y(1rem);
+
+
+    @extend %no-overflow;
+
+    .card-img img {
+        object: {
+            position: center;
+            fit: cover;
+        }
+    }
+
+    .card-header {
+        @include font-size(1.9375rem, 1.5625rem, 900);
+        color: $card-heading-color;
+        margin-bottom: .75rem;
+    }
+
+    .card-title {
+        @include font-size(1.1875rem, 1.5625rem, 900);
+        text-transform: capitalize;
+        color: $card-title-color;
+
+        &:hover,
+        &:active {
+            color: $card-title-hover-color;
+        }
+    }
 }
 
-#main {
 
-  p {
-    @include font-size(__remify(15px), __remify(25px));
-  }
+.news {
+    padding: 2rem;
+    background-color: $featured-news-bg-color;
+    color: $featured-news-color;
 
-  @include md {
-    .news {
-      margin-left: 1rem;
+    .news-heading {
+        @include font-size(__remify(40px), __remify(60px), 900);
+        color: $featured-news-main-heading-color;
     }
-  }
 
+
+
+    .card {
+        @include padding-y(2rem);
+
+        // padding: 1rem 0;
+        .card-title {
+            color: $featured-news-title-color;
+            text-transform: capitalize;
+
+            &:hover,
+            &:active {
+                color: $featured-news-title-hover-color;
+            }
+        }
+
+        .card-header {
+            @include font-size(__remify(19px), __remify(25px), 900);
+            color: $featured-news-title-color;
+            text-transform: capitalize;
+
+            &:hover,
+            &:active {
+                color: $featured-news-title-hover-color;
+            }
+        }
+
+        &:not(:last-of-type)::after {
+            content: '';
+            height: 1px;
+            width: 100%;
+            background-color: $featured-news-separator-color;
+            display: inline-block;
+            @include padding-x(auto);
+
+
+        }
+    }
+}
+
+
+
+
+#main {
+    @include md {
+        .news {
+            margin-left: 1rem;
+        }
+    }
+
+}
+
+
+
+
+
+.col {
+    @include col;
 }

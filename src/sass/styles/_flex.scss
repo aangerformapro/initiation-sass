@@ -1,9 +1,8 @@
-@use '../helpers/breakpoints' as *;
+@use '../helpers' as *;
 
 
 
 .container,
-.header-inner,
 .card {
     display: flex;
 }
@@ -11,19 +10,25 @@
 #main {
     flex-direction: column;
 
-
     @include md {
         flex-direction: row;
     }
 }
 
 
+
+
 .news-inner {
     display: flex;
     flex-direction: column;
 
-    .heading {
+    .news-heading {
         margin-bottom: auto;
+    }
+
+    .card {
+        flex-direction: column;
+
     }
 }
 
@@ -42,15 +47,6 @@
 header {
     align-items: center;
 
-    &.overlay {
-        align-items: flex-start;
-    }
-
-
-    .header-inner {
-        align-items: center;
-    }
-
     @include md {
         nav {
             display: flex;
@@ -58,15 +54,5 @@ header {
             align-items: flex-start;
         }
 
-    }
-}
-
-.overlay nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    a {
-        display: unset;
     }
 }
