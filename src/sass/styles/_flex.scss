@@ -1,73 +1,72 @@
 @use '../helpers/breakpoints' as *;
 
-.flexbox {
 
-    .container,
-    .header-inner,
-    .card {
-        display: flex;
+
+.container,
+.header-inner,
+.card {
+    display: flex;
+}
+
+#main {
+    flex-direction: column;
+
+
+    @include md {
+        flex-direction: row;
+    }
+}
+
+
+.news-inner {
+    display: flex;
+    flex-direction: column;
+
+    .heading {
+        margin-bottom: auto;
+    }
+}
+
+.related {
+    flex-direction: column;
+
+    @include lg {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+header {
+    align-items: center;
+
+    &.overlay {
+        align-items: flex-start;
     }
 
-    #main {
-        flex-direction: column;
 
-
-        @include md {
-            flex-direction: row;
-        }
-    }
-
-
-    .news-inner {
-        display: flex;
-        flex-direction: column;
-
-        .heading {
-            margin-bottom: auto;
-        }
-    }
-
-    .related {
-        flex-direction: column;
-
-        @include lg {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
-
-
-
-
-    header {
+    .header-inner {
         align-items: center;
+    }
 
-        &.overlay {
+    @include md {
+        nav {
+            display: flex;
+            justify-items: center;
             align-items: flex-start;
         }
 
-
-        .header-inner {
-            align-items: center;
-        }
-
-        @include md {
-            nav {
-                display: flex;
-                justify-items: center;
-                align-items: flex-start;
-            }
-
-        }
     }
+}
 
-    .overlay nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+.overlay nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-        a {
-            display: unset;
-        }
+    a {
+        display: unset;
     }
 }

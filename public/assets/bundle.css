@@ -2,11 +2,7 @@
  * Main styles
  */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-#border-box {
-  box-sizing: border-box;
-}
-
-#no-overflow, .container, .card {
+.container {
   overflow: hidden;
 }
 
@@ -43,8 +39,16 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-size: 3.75rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3.75rem;
+}
+
 .container {
-  width: 90%;
+  width: 90vw;
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
@@ -101,92 +105,33 @@ header nav a:hover:before, header nav a:active:before {
   left: 25%;
   right: 25%;
 }
-header .burger-btn {
-  transition: 1s;
-}
-header .burger-btn rect {
-  transition: 0.75s;
-}
-header .header-inner {
-  height: 8.75rem;
-  width: 90vw;
-  overflow: hidden;
-}
 header .logo {
   margin-right: auto;
   height: 2.75rem;
+  line-height: 2.75rem;
   overflow: hidden;
 }
 header .nav-btn {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-#main {
-  font-size: 0.9375rem;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
-}
-#main > .article {
+.article {
   color: #000;
   padding-bottom: 2rem;
 }
-#main > .article .picture {
+.article .picture {
   overflow: hidden;
   width: 100%;
 }
-#main > .article .picture img {
+.article .picture img {
   width: 100%;
   height: 20.25rem;
   object-position: center;
   object-fit: cover;
 }
-#main > .article .heading {
-  font-size: 3.75rem;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 3.75rem;
+.article .heading {
   color: #333;
-}
-#main .news-inner {
-  padding: 2rem;
-  background-color: #333;
-  color: #FFF;
-}
-#main .news-inner > .heading {
-  font-size: 2.5rem;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 3.75rem;
-  color: #BBACC1;
-}
-#main .news-inner .article {
-  padding: 1rem 0;
-}
-#main .news-inner .article .heading {
-  font-size: 1.1875rem;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
-  color: #F1DEDE;
-  text-transform: capitalize;
-}
-#main .news-inner .article .heading:hover, #main .news-inner .article .heading:active {
-  color: #FFF;
-}
-#main .news-inner .article:not(:last-of-type)::after {
-  content: "";
-  height: 1px;
-  width: 100%;
-  background-color: #FFF;
-  display: inline-block;
-  padding-left: auto;
-  padding-right: auto;
 }
 
 .btn {
@@ -215,250 +160,55 @@ header .nav-btn {
   border: 1px solid #333;
 }
 
-.card {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  width: 21.875rem;
-  height: 8.6875rem;
+.news-inner {
+  padding: 2rem;
+  background-color: #333;
+  color: #FFF;
 }
-.card .thumb {
-  width: 6.8125rem;
-  height: 8.6875rem;
-  object-position: center;
-  object-fit: cover;
-}
-.card .content {
-  float: left;
-  width: 15.0625rem;
-  color: #000;
-  padding: 0.3125rem 0 0 1.5rem;
-}
-.card .content .heading {
-  font-size: 1.9375rem;
+.news-inner .news-heading {
+  font-size: 2.5rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.5625rem;
-  color: #333;
-  margin-bottom: 0.75rem;
+  line-height: 3.75rem;
+  color: #BBACC1;
 }
-.card .content .title {
+.news-inner .card {
+  padding: 1rem 0;
+}
+.news-inner .card .card-header {
   font-size: 1.1875rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5625rem;
-  color: #BBACC1;
+  color: #F1DEDE;
   text-transform: capitalize;
 }
-.card .content .title:hover, .card .content .title:active {
-  color: #F1DEDE;
-}
-.card .content p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-@keyframes fadeInRightBig {
-  0% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes fadeOutRightBig {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
-}
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  50% {
-    opacity: 1;
-  }
-}
-@keyframes zoomOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 98;
-  position: absolute;
-  color: rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
-  z-index: -1;
-  visibility: hidden;
-  margin: 0;
-  max-width: none;
-  max-width: initial;
-  animation-name: fadeOut;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
-}
-.overlay a {
-  color: #CCC;
-}
-.overlay a:hover, .overlay a:active {
+.news-inner .card .card-header:hover, .news-inner .card .card-header:active {
   color: #FFF;
 }
-.overlay .logo img {
-  filter: invert(100%);
-}
-.overlay .logo:hover img {
-  filter: invert(100%) contrast(100);
-}
-.overlay .header-inner {
-  margin: 2.5rem 5vw 1rem 5vw;
-}
-.overlay.open {
-  background-color: #000;
-  color: #CCC;
-  z-index: 100;
-  visibility: visible;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
-}
-.overlay.open nav {
-  position: absolute;
-  top: 14.75rem;
-  left: 5vw;
-  width: 90vw;
-  height: calc(95vh - 14.75rem);
-  z-index: 98;
-  display: block;
-  max-height: 95vh;
-  font-size: 2.5rem;
-  line-height: 3rem;
-  width: 75vw;
-  animation-name: fadeInRightBig;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
-}
-.overlay.open nav a {
-  display: block;
-  text-align: left;
-}
-.overlay.open nav a:before {
-  content: none;
-}
-.overlay.open nav a:hover, .overlay.open nav a:active {
-  font-size: 2.75rem;
-}
-.overlay:not(.closing) .burger-btn {
-  rotate: -45deg;
-}
-.overlay:not(.closing) .burger-btn :nth-child(1) {
-  rotate: 90deg;
-  y: -1.375rem;
-}
-.overlay:not(.closing) .burger-btn :nth-child(2) {
-  y: 1.125rem;
-}
-.overlay:not(.closing) .burger-btn :nth-child(3) {
-  rotate: 90deg;
-  x: 0;
-  y: -1.375rem;
-}
-.overlay.closing .burger-btn {
-  rotate: 0;
-}
-.overlay.closing nav {
-  animation-name: fadeOutRightBig;
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
+.news-inner .card:not(:last-of-type)::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #FFF;
+  display: inline-block;
+  padding-left: auto;
+  padding-right: auto;
 }
 
-.flexbox .container,
-.flexbox .header-inner,
-.flexbox .card {
-  display: flex;
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-.flexbox #main {
-  flex-direction: column;
-}
-.flexbox .news-inner {
-  display: flex;
-  flex-direction: column;
-}
-.flexbox .news-inner .heading {
-  margin-bottom: auto;
-}
-.flexbox .related {
-  flex-direction: column;
-}
-.flexbox header {
-  align-items: center;
-}
-.flexbox header.overlay {
-  align-items: flex-start;
-}
-.flexbox header .header-inner {
-  align-items: center;
-}
-.flexbox .overlay nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.flexbox .overlay nav a {
-  display: inline;
-  display: initial;
+
+#main p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5625rem;
 }
 
 @media (max-width: 768px){
@@ -468,30 +218,15 @@ header .nav-btn {
 }
 
 @media (min-width: 768px){
-  header:not(.overlay) .nav-btn {
+  header .nav-btn {
     display: none;
   }
-  #main > .article {
+  .article {
     width: 49.5625rem;
     margin-bottom: 0;
   }
   #main .news {
     margin-left: 1rem;
-  }
-  .flexbox #main {
-    flex-direction: row;
-  }
-  .flexbox header nav {
-    display: flex;
-    justify-items: center;
-    align-items: flex-start;
-  }
-}
-
-@media (min-width: 992px){
-  .flexbox .related {
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 

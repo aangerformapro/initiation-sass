@@ -1,113 +1,113 @@
 @mixin font-size($font-size,
-    $line-height: 1.2,
-    $font-weight: 400,
-    $font-style: normal,
-    $font-stretch: normal,
+  $line-height: 1.2,
+  $font-weight: 400,
+  $font-style: normal,
+  $font-stretch: normal,
 
 ) {
-    @if $font-size {
+  @if $font-size {
 
-        font: {
-            size: $font-size;
-            weight: $font-weight;
-            style: $font-style;
-            stretch: $font-stretch;
-        }
-
-        line-height: $line-height;
+    font: {
+      size: $font-size;
+      weight: $font-weight;
+      style: $font-style;
+      stretch: $font-stretch;
     }
+
+    line-height: $line-height;
+  }
 }
 
 
 @mixin font-family($font-family,
-    $font-size: 16px,
-    $line-height: 1.2,
-    $font-weight: 400,
-    $font-style: normal,
-    $font-stretch: normal,
+  $font-size: 16px,
+  $line-height: 1.2,
+  $font-weight: 400,
+  $font-style: normal,
+  $font-stretch: normal,
 ) {
-    @if $font-family {
-        font-family: $font-family, sans-serif;
+  @if $font-family {
+    font-family: $font-family, sans-serif;
 
-        @include font-size($font-size, $line-height, $font-weight, $font-style, $font-stretch)
-    }
+    @include font-size($font-size, $line-height, $font-weight, $font-style, $font-stretch)
+  }
 }
 
 
 @mixin visually-hidden {
-    position: absolute;
-    color: #00000000;
-    background: #00000000;
-    z-index: -1;
-    visibility: hidden;
+  position: absolute;
+  color: #00000000;
+  background: #00000000;
+  z-index: -1;
+  visibility: hidden;
 }
 
 
 @mixin margin-x($value) {
 
-    @if $value {
-        margin: {
-            left: $value;
-            right: $value;
-        }
+  @if $value {
+    margin: {
+      left: $value;
+      right: $value;
     }
+  }
 
 }
 
 
 @mixin margin-y($value) {
-    @if $value {
-        margin: {
-            top: $value;
-            bottom: $value;
-        }
+  @if $value {
+    margin: {
+      top: $value;
+      bottom: $value;
     }
+  }
 }
 
 @mixin padding-x($value) {
-    @if $value {
-        padding: {
-            left: $value;
-            right: $value;
-        }
+  @if $value {
+    padding: {
+      left: $value;
+      right: $value;
     }
+  }
 }
 
 
 @mixin padding-y($value) {
-    @if $value {
-        padding: {
-            top: $value;
-            bottom: $value;
-        }
+  @if $value {
+    padding: {
+      top: $value;
+      bottom: $value;
     }
+  }
 }
 
 
 @mixin overlay ($top: 0,
-    $left: 0,
-    $width: 100%,
-    $height: 100%,
-    $z-index: 98) {
-    position: absolute;
-    top: $top;
-    left: $left;
-    width: $width;
-    height: $height;
-    z-index: $z-index;
-    //  overflow-y: scroll;
+  $left: 0,
+  $width: 100%,
+  $height: 100%,
+  $z-index: 98) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+  z-index: $z-index;
+  //  overflow-y: scroll;
 }
 
-#border-box {
-    box-sizing: border-box;
+%border-box {
+  box-sizing: border-box;
 }
 
-#no-overflow {
-    overflow: hidden;
+%no-overflow {
+  overflow: hidden;
 }
 
 @mixin make-container($padding-x: 0) {
-    width: 100%;
-    @include padding-x($padding-x);
-    @include margin-x(auto);
+  width: 100%;
+  @include padding-x($padding-x);
+  @include margin-x(auto);
 }
