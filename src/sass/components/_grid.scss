@@ -1,0 +1,83 @@
+@use '../helpers' as *;
+
+
+@mixin generate-grid($max: 12, $prefix: ".col", $container: ".row")
+{
+
+
+
+    #{$container}
+    {
+
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    #{$container} > *
+    {
+        box-sizing: border-box;
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    #{$prefix}
+    {
+        flex: 1 0 0%;
+    }
+
+    #{$prefix}-auto
+    {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $max
+    {
+        $width: ($i / $max) * 100%;
+
+        #{$prefix}-#{$i}
+        {
+            flex: 0 0 auto;
+            width: $width;
+        }
+
+        @each $name,
+        $size in $bootstrap-breakpoints
+        {
+
+            @if $name !="xs"
+
+            {
+
+
+                @include breakpoint-up($size)
+                {
+
+                    @if $i ==1
+                    {
+                        #{$prefix}-#{$name}
+                        {
+                            flex: 1 0 0%;
+                        }
+                    }
+
+                    #{$prefix}-#{$name}-#{$i}
+                    {
+                        flex: 0 0 auto;
+                        width: $width;
+                    }
+                }
+            }
+
+
+        }
+
+
+
+
+    }
+
+}

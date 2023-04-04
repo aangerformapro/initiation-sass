@@ -1,16 +1,19 @@
 @use '../helpers' as *;
-
+@use '../components' as *;
 
 
 .container,
-.card {
+.card
+{
     display: flex;
 }
 
-#main {
+#main
+{
     flex-direction: column;
 
-    @include md {
+    @include md
+    {
         flex-direction: row;
     }
 }
@@ -18,24 +21,29 @@
 
 
 
-.news-inner {
+.news-inner
+{
     display: flex;
     flex-direction: column;
 
-    .news-heading {
+    .news-heading
+    {
         margin-bottom: auto;
     }
 
-    .card {
+    .card
+    {
         flex-direction: column;
 
     }
 }
 
-.related {
+.related
+{
     flex-direction: column;
 
-    @include lg {
+    @include lg
+    {
         flex-direction: row;
         justify-content: space-between;
     }
@@ -44,11 +52,14 @@
 
 
 
-header {
+header
+{
     align-items: center;
 
-    @include md {
-        nav {
+    @include md
+    {
+        nav
+        {
             display: flex;
             justify-items: center;
             align-items: flex-start;
@@ -56,3 +67,6 @@ header {
 
     }
 }
+
+
+@include generate-grid;

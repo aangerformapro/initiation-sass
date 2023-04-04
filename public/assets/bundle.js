@@ -6,7 +6,7 @@ const { document: document$1, JSON } = global;
 const isPlainObject = (param) => param instanceof Object && Object.getPrototypeOf(param) === Object.prototype,
     isString = (param) => typeof param === 'string',
     isCallable = (param) => typeof param === 'function',
-    isFunction = isCallable;
+    isFunction = isCallable;
 
 function runAsync(callback, ...args) {
     if (isFunction(callback)) {

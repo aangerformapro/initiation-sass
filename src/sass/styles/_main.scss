@@ -10,23 +10,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 
-html {
+html
+{
     font-size: 100%;
 }
 
 
 *,
 ::before,
-::after {
+::after
+{
     box-sizing: border-box;
 }
 
 [hidden],
-[hidden] * {
+[hidden] *
+{
     display: none !important;
 }
 
-body {
+body
+{
     min-height: 100vh;
     margin: 0;
     @include font-family('Inter', 1rem);
@@ -36,26 +40,31 @@ body {
 }
 
 
-a {
+a
+{
     text-decoration: none;
 }
 
-h1 {
+h1
+{
     @include font-size(__remify(60px), __remify(60px), 900);
 }
 
 
-p {
+p
+{
     @include font-size(__remify(15px), __remify(25px));
 
-    margin: {
+    margin:
+    {
         top: 0;
         bottom: 2rem;
     }
 }
 
 
-.container {
+.container
+{
     @extend %no-overflow;
     width: 90vw;
     max-width: __remify(1200px);
@@ -65,7 +74,8 @@ p {
 }
 
 
-header {
+header
+{
     height: 8.75rem;
     margin-top: 2.5rem;
     color: $header-color;
@@ -73,29 +83,35 @@ header {
 
     user-select: none;
 
-    a {
+    a
+    {
         color: $header-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $header-color;
         }
     }
 
-    nav {
+    nav
+    {
         text-align: center;
         @include font-size(__remify(17px), __remify(21px));
 
-        a {
+        a
+        {
             padding: .75rem 0;
             margin-right: 2rem;
             position: relative;
 
-            &:last-child {
+            &:last-child
+            {
                 margin-right: 0;
             }
 
-            &:before {
+            &:before
+            {
                 position: absolute;
                 content: '';
                 bottom: .25rem;
@@ -108,11 +124,13 @@ header {
             }
 
             &:hover,
-            &:active {
+            &:active
+            {
                 font-weight: 700;
                 text-shadow: $box-shadow;
 
-                &:before {
+                &:before
+                {
                     left: 25%;
                     right: 25%;
                 }
@@ -120,23 +138,27 @@ header {
 
         }
 
-        @include md-down {
+        @include md-down
+        {
             display: none;
         }
 
     }
 
-    .logo {
+    .logo
+    {
         margin-right: auto;
         height: __remify(44px);
         line-height: __remify(44px);
         overflow: hidden;
     }
 
-    .nav-btn {
+    .nav-btn
+    {
         @include sizer(__remify(40px));
 
-        @include md {
+        @include md
+        {
             display: none;
         }
     }
@@ -144,47 +166,56 @@ header {
 
 }
 
-.picture {
+.picture
+{
     overflow: hidden;
     width: 100%;
 
-    img {
+    img
+    {
         width: 100%;
         height: 20.25rem;
 
-        object: {
+        object:
+        {
             position: center;
             fit: cover;
         }
     }
 }
 
-.article {
+.article
+{
     color: $main-content-color;
     padding-bottom: 2rem;
 
 
 
-    .heading {
+    .heading
+    {
         color: $main-heading-color;
     }
 
-    @include md {
+    @include md
+    {
         width: __remify(793px);
         margin-bottom: 0;
     }
 }
 
-.btn {
+.btn
+{
     @include button(__remify(17px), __remify(25px));
 
-    &.btn-pink {
+    &.btn-pink
+    {
         border: $pink-btn-border;
         color: $pink-btn-color;
         background-color: $pink-btn-bg-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $pink-btn-hover-color;
             background: $pink-btn-hover-bg-color;
             border: $pink-btn-hover-border;
@@ -192,75 +223,89 @@ header {
     }
 }
 
-.card {
+.card
+{
 
 
     @extend %no-overflow;
 
-    .card-img img {
-        object: {
+    .card-img img
+    {
+        object:
+        {
             position: center;
             fit: cover;
         }
     }
 
-    .card-header {
+    .card-header
+    {
         @include font-size(1.9375rem, 1.5625rem, 900);
         color: $card-heading-color;
         margin-bottom: .75rem;
     }
 
-    .card-title {
+    .card-title
+    {
         @include font-size(1.1875rem, 1.5625rem, 900);
         text-transform: capitalize;
         color: $card-title-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $card-title-hover-color;
         }
     }
 }
 
 
-.news {
+.news
+{
     padding: 2rem;
     background-color: $featured-news-bg-color;
     color: $featured-news-color;
 
-    .news-heading {
+    .news-heading
+    {
         @include font-size(__remify(40px), __remify(60px), 900);
         color: $featured-news-main-heading-color;
     }
 
 
 
-    .card {
+    .card
+    {
         @include padding-y(2rem);
 
         // padding: 1rem 0;
-        .card-title {
+        .card-title
+        {
             color: $featured-news-title-color;
             text-transform: capitalize;
 
             &:hover,
-            &:active {
+            &:active
+            {
                 color: $featured-news-title-hover-color;
             }
         }
 
-        .card-header {
+        .card-header
+        {
             @include font-size(__remify(19px), __remify(25px), 900);
             color: $featured-news-title-color;
             text-transform: capitalize;
 
             &:hover,
-            &:active {
+            &:active
+            {
                 color: $featured-news-title-hover-color;
             }
         }
 
-        &:not(:last-of-type)::after {
+        &:not(:last-of-type)::after
+        {
             content: '';
             height: 1px;
             width: 100%;
@@ -276,19 +321,14 @@ header {
 
 
 
-#main {
-    @include md {
-        .news {
+#main
+{
+    @include md
+    {
+        .news
+        {
             margin-left: 1rem;
         }
     }
 
-}
-
-
-
-
-
-.col {
-    @include col;
 }

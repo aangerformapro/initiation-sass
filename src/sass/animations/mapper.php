@@ -74,7 +74,7 @@ $all = [
     'properties' => $root . '_properties.scss',
 ];
 
-foreach (getImports($root . 'animate.scss') as $animation => $file) {
+foreach (getImports($root . 'animate.scss') as  $file) {
 
     $all += getImports($file);
 }
