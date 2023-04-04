@@ -11,23 +11,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 
-html {
+html
+{
     font-size: 100%;
 }
 
 
 *,
 ::before,
-::after {
+::after
+{
     box-sizing: border-box;
 }
 
 [hidden],
-[hidden] * {
+[hidden] *
+{
     display: none !important;
 }
 
-body {
+body
+{
     min-height: 100vh;
     margin: 0;
     @include font-family('Inter', 1rem);
@@ -37,11 +41,13 @@ body {
 }
 
 
-a {
+a
+{
     text-decoration: none;
 }
 
-h1 {
+h1
+{
     @include font-size(3.75rem, 3.75rem, 900);
     color: $main-heading-color;
     @include padding-y(.5rem);
@@ -49,36 +55,43 @@ h1 {
 }
 
 
-p {
+p
+{
     @include font-size(15px, 25px);
     padding: 1rem 0;
 
-    margin: {
+    margin:
+    {
         top: 0;
-        bottom: 2rem;
+        bottom: 1rem;
     }
 }
 
 
-.container {
+.container
+{
     @extend %no-overflow;
     width: 90vw;
     max-width: 1200px;
     @include margin-x(auto);
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
 
-    &+.container {
+    & + .container
+    {
         margin-top: 1rem;
     }
 }
 
 
-header {
+header
+{
     display: flex;
     height: 60px;
 
-    margin: {
+    margin:
+    {
         top: 2.5rem;
         bottom: 42px;
     }
@@ -88,16 +101,19 @@ header {
     user-select: none;
 
 
-    a {
+    a
+    {
         color: $header-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $header-hover-color;
         }
     }
 
-    nav {
+    nav
+    {
         display: flex;
         text-align: center;
         @include font-size(17px, 21px);
@@ -105,16 +121,19 @@ header {
         justify-items: center;
         align-items: flex-start;
 
-        a {
+        a
+        {
             padding: .75rem 0;
             margin-right: 2rem;
             position: relative;
 
-            &:last-child {
+            &:last-child
+            {
                 margin-right: 0;
             }
 
-            &:before {
+            &:before
+            {
                 position: absolute;
                 content: '';
                 bottom: .25rem;
@@ -127,11 +146,13 @@ header {
             }
 
             &:hover,
-            &:active {
+            &:active
+            {
                 font-weight: 700;
                 text-shadow: $box-shadow;
 
-                &:before {
+                &:before
+                {
                     left: 25%;
                     right: 25%;
                 }
@@ -139,23 +160,27 @@ header {
 
         }
 
-        @include md-down {
+        @include lg-down
+        {
             display: none;
         }
 
     }
 
-    .logo {
+    .logo
+    {
         margin-right: auto;
         height: __remify(44px);
         line-height: __remify(44px);
         overflow: hidden;
     }
 
-    .nav-btn {
+    .nav-btn
+    {
         @include sizer(40px);
 
-        @include md {
+        @include lg
+        {
             display: none;
         }
     }
@@ -166,16 +191,19 @@ header {
 
 
 
-.btn {
+.btn
+{
     @include button(17px, 25px);
 
-    &.btn-pink {
+    &.btn-pink
+    {
         border: $pink-btn-border;
         color: $pink-btn-color;
         background-color: $pink-btn-bg-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $pink-btn-hover-color;
             background: $pink-btn-hover-bg-color;
             border: $pink-btn-hover-border;
@@ -183,7 +211,8 @@ header {
     }
 }
 
-.card {
+.card
+{
 
     display: flex;
     flex-direction: column;
@@ -193,120 +222,157 @@ header {
 
 
 
-    .card-header {
+    .card-header
+    {
         @include font-size(1.9375rem, 1.5625rem, 900);
         color: $card-heading-color;
         margin-bottom: .75rem;
     }
 
-    .card-title {
+    .card-title
+    {
         @include font-size(1.1875rem, 1.5625rem, 900);
         text-transform: capitalize;
         color: $card-title-color;
 
         &:hover,
-        &:active {
+        &:active
+        {
             color: $card-title-hover-color;
         }
     }
 }
 
-.main-article {
+.main-article
+{
 
-    .picture {
+    .picture
+    {
         @extend %no-overflow;
         width: 100%;
         max-width: 793px;
 
-        img {
+
+        img
+        {
             width: 100%;
             height: 20.25rem;
 
-            object: {
+            object:
+            {
                 position: center;
                 fit: cover;
             }
         }
+
+        @include lg
+        {
+            aspect-ratio: 793 / 324;
+        }
+
     }
 
-    .article {
+    .article
+    {
 
         margin: 2rem 0;
         max-width: 793px;
         color: $main-content-color;
         padding-bottom: 2rem;
 
-        .heading {
+        display: flex;
+        flex-direction: column;
+
+        .heading
+        {
             color: $main-heading-color;
+        }
+
+        @include lg
+        {
+            flex-direction: row;
         }
 
 
     }
 }
 
-#main {
+#main
+{
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 
-    .main-article {
+    .main-article
+    {
         display: flex;
         flex-direction: column;
 
     }
 
-    .news {
+    .news
+    {
         flex-direction: column;
         flex-shrink: 1 0 auto;
     }
 
-    @include md {
+    @include lg
+    {
         flex-direction: row;
 
-        .main-article {
+        .main-article
+        {
             padding-right: 1rem;
         }
     }
 
 }
 
-.news {
+.news
+{
     padding: 2rem;
     background-color: $featured-news-bg-color;
     color: $featured-news-color;
 
-    .news-heading {
+    .news-heading
+    {
         @include font-size(__remify(40px), __remify(60px), 900);
         color: $featured-news-main-heading-color;
     }
 
-    .card {
+    .card
+    {
         padding-top: 2rem;
 
         // padding: 1rem 0;
-        .card-title {
+        .card-title
+        {
             color: $featured-news-title-color;
             text-transform: capitalize;
 
             &:hover,
-            &:active {
+            &:active
+            {
                 color: $featured-news-title-hover-color;
             }
         }
 
-        .card-header {
+        .card-header
+        {
             @include font-size(__remify(19px), __remify(25px), 900);
             color: $featured-news-title-color;
             text-transform: capitalize;
 
             &:hover,
-            &:active {
+            &:active
+            {
                 color: $featured-news-title-hover-color;
             }
         }
 
-        &:not(:last-of-type) {
+        &:not(:last-of-type)
+        {
             border-bottom: 1px solid $featured-news-separator-color;
         }
 
@@ -314,22 +380,32 @@ header {
 }
 
 
-.related {
+.related
+{
 
 
     flex-direction: column;
 
+    justify-content: space-between;
 
-    .card {
+    .card
+    {
 
         flex-direction: row;
         height: 139px;
+        width: 350px;
+
 
         @include margin-y(1.5rem);
 
-        .card-img {
-            img {
-                object: {
+        .card-img
+        {
+            margin-right: 1.5rem;
+
+            img
+            {
+                object:
+                {
                     position: center;
                     fit: cover;
                 }
@@ -339,13 +415,15 @@ header {
 
         }
 
-        .card-body {
+        .card-body
+        {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            @include padding-x(1.43rem);
+            // @include padding-x(1.43rem);
 
-            &>* {
+            & > *
+            {
                 padding: 0;
                 margin: 0;
             }
@@ -355,10 +433,8 @@ header {
 
     }
 
-    @include lg {
+    @include lg
+    {
         flex-direction: row;
     }
 }
-
-
-@include generate-grid;
