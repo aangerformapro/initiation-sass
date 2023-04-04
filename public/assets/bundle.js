@@ -2,9 +2,15 @@
 
 const global = typeof unsafeWindow !== 'undefined' ? unsafeWindow : globalThis;
 const { document: document$1, JSON } = global;
+const RE_NUMERIC = /^\d?\.?\d+$/;
 
 const isPlainObject = (param) => param instanceof Object && Object.getPrototypeOf(param) === Object.prototype,
     isString = (param) => typeof param === 'string',
+    isNumber = (param) => typeof param === 'number',
+    isInt = (param) => Number.isInteger(param),
+    isFloat = (param) => isNumber(param) && !isInt(param) && !isNaN(param),
+    isNumeric = (param) => isInt(param) || isFloat(param) || RE_NUMERIC.test(param),
+    intVal = (param) => isNumeric(param) && parseInt(param),
     isCallable = (param) => typeof param === 'function',
     isFunction = isCallable;
 
@@ -300,7 +306,7 @@ class NoScroll {
 
         let pos = Math.max(0, document.documentElement.scrollTop);
         this.#scrollTop = pos;
-        //this.#getStylesheet().innerHTML = `html.noscroll{top:-${pos}px;}`;
+        this.#getStylesheet().innerHTML = `html.noscroll{top:-${pos}px;}`;
         document.documentElement.classList.add('noscroll');
         this.trigger('enabled');
         return true;
@@ -332,4 +338,142 @@ class NoScroll {
 
 
 EventManager.mixin(NoScroll);
+
+class Overlay {
+
+    #container
+    get open() {
+        return this.#container.hidden !== true;
+    }
+
+
+    constructor(container) {
+
+        if (container instanceof Element === false) {
+
+            container = createElement('div', { class: 'overlay', hidden: true });
+
+            document.body.appendChild(container);
+            //throw new TypeError('container not an Element');
+        }
+
+        EventManager.mixin(this);
+        this.#container = container;
+
+    }
+
+
+    async toggle(delay = 0) {
+        if (this.open) {
+            return await this.hide(delay);
+        }
+        return await this.show(delay);
+    }
+
+    #getDelay(delay) {
+
+        if (delay < 31 || isFloat(delay)) {
+            delay = intVal(delay * 1000);
+        }
+        if (!isInt(delay)) {
+            throw new TypeError('delay is not an Integer');
+        }
+        return Math.max(0, delay);
+
+    }
+
+
+    show(delay = 0) {
+
+        return new Promise(resolve => {
+
+            if (this.open) {
+                return resolve(true);
+            }
+            delay = this.#getDelay(delay);
+
+
+            this.trigger('show', this.#container);
+
+            NoScroll.enable().then(() => {
+
+                setTimeout(() => {
+                    this.#container.hidden = null;
+                    this.trigger('open', this.#container);
+                    resolve(true);
+                }, delay);
+
+
+            });
+
+
+
+
+        });
+
+    }
+
+    hide(delay = 0) {
+
+
+        return new Promise(resolve => {
+            if (!this.open) {
+                return resolve(true);
+            }
+
+            delay = this.#getDelay(delay);
+            this.trigger('hide', this.#container);
+
+            setTimeout(() => {
+
+                NoScroll.disable().then(() => {
+                    this.trigger('close', this.#container);
+                    this.#container.hidden = true;
+                    resolve(true);
+                });
+
+            }, delay);
+        });
+
+
+
+    }
+
+}
+
+const overlay = new Overlay(), delay = {
+    show: 0,
+    hide: 1.2,
+}, { body } = document;
+
+
+
+overlay
+    .on('hide', () => {
+
+        body.classList.add('menu-closing');
+    })
+    .on('close', () => {
+        body.classList.remove('menu-closing', 'menu-shown');
+    })
+    .on('show', () => {
+        body.classList.remove('menu-closing');
+        body.classList.add('menu-showing');
+    })
+    .on('open', () => {
+        body.classList.remove('menu-showing');
+        body.classList.add('menu-shown');
+    });
+
+
+
+
+addEventListener('click', e => {
+    if (e.target.closest('.nav-btn')) {
+        e.preventDefault();
+        overlay.open ? overlay.hide(delay.hide) : overlay.show(delay.show);
+    } else if (e.target.closest('.menu-shown nav a, .menu-shown .logo')) {
+        overlay.hide(delay.hide);
+    }
+});
 //# sourceMappingURL=bundle.js.map

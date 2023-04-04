@@ -1,8 +1,11 @@
 @use '../helpers' as *;
+@use '../components/burger' as *;
 
 header
 {
     display: flex;
+
+    justify-content: flex-end;
     height: 60px;
 
     margin:
@@ -27,60 +30,7 @@ header
         }
     }
 
-    nav
-    {
-        display: flex;
-        text-align: center;
-        @include font-size(17px, $line-height: 21px);
 
-        justify-items: center;
-        align-items: flex-start;
-
-        a
-        {
-            padding: .75rem 0;
-            margin-right: 2rem;
-            position: relative;
-
-            &:last-child
-            {
-                margin-right: 0;
-            }
-
-            &:before
-            {
-                position: absolute;
-                content: '';
-                bottom: .25rem;
-                left: 50%;
-                right: 50%;
-                height: 3px;
-                background: $header-color;
-                transition: .75s;
-
-            }
-
-            &:hover,
-            &:active
-            {
-                font-weight: 700;
-                text-shadow: $box-shadow;
-
-                &:before
-                {
-                    left: 25%;
-                    right: 25%;
-                }
-            }
-
-        }
-
-        @include lg-down
-        {
-            display: none;
-        }
-
-    }
 
     .logo
     {
@@ -88,15 +38,143 @@ header
         height: 44px;
         line-height: 44px;
         overflow: hidden;
+
     }
 
     .nav-btn
     {
         @include sizer(40px);
 
-        @include lg
+        @include md
         {
             display: none;
         }
     }
 }
+
+body:not(.menu-shown) .nav
+{
+    display: none;
+
+    @include font-size(17px, $line-height: 21px);
+    text-align: center;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    a
+    {
+        padding: .75rem 0;
+        margin-right: 2rem;
+        position: relative;
+
+        &:last-child
+        {
+            margin-right: 0;
+        }
+
+        &:before
+        {
+            position: absolute;
+            content: '';
+            bottom: .25rem;
+            left: 50%;
+            right: 50%;
+            height: 3px;
+            background: $header-color;
+            transition: .75s;
+
+        }
+
+        &:hover,
+        &:active
+        {
+            font-weight: 700;
+            text-shadow: $box-shadow;
+
+            &:before
+            {
+                left: 25%;
+                right: 25%;
+            }
+        }
+
+    }
+
+
+
+    @include md
+    {
+        display: flex;
+    }
+
+}
+
+.menu-shown
+{
+
+    .logo
+    {
+        position: absolute;
+        top: 40px;
+        left: 5vw;
+        z-index: 3;
+
+        img
+        {
+            filter: invert(100%);
+        }
+
+        &:hover img
+        {
+            filter: invert(100%) contrast(100);
+        }
+    }
+
+    .nav-btn
+    {
+        position: absolute;
+        top: 40px;
+        right: 5vw;
+        z-index: 3;
+        display: unset;
+        color: $overlay-color;
+
+        &:hover
+        {
+            color: $overlay-hover-color;
+        }
+    }
+
+    .nav
+    {
+        @include overlay($position: fixed);
+        z-index: 2;
+
+        background-color: $overlay-bg-color;
+        @include font-size(40px, $line-height: 48px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 50vh 25vw 5vh 5vw;
+
+        a
+        {
+            color: $overlay-color;
+            text-align: left;
+            font-weight: 700;
+            text-shadow: $box-shadow;
+
+            &:hover,
+            &:active
+            {
+                font-size: 44px;
+                color: $overlay-hover-color;
+            }
+        }
+    }
+
+
+}
+
+
+@include burger-btn-animation;

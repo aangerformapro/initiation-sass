@@ -1,0 +1,53 @@
+@use '../settings' as s;
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+@mixin animated-bounce (
+  $count: s.$count,
+  $duration: s.$duration,
+  $delay: s.$delay,
+  $timing-function: s.$timing-function,
+  $fill-mode: s.$fill-mode,
+  $visibility: s.$visibility)
+{
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: $count;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+  backface-visibility: $visibility;
+  animation-name: bounce;
+  transform-origin: center bottom;
+}
+
+%bounce {
+    @include animated-bounce;
+}

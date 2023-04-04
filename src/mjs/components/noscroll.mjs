@@ -34,7 +34,7 @@ export default class NoScroll {
 
         let pos = Math.max(0, document.documentElement.scrollTop);
         this.#scrollTop = pos;
-        //this.#getStylesheet().innerHTML = `html.noscroll{top:-${pos}px;}`;
+        this.#getStylesheet().innerHTML = `html.noscroll{top:-${pos}px;}`;
         document.documentElement.classList.add('noscroll');
         this.trigger('enabled');
         return true;

@@ -1,37 +1,39 @@
 
 import Overlay from "./components/overlay.mjs";
 
-if (false) {
-    const
-        //btn = document.querySelector('.nav-btn'),
-        header = document.querySelector('header').cloneNode(true),
-        overlay = new Overlay(header);
+const overlay = new Overlay(), delay = {
+    show: 0,
+    hide: 1.2,
+}, { body } = document;
 
 
 
+overlay
+    .on('hide', () => {
 
-    //header.hidden = true;
-
-    header.classList.add('overlay');
-    document.body.appendChild(header);
-
-
-    overlay.on('close', () => {
-        //  header.hidden = true;
-    }).on('show', () => {
-        //  btn.classList.add('clicked');
-        header.hidden = null;
+        body.classList.add('menu-closing');
+    })
+    .on('close', () => {
+        body.classList.remove('menu-closing', 'menu-shown');
+    })
+    .on('show', () => {
+        body.classList.remove('menu-closing');
+        body.classList.add('menu-showing');
+    })
+    .on('open', () => {
+        body.classList.remove('menu-showing');
+        body.classList.add('menu-shown');
     });
 
 
 
 
-    addEventListener('click', e => {
-        if (e.target.closest('.nav-btn')) {
-            e.preventDefault();
-            overlay.toggle(1.2);
-        } else if (e.target.closest('.open nav a, .open .logo')) {
-            overlay.hide(1.2);
-        }
-    });
-}
+addEventListener('click', e => {
+    if (e.target.closest('.nav-btn')) {
+        e.preventDefault();
+        overlay.open ? overlay.hide(delay.hide) : overlay.show(delay.show);
+    } else if (e.target.closest('.menu-shown nav a, .menu-shown .logo')) {
+        overlay.hide(delay.hide);
+    }
+});
+

@@ -1,0 +1,40 @@
+@use '../settings' as s;
+
+@keyframes bounceOut {
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  50%,
+  55% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+@mixin animated-bounceOut (
+  $count: s.$count,
+  $duration: s.$duration,
+  $delay: s.$delay,
+  $timing-function: s.$timing-function,
+  $fill-mode: s.$fill-mode,
+  $visibility: s.$visibility)
+{
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: $count;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+  backface-visibility: $visibility;
+  animation-duration: calc(var(--animate-duration) * 0.75);
+  animation-name: bounceOut;
+}
+
+%bounceOut {
+    @include animated-bounceOut;
+}

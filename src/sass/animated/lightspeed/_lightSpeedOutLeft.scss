@@ -1,0 +1,34 @@
+@use '../settings' as s;
+
+@keyframes lightSpeedOutLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0) skewX(-30deg);
+    opacity: 0;
+  }
+}
+@mixin animated-lightSpeedOutLeft (
+  $count: s.$count,
+  $duration: s.$duration,
+  $delay: s.$delay,
+  $timing-function: s.$timing-function,
+  $fill-mode: s.$fill-mode,
+  $visibility: s.$visibility)
+{
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: $count;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: $fill-mode;
+  backface-visibility: $visibility;
+  animation-name: lightSpeedOutLeft;
+  animation-timing-function: ease-in;
+}
+
+%lightSpeedOutLeft {
+    @include animated-lightSpeedOutLeft;
+}

@@ -1,60 +1,60 @@
-body
+@mixin burger-btn-animation
 {
-
-    .burger-btn
+    body
     {
-        transition: 1s;
 
-        rect
+        .burger-btn
         {
-            transition: .75s;
+            transition: 1s;
+
+            rect
+            {
+                transition: .75s;
+            }
         }
+
+
+        &.menu-shown
+        {
+            .nav-btn
+            {
+                position: absolute;
+
+            }
+
+            &:not(.menu-closing) .burger-btn
+            {
+
+                rotate: -45deg;
+
+                :nth-child(1)
+                {
+                    rotate: 90deg;
+                    y: -22px;
+                }
+
+                :nth-child(2)
+                {
+                    y: 18px;
+                }
+
+                :nth-child(3)
+                {
+                    rotate: 90deg;
+                    x: 0;
+                    y: -22px;
+                }
+
+            }
+
+            &.menu-closing
+            {
+                .burger-btn
+                {
+                    rotate: 0;
+                }
+            }
+        }
+
     }
-
-
-    .menu-shown
-    {
-        .nav-btn
-        {
-            position: absolute;
-
-        }
-
-        &:not(.menu-closing) .burger-btn
-        {
-
-            rotate: -45deg;
-
-            :nth-child(1)
-            {
-                rotate: 90deg;
-                y: -1.375rem;
-            }
-
-            :nth-child(2)
-            {
-                y: 1.125rem;
-            }
-
-            :nth-child(3)
-            {
-                rotate: 90deg;
-                x: 0;
-                //color: $transparent;
-                // width: 0;
-
-                y: -1.375rem;
-            }
-
-        }
-
-        &.menu-closing
-        {
-            .burger-btn
-            {
-                rotate: 0;
-            }
-        }
-    }
-
 }

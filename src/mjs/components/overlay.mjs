@@ -1,5 +1,5 @@
 import EventManager from "../helpers/event-manager.mjs";
-import { intVal, isFloat, isInt } from "../helpers/utils.mjs";
+import { createElement, intVal, isFloat, isInt } from "../helpers/utils.mjs";
 import NoScroll from "./noscroll.mjs";
 
 
@@ -9,14 +9,18 @@ export default class Overlay {
 
     #container
     get open() {
-        return this.#container.classList.contains('open');
+        return this.#container.hidden !== true;
     }
 
 
     constructor(container) {
 
         if (container instanceof Element === false) {
-            throw new TypeError('container not an Element');
+
+            container = createElement('div', { class: 'overlay', hidden: true });
+
+            document.body.appendChild(container);
+            //throw new TypeError('container not an Element');
         }
 
         EventManager.mixin(this);
@@ -60,7 +64,7 @@ export default class Overlay {
             NoScroll.enable().then(() => {
 
                 setTimeout(() => {
-                    this.#container.classList.add('overlay', 'open');
+                    this.#container.hidden = null;
                     this.trigger('open', this.#container);
                     resolve(true);
                 }, delay);
@@ -86,15 +90,11 @@ export default class Overlay {
             delay = this.#getDelay(delay);
             this.trigger('hide', this.#container);
 
-
-            this.#container.classList.add('closing');
-
-
             setTimeout(() => {
 
                 NoScroll.disable().then(() => {
-                    this.#container.classList.remove('open', 'closing');
                     this.trigger('close', this.#container);
+                    this.#container.hidden = true;
                     resolve(true);
                 });
 

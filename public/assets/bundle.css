@@ -69,6 +69,7 @@ p {
 
 header {
   display: flex;
+  justify-content: flex-end;
   height: 60px;
   margin-top: 40px;
   margin-bottom: 42px;
@@ -84,40 +85,6 @@ header a {
 header a:hover, header a:active {
   color: #333;
 }
-header nav {
-  display: flex;
-  text-align: center;
-  font-size: 17px;
-  line-height: 21px;
-  justify-items: center;
-  align-items: flex-start;
-}
-header nav a {
-  padding: 0.75rem 0;
-  margin-right: 2rem;
-  position: relative;
-}
-header nav a:last-child {
-  margin-right: 0;
-}
-header nav a:before {
-  position: absolute;
-  content: "";
-  bottom: 0.25rem;
-  left: 50%;
-  right: 50%;
-  height: 3px;
-  background: #333;
-  transition: 0.75s;
-}
-header nav a:hover, header nav a:active {
-  font-weight: 700;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
-}
-header nav a:hover:before, header nav a:active:before {
-  left: 25%;
-  right: 25%;
-}
 header .logo {
   margin-right: auto;
   height: 44px;
@@ -127,6 +94,120 @@ header .logo {
 header .nav-btn {
   width: 40px;
   height: 40px;
+}
+
+body:not(.menu-shown) .nav {
+  display: none;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+body:not(.menu-shown) .nav a {
+  padding: 0.75rem 0;
+  margin-right: 2rem;
+  position: relative;
+}
+body:not(.menu-shown) .nav a:last-child {
+  margin-right: 0;
+}
+body:not(.menu-shown) .nav a:before {
+  position: absolute;
+  content: "";
+  bottom: 0.25rem;
+  left: 50%;
+  right: 50%;
+  height: 3px;
+  background: #333;
+  transition: 0.75s;
+}
+body:not(.menu-shown) .nav a:hover, body:not(.menu-shown) .nav a:active {
+  font-weight: 700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+}
+body:not(.menu-shown) .nav a:hover:before, body:not(.menu-shown) .nav a:active:before {
+  left: 25%;
+  right: 25%;
+}
+
+.menu-shown .logo {
+  position: absolute;
+  top: 40px;
+  left: 5vw;
+  z-index: 3;
+}
+.menu-shown .logo img {
+  filter: invert(100%);
+}
+.menu-shown .logo:hover img {
+  filter: invert(100%) contrast(100);
+}
+.menu-shown .nav-btn {
+  position: absolute;
+  top: 40px;
+  right: 5vw;
+  z-index: 3;
+  display: inline;
+  display: initial;
+  color: #CCC;
+}
+.menu-shown .nav-btn:hover {
+  color: #FFF;
+}
+.menu-shown .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  z-index: 2;
+  background-color: #000;
+  font-size: 40px;
+  line-height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50vh 25vw 5vh 5vw;
+}
+.menu-shown .nav a {
+  color: #CCC;
+  text-align: left;
+  font-weight: 700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+}
+.menu-shown .nav a:hover, .menu-shown .nav a:active {
+  font-size: 44px;
+  color: #FFF;
+}
+
+body .burger-btn {
+  transition: 1s;
+}
+body .burger-btn rect {
+  transition: 0.75s;
+}
+body.menu-shown .nav-btn {
+  position: absolute;
+}
+body.menu-shown:not(.menu-closing) .burger-btn {
+  rotate: -45deg;
+}
+body.menu-shown:not(.menu-closing) .burger-btn :nth-child(1) {
+  rotate: 90deg;
+  y: -22px;
+}
+body.menu-shown:not(.menu-closing) .burger-btn :nth-child(2) {
+  y: 18px;
+}
+body.menu-shown:not(.menu-closing) .burger-btn :nth-child(3) {
+  rotate: 90deg;
+  x: 0;
+  y: -22px;
+}
+body.menu-shown.menu-closing .burger-btn {
+  rotate: 0;
 }
 
 #main {
@@ -145,7 +226,6 @@ header .nav-btn {
 
 .main-article .picture {
   width: 100%;
-  max-width: 793px;
 }
 .main-article .picture img {
   width: 100%;
@@ -264,16 +344,16 @@ header .nav-btn {
   margin: 0;
 }
 
-@media (max-width: 992px){
-  header nav {
+@media (min-width: 768px){
+  header .nav-btn {
     display: none;
+  }
+  body:not(.menu-shown) .nav {
+    display: flex;
   }
 }
 
 @media (min-width: 992px){
-  header .nav-btn {
-    display: none;
-  }
   #main {
     flex-direction: row;
   }
