@@ -1,71 +1,55 @@
 @use '../helpers' as *;
+@use 'sass:math';
 
 
-@mixin generate-grid($max: 12, $prefix: ".col", $container: ".row")
-{
-
-
-
-    #{$container}
-    {
-
+@mixin generate-grid($max: 12, $prefix: ".col", $container: ".row") {
+    #{$container} {
         display: flex;
         flex-wrap: wrap;
 
     }
 
-    #{$container} > *
-    {
+    #{$container}>* {
         box-sizing: border-box;
         flex-shrink: 0;
         width: 100%;
         max-width: 100%;
+        overflow: hidden;
     }
 
 
-    #{$prefix}
-    {
+    #{$prefix} {
         flex: 1 0 0%;
     }
 
-    #{$prefix}-auto
-    {
+    #{$prefix}-auto {
         flex: 0 0 auto;
         width: auto;
     }
 
-    @for $i from 1 through $max
-    {
-        $width: ($i / $max) * 100%;
+    @for $i from 1 through $max {
 
-        #{$prefix}-#{$i}
-        {
+        $width: math.div($i, $max) * 100%;
+
+        #{$prefix}-#{$i} {
             flex: 0 0 auto;
             width: $width;
         }
 
         @each $name,
-        $size in $bootstrap-breakpoints
-        {
+        $size in $bootstrap-breakpoints {
 
             @if $name !="xs"
 
-            {
-
-
-                @include breakpoint-up($size)
                 {
-
-                    @if $i ==1
-                    {
-                        #{$prefix}-#{$name}
-                        {
+                @include breakpoint-up($size) {
+                    @if $i ==1 {
+                        #{$prefix}-#{$name} {
                             flex: 1 0 0%;
                         }
                     }
 
-                    #{$prefix}-#{$name}-#{$i}
-                    {
+                    #{$prefix}-#{$name}-#{$i} {
                         flex: 0 0 auto;
                         width: $width;
                     }
@@ -74,10 +58,6 @@
 
 
         }
-
-
-
-
     }
 
 }

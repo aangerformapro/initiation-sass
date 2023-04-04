@@ -3,47 +3,64 @@
 
 
 .container,
-.card
-{
+.article,
+.card {
     display: flex;
 }
 
-#main
-{
+
+
+
+header {
+    align-items: center;
+
+    @include lg {
+        nav {
+            display: flex;
+            justify-items: center;
+            align-items: flex-start;
+        }
+
+    }
+}
+
+.main-article {
     flex-direction: column;
 
-    @include md
-    {
+    @include lg {
+        flex-direction: row;
+    }
+}
+
+.article {
+
+    padding-left: 1rem;
+    flex-direction: column;
+
+    @include lg {
         flex-direction: row;
     }
 }
 
 
-
-
-.news-inner
-{
+.news-inner {
     display: flex;
     flex-direction: column;
 
-    .news-heading
-    {
+    .news-heading {
         margin-bottom: auto;
     }
 
-    .card
-    {
+    .card {
         flex-direction: column;
 
     }
 }
 
-.related
-{
+.related {
     flex-direction: column;
 
-    @include lg
-    {
+    @include lg {
         flex-direction: row;
         justify-content: space-between;
     }
@@ -52,21 +69,6 @@
 
 
 
-header
-{
-    align-items: center;
-
-    @include md
-    {
-        nav
-        {
-            display: flex;
-            justify-items: center;
-            align-items: flex-start;
-        }
-
-    }
-}
 
 
 @include generate-grid;
