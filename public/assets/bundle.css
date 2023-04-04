@@ -1,8 +1,5 @@
-/**
- * Main styles
- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-.container, .card, .main-article .picture {
+.related .card, .main-article .picture, .container {
   overflow: hidden;
 }
 
@@ -25,11 +22,11 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
+  font-size: 16px;
+  line-height: 1.2;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.2;
   color: #000;
   background-color: #fff;
 }
@@ -40,11 +37,9 @@ a {
 }
 
 h1 {
-  font-size: 3.75rem;
+  font-size: 60px;
+  line-height: 60px;
   font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 3.75rem;
   color: #333;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -53,9 +48,6 @@ h1 {
 
 p {
   font-size: 15px;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 25px;
   padding: 1rem 0;
   margin-top: 0;
@@ -78,7 +70,7 @@ p {
 header {
   display: flex;
   height: 60px;
-  margin-top: 2.5rem;
+  margin-top: 40px;
   margin-bottom: 42px;
   color: #333;
   background: #FFF;
@@ -96,9 +88,6 @@ header nav {
   display: flex;
   text-align: center;
   font-size: 17px;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 21px;
   justify-items: center;
   align-items: flex-start;
@@ -131,8 +120,8 @@ header nav a:hover:before, header nav a:active:before {
 }
 header .logo {
   margin-right: auto;
-  height: 2.75rem;
-  line-height: 2.75rem;
+  height: 44px;
+  line-height: 44px;
   overflow: hidden;
 }
 header .nav-btn {
@@ -140,15 +129,49 @@ header .nav-btn {
   height: 40px;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+#main .main-article {
+  display: flex;
+  flex-direction: column;
+}
+#main .news {
+  flex-direction: column;
+  flex-shrink: 1 0 auto;
+}
+
+.main-article .picture {
+  width: 100%;
+  max-width: 793px;
+}
+.main-article .picture img {
+  width: 100%;
+  height: 324px;
+  object-position: center;
+  object-fit: cover;
+}
+.main-article .article {
+  margin: 2rem 0;
+  max-width: 793px;
+  color: #000;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.main-article .article .heading {
+  color: #333;
+}
+
 .btn {
   border-radius: 50px;
   display: inline-block;
   text-transform: uppercase;
   font-size: 17px;
-  font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 25px;
+  font-weight: 700;
   padding: 0.5rem 1.5rem;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2509803922);
 }
@@ -166,104 +189,31 @@ header .nav-btn {
   border: 1px solid #333;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-}
-.card .card-header {
-  font-size: 1.9375rem;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
-  color: #333;
-  margin-bottom: 0.75rem;
-}
-.card .card-title {
-  font-size: 1.1875rem;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
-  text-transform: capitalize;
-  color: #BBACC1;
-}
-.card .card-title:hover, .card .card-title:active {
-  color: #F1DEDE;
-}
-
-.main-article .picture {
-  width: 100%;
-  max-width: 793px;
-}
-.main-article .picture img {
-  width: 100%;
-  height: 20.25rem;
-  object-position: center;
-  object-fit: cover;
-}
-.main-article .article {
-  margin: 2rem 0;
-  max-width: 793px;
-  color: #000;
-  padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-.main-article .article .heading {
-  color: #333;
-}
-
-#main {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-#main .main-article {
-  display: flex;
-  flex-direction: column;
-}
-#main .news {
-  flex-direction: column;
-  flex-shrink: 1 0 auto;
-}
-
 .news {
   padding: 2rem;
   background-color: #333;
   color: #FFF;
 }
 .news .news-heading {
-  font-size: 2.5rem;
+  font-size: 40px;
+  line-height: 60px;
   font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 3.75rem;
   color: #BBACC1;
 }
-.news .card {
+.news .news-item {
   padding-top: 2rem;
 }
-.news .card .card-title {
-  color: #F1DEDE;
-  text-transform: capitalize;
-}
-.news .card .card-title:hover, .news .card .card-title:active {
-  color: #FFF;
-}
-.news .card .card-header {
-  font-size: 1.1875rem;
+.news .news-item .news-title {
+  font-size: 19px;
+  line-height: 25px;
   font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5625rem;
   color: #F1DEDE;
   text-transform: capitalize;
 }
-.news .card .card-header:hover, .news .card .card-header:active {
+.news .news-item .news-title:hover, .news .news-item .news-title:active {
   color: #FFF;
 }
-.news .card:not(:last-of-type) {
+.news .news-item:not(:last-of-type) {
   border-bottom: 1px solid #FFF;
 }
 
@@ -272,6 +222,7 @@ header .nav-btn {
   justify-content: space-between;
 }
 .related .card {
+  display: flex;
   flex-direction: row;
   height: 139px;
   width: 350px;
@@ -286,6 +237,22 @@ header .nav-btn {
   object-fit: cover;
   width: 109px;
   height: 139px;
+}
+.related .card .card-header {
+  font-size: 31px;
+  line-height: 25px;
+  font-weight: 900;
+  color: #333;
+}
+.related .card .card-title {
+  font-size: 19px;
+  line-height: 25px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: #BBACC1;
+}
+.related .card .card-title:hover, .related .card .card-title:active {
+  color: #F1DEDE;
 }
 .related .card .card-body {
   display: flex;
@@ -307,17 +274,17 @@ header .nav-btn {
   header .nav-btn {
     display: none;
   }
-  .main-article .picture {
-    aspect-ratio: 793/324;
-  }
-  .main-article .article {
-    flex-direction: row;
-  }
   #main {
     flex-direction: row;
   }
   #main .main-article {
     padding-right: 1rem;
+  }
+  .main-article .picture {
+    aspect-ratio: 793/324;
+  }
+  .main-article .article {
+    flex-direction: row;
   }
   .related {
     flex-direction: row;

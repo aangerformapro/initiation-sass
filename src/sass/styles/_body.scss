@@ -1,0 +1,74 @@
+@use '../helpers' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+
+html
+{
+    font-size: 100%;
+}
+
+
+*,
+::before,
+::after
+{
+    box-sizing: border-box;
+}
+
+[hidden],
+[hidden] *
+{
+    display: none !important;
+}
+
+body
+{
+    min-height: 100vh;
+    margin: 0;
+    @include font-family('Inter', 16px);
+    color: $main-color;
+    background-color: $main-bg-color;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+h1
+{
+    @include font-size(60px, 900, 60px);
+    color: $main-heading-color;
+    @include padding-y(.5rem);
+    margin: 0 2rem 2rem 0;
+}
+
+
+p
+{
+    @include font-size(15px, $line-height: 25px);
+    padding: 1rem 0;
+
+    margin:
+    {
+        top: 0;
+        bottom: 1rem;
+    }
+}
+
+.container
+{
+    @extend %no-overflow;
+    width: 90vw;
+    max-width: 1200px;
+    @include margin-x(auto);
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    & + .container
+    {
+        margin-top: 1rem;
+    }
+}

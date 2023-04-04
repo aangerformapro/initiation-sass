@@ -1,0 +1,83 @@
+@use '../helpers' as *;
+
+
+.related
+{
+
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    .card
+    {
+
+        display: flex;
+        @extend %no-overflow;
+        flex-direction: row;
+        height: 139px;
+        width: 350px;
+
+
+        @include margin-y(1.5rem);
+
+        .card-img
+        {
+            margin-right: 1.5rem;
+
+            img
+            {
+                object:
+                {
+                    position: center;
+                    fit: cover;
+                }
+
+                @include sizer(109px, 139px);
+            }
+
+        }
+
+        .card-header
+        {
+            @include font-size(31px, 900, 25px);
+            color: $card-heading-color;
+        }
+
+        .card-title
+        {
+            @include font-size(19px, 900, 25px);
+            text-transform: capitalize;
+            color: $card-title-color;
+
+            &:hover,
+            &:active
+            {
+                color: $card-title-hover-color;
+            }
+        }
+
+        .card-body
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            & > *
+            {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+
+
+
+
+    }
+
+    @include lg
+    {
+        flex-direction: row;
+    }
+}

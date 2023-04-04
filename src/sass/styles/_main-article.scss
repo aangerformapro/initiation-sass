@@ -1,0 +1,81 @@
+@use '../helpers' as *;
+@use '../components/btn' as *;
+
+
+@mixin main-article
+{
+    .main-article
+    {
+
+        .picture
+        {
+            @extend %no-overflow;
+            width: 100%;
+            max-width: 793px;
+
+
+            img
+            {
+                width: 100%;
+                height: 324px;
+
+                object:
+                {
+                    position: center;
+                    fit: cover;
+                }
+            }
+
+            @include lg
+            {
+                aspect-ratio: 793 / 324;
+            }
+
+        }
+
+        .article
+        {
+
+            margin: 2rem 0;
+            max-width: 793px;
+            color: $main-content-color;
+            padding-bottom: 2rem;
+
+            display: flex;
+            flex-direction: column;
+
+            .heading
+            {
+                color: $main-heading-color;
+            }
+
+            @include lg
+            {
+                flex-direction: row;
+            }
+
+
+        }
+    }
+
+
+    .btn
+    {
+        @include button(17px, 25px);
+
+        &.btn-pink
+        {
+            border: $pink-btn-border;
+            color: $pink-btn-color;
+            background-color: $pink-btn-bg-color;
+
+            &:hover,
+            &:active
+            {
+                color: $pink-btn-hover-color;
+                background: $pink-btn-hover-bg-color;
+                border: $pink-btn-hover-border;
+            }
+        }
+    }
+}

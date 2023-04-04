@@ -4,10 +4,10 @@
     "description": "Projet Intégration avec SASS",
     "type": "module",
     "scripts": {
-        "sass": "sass --embed-sources ./src/sass/index.scss:./public/assets/sass-bundle.css",
-        "sass:watch": "sass --embed-sources --watch ./src/sass/index.scss:./public/assets/sass-bundle.css",
-        "postcss": "postcss public/assets/sass-bundle.css --verbose --map --output public/assets/bundle.css",
-        "postcss:watch": "postcss public/assets/sass-bundle.css --map --watch --output public/assets/bundle.css",
+        "sass": "sass --embed-sources ./src/sass/index.scss:./tmp/bundle.css",
+        "sass:watch": "sass --embed-sources --watch ./src/sass/index.scss:./tmp/bundle.css",
+        "postcss": "postcss tmp/bundle.css --verbose --map --output public/assets/bundle.css",
+        "postcss:watch": "postcss tmp/bundle.css --map --watch --output public/assets/bundle.css",
         "watch:all": "run-p -n rollup:watch sass:watch postcss:watch",
         "rollup:watch": "rollup -c -w",
         "rollup": "rollup -c"
