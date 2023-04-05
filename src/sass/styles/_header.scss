@@ -10,15 +10,13 @@
 @use '../animated/attention_seekers/jello';
 
 
-header
-{
+header {
     display: flex;
 
     justify-content: flex-end;
     height: 60px;
 
-    margin:
-    {
+    margin: {
         top: 40px;
         bottom: 42px;
     }
@@ -28,34 +26,37 @@ header
     user-select: none;
 
 
-    a
-    {
+    a {
         color: $header-color;
 
         &:hover,
-        &:active
-        {
+        &:active {
             color: $header-hover-color;
         }
     }
 
 
 
-    .logo
-    {
+    .logo {
         margin-right: auto;
         height: 44px;
         line-height: 44px;
         overflow: hidden;
 
+        &:hover {
+            @extend %jello;
+            animation-iteration-count: infinite;
+            animation-duration: 1.2s;
+        }
+
+
+
     }
 
-    .nav-btn
-    {
+    .nav-btn {
         @include sizer(40px);
 
-        @include md
-        {
+        @include md {
             display: none;
         }
     }
@@ -63,8 +64,7 @@ header
 
 
 
-body:not(.menu-shown) .nav
-{
+body:not(.menu-shown) .nav {
     display: none;
 
     @include font-size(17px, $line-height: 21px);
@@ -72,19 +72,16 @@ body:not(.menu-shown) .nav
     justify-content: flex-end;
     align-items: flex-start;
 
-    & > a
-    {
+    &>a {
         padding: .75rem 0;
         margin-right: 2rem;
         position: relative;
 
-        &:last-child
-        {
+        &:last-child {
             margin-right: 0;
         }
 
-        &:before
-        {
+        &:before {
             position: absolute;
             content: '';
             bottom: .25rem;
@@ -97,13 +94,11 @@ body:not(.menu-shown) .nav
         }
 
         &:hover,
-        &:active
-        {
+        &:active {
             font-weight: 700;
             text-shadow: $box-shadow;
 
-            &:before
-            {
+            &:before {
                 left: 25%;
                 right: 25%;
             }
@@ -113,39 +108,32 @@ body:not(.menu-shown) .nav
 
 
 
-    @include md
-    {
+    @include md {
         display: flex;
     }
 
 }
 
-.menu-shown
-{
+.menu-shown {
 
-    .logo
-    {
+    .logo {
         position: absolute;
         top: 40px;
         left: 5vw;
         z-index: 3;
 
-        img
-        {
+        img {
             filter: invert(100%);
         }
 
-        &:hover img
-        {
+        &:hover img {
             filter: invert(100%) contrast(100);
-            @extend %jello;
-            animation-iteration-count: infinite;
+
             //animation-duration: 200ms;
         }
     }
 
-    .nav-btn
-    {
+    .nav-btn {
         position: absolute;
         top: 40px;
         right: 5vw;
@@ -153,14 +141,12 @@ body:not(.menu-shown) .nav
         display: unset;
         color: $overlay-color;
 
-        &:hover
-        {
+        &:hover {
             color: $overlay-hover-color;
         }
     }
 
-    .nav
-    {
+    .nav {
         @include overlay($position: fixed, $z-index: 2);
 
 
@@ -174,8 +160,7 @@ body:not(.menu-shown) .nav
         @extend %slideInDown;
         animation-duration: 500ms;
 
-        > a
-        {
+        >a {
             color: $overlay-color;
             text-align: left;
             font-weight: 700;
@@ -185,17 +170,24 @@ body:not(.menu-shown) .nav
             animation-delay: 500ms;
 
             &:hover,
-            &:active
-            {
+            &:active {
                 font-size: 44px;
                 color: $overlay-hover-color;
             }
+
+
+
+            @for $i from 2 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 475ms + ($i * 25ms);
+                }
+            }
+
         }
     }
 }
 
-.overlay
-{
+.overlay {
     position: fixed;
     z-index: 104;
     bottom: 0;
@@ -210,35 +202,37 @@ body:not(.menu-shown) .nav
 }
 
 
-.corner
-{
+.corner {
     @include corner(250px, $background-color: $corner-bg-color, $color: $corner-color);
     position: fixed;
 }
 
 
 
-.menu-closing
-{
-    .nav
-    {
+.menu-closing {
+    .nav {
 
         @extend %fadeOut;
         animation-delay: 800ms;
         animation-duration: 400ms;
 
-        > a
-        {
+        >a {
             @extend %backOutRight;
             animation-duration: 500ms;
             animation-delay: 300ms;
+
+            @for $i from 2 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 275ms + ($i * 25ms);
+                }
+            }
+
         }
 
 
     }
 
-    .overlay
-    {
+    .overlay {
         @extend %fadeOutBottomRight;
 
         animation-duration: 300ms;
