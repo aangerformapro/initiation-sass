@@ -67,6 +67,175 @@ p {
   margin-top: 1rem;
 }
 
+@keyframes backInRight {
+  0% {
+    transform: translateX(2000px) scale(0.7);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.menu-shown .nav > a {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: backInRight;
+}
+
+@keyframes backOutRight {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(2000px) scale(0.7);
+    opacity: 0.7;
+  }
+}
+.menu-closing .nav > a {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: backOutRight;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.menu-closing .nav {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: fadeOut;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.menu-shown .nav {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: slideInDown;
+}
+
+@keyframes fadeInBottomRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.overlay {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: fadeInBottomRight;
+}
+
+@keyframes fadeOutBottomRight {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 100%, 0);
+  }
+}
+.menu-closing .overlay {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: fadeOutBottomRight;
+}
+
+@keyframes jello {
+  from, 11.1%, to {
+    transform: translate3d(0, 0, 0);
+  }
+  22.2% {
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+  88.8% {
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+.menu-shown .logo:hover img {
+  /** please use prefixer to add navigator prefixes */
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  animation-name: jello;
+  transform-origin: center;
+}
+
 header {
   display: flex;
   justify-content: flex-end;
@@ -104,15 +273,15 @@ body:not(.menu-shown) .nav {
   justify-content: flex-end;
   align-items: flex-start;
 }
-body:not(.menu-shown) .nav a {
+body:not(.menu-shown) .nav > a {
   padding: 0.75rem 0;
   margin-right: 2rem;
   position: relative;
 }
-body:not(.menu-shown) .nav a:last-child {
+body:not(.menu-shown) .nav > a:last-child {
   margin-right: 0;
 }
-body:not(.menu-shown) .nav a:before {
+body:not(.menu-shown) .nav > a:before {
   position: absolute;
   content: "";
   bottom: 0.25rem;
@@ -122,11 +291,11 @@ body:not(.menu-shown) .nav a:before {
   background: #333;
   transition: 0.75s;
 }
-body:not(.menu-shown) .nav a:hover, body:not(.menu-shown) .nav a:active {
+body:not(.menu-shown) .nav > a:hover, body:not(.menu-shown) .nav > a:active {
   font-weight: 700;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
 }
-body:not(.menu-shown) .nav a:hover:before, body:not(.menu-shown) .nav a:active:before {
+body:not(.menu-shown) .nav > a:hover:before, body:not(.menu-shown) .nav > a:active:before {
   left: 25%;
   right: 25%;
 }
@@ -142,6 +311,7 @@ body:not(.menu-shown) .nav a:hover:before, body:not(.menu-shown) .nav a:active:b
 }
 .menu-shown .logo:hover img {
   filter: invert(100%) contrast(100);
+  animation-iteration-count: infinite;
 }
 .menu-shown .nav-btn {
   position: absolute;
@@ -161,25 +331,116 @@ body:not(.menu-shown) .nav a:hover:before, body:not(.menu-shown) .nav a:active:b
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
   z-index: 2;
-  background-color: #000;
+  background-color: #29232b;
   font-size: 40px;
   line-height: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 50vh 25vw 5vh 5vw;
+  animation-duration: 500ms;
 }
-.menu-shown .nav a {
+.menu-shown .nav > a {
   color: #CCC;
   text-align: left;
   font-weight: 700;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+  animation-duration: 500ms;
+  animation-delay: 500ms;
 }
-.menu-shown .nav a:hover, .menu-shown .nav a:active {
+.menu-shown .nav > a:hover, .menu-shown .nav > a:active {
   font-size: 44px;
   color: #FFF;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 104;
+  bottom: 0;
+  right: 0;
+  width: 175px;
+  height: 175px;
+  animation-delay: 1s;
+  animation-duration: 500ms;
+}
+
+.corner {
+  position: absolute;
+  z-index: 105;
+  background-color: rgba(187, 172, 193, 0.5019607843);
+  color: #F1DEDE;
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  position: fixed;
+}
+.corner a {
+  color: #F1DEDE;
+  transition: 0.5s;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+.corner a > * {
+  width: 62.5px;
+  height: 62.5px;
+}
+.corner a:hover > * {
+  transform: scale(1.2);
+  visibility: visible;
+  transition: 0.5s;
+}
+.corner:not([class*=pos-]), .corner.pos-tl {
+  left: 0;
+  top: 0;
+  left: -125px;
+  top: -125px;
+  transform: rotate(-45deg);
+}
+.corner:not([class*=pos-]) a, .corner.pos-tl a {
+  bottom: 15.625px;
+  right: 93.75px;
+}
+.corner.pos-tr {
+  right: -125px;
+  top: -125px;
+  transform: rotate(45deg);
+}
+.corner.pos-tr a {
+  bottom: 15.625px;
+  left: 93.75px;
+}
+.corner.pos-br {
+  right: -125px;
+  bottom: -125px;
+  transform: rotate(-45deg);
+}
+.corner.pos-br a {
+  top: 15.625px;
+  left: 93.75px;
+}
+.corner.pos-bl {
+  left: -125px;
+  bottom: -125px;
+  transform: rotate(45deg);
+}
+.corner.pos-bl a {
+  top: 15.625px;
+  left: 93.75px;
+}
+
+.menu-closing .nav {
+  animation-delay: 800ms;
+  animation-duration: 400ms;
+}
+.menu-closing .nav > a {
+  animation-duration: 500ms;
+  animation-delay: 300ms;
+}
+.menu-closing .overlay {
+  animation-duration: 300ms;
 }
 
 body .burger-btn {

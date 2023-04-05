@@ -1,5 +1,14 @@
 @use '../helpers' as *;
 @use '../components/burger' as *;
+@use '../components/corner' as *;
+@use '../animated/back_entrances/backInRight' as *;
+@use '../animated/back_exits/backOutRight' as *;
+@use '../animated/fading_exits/fadeOut' as *;
+@use '../animated/sliding_entrances/slideInDown' as *;
+@use '../animated/fading_entrances/fadeInBottomRight' as *;
+@use '../animated/fading_exits/fadeOutBottomRight' as *;
+@use '../animated/attention_seekers/jello';
+
 
 header
 {
@@ -52,6 +61,8 @@ header
     }
 }
 
+
+
 body:not(.menu-shown) .nav
 {
     display: none;
@@ -61,7 +72,7 @@ body:not(.menu-shown) .nav
     justify-content: flex-end;
     align-items: flex-start;
 
-    a
+    & > a
     {
         padding: .75rem 0;
         margin-right: 2rem;
@@ -127,6 +138,9 @@ body:not(.menu-shown) .nav
         &:hover img
         {
             filter: invert(100%) contrast(100);
+            @extend %jello;
+            animation-iteration-count: infinite;
+            //animation-duration: 200ms;
         }
     }
 
@@ -147,8 +161,8 @@ body:not(.menu-shown) .nav
 
     .nav
     {
-        @include overlay($position: fixed);
-        z-index: 2;
+        @include overlay($position: fixed, $z-index: 2);
+
 
         background-color: $overlay-bg-color;
         @include font-size(40px, $line-height: 48px);
@@ -157,12 +171,18 @@ body:not(.menu-shown) .nav
         justify-content: space-between;
         padding: 50vh 25vw 5vh 5vw;
 
-        a
+        @extend %slideInDown;
+        animation-duration: 500ms;
+
+        > a
         {
             color: $overlay-color;
             text-align: left;
             font-weight: 700;
             text-shadow: $box-shadow;
+            @extend %backInRight;
+            animation-duration: 500ms;
+            animation-delay: 500ms;
 
             &:hover,
             &:active
@@ -172,9 +192,61 @@ body:not(.menu-shown) .nav
             }
         }
     }
+}
 
+.overlay
+{
+    position: fixed;
+    z-index: 104;
+    bottom: 0;
+    right: 0;
+    width: 175px;
+    height: 175px;
+
+    @extend %fadeInBottomRight;
+    animation-delay: 1s;
+    animation-duration: 500ms;
 
 }
+
+
+.corner
+{
+    @include corner(250px, $background-color: $corner-bg-color, $color: $corner-color);
+    position: fixed;
+}
+
+
+
+.menu-closing
+{
+    .nav
+    {
+
+        @extend %fadeOut;
+        animation-delay: 800ms;
+        animation-duration: 400ms;
+
+        > a
+        {
+            @extend %backOutRight;
+            animation-duration: 500ms;
+            animation-delay: 300ms;
+        }
+
+
+    }
+
+    .overlay
+    {
+        @extend %fadeOutBottomRight;
+
+        animation-duration: 300ms;
+    }
+}
+
+
+
 
 
 @include burger-btn-animation;

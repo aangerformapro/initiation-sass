@@ -1,9 +1,9 @@
 
 import Overlay from "./components/overlay.mjs";
 
-const overlay = new Overlay(), delay = {
+const overlay = new Overlay(document.querySelector('.overlay')), delay = {
     show: 0,
-    hide: 1.2,
+    hide: 1.01,
 }, { body } = document;
 
 

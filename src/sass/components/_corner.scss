@@ -1,0 +1,128 @@
+@use "sass:math";
+
+// https://github.com/warengonzaga/fork-corner
+
+
+$default-corner-size: 200px !default;
+$small-corner-size: 150px !default;
+$medium-corner-size: 250px !default;
+$large-corner-size: 300px !default;
+$default-icon-color: #fff !default;
+$default-bg-color: #f34f29 !default;
+$github-icon-color: #fff !default;
+$github-bg-color: #181717 !default;
+$gitlab-icon-color: #fff !default;
+$gitlab-bg-color: #e24329 !default;
+$bitbucket-icon-color: #fff !default;
+$bitbucket-bg-color: #205081 !default;
+
+
+@mixin corner($size: $default-corner-size, $background-color: $default-bg-color, $color: $default-icon-color, $z-index: 105)
+{
+    position: absolute;
+    z-index: $z-index;
+
+    background-color: $background-color;
+    color: $color;
+    overflow: hidden;
+
+    width: $size;
+    height: $size;
+
+    $pos: math.div($size, 2);
+    $isize: math.div($size, 4);
+    $ipos: math.div($isize, 4);
+
+    a
+    {
+        color: $color;
+        transition: 0.5s;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+
+
+
+
+        > *
+        {
+            width: $isize;
+            height: $isize;
+        }
+
+        &:hover > *
+        {
+            transform: scale(1.2);
+            visibility: visible;
+            transition: 0.5s;
+        }
+    }
+
+    &:not([class*="pos-"]),
+    &.pos-tl
+    {
+
+        left: 0;
+        top: 0;
+        left: -$pos;
+        top: -$pos;
+        transform: rotate(-45deg);
+        //transform: rotate(225deg);
+
+        a
+        {
+            bottom: $ipos;
+            right: $isize + (2 * $ipos);
+        }
+
+
+    }
+
+    &.pos-tr
+    {
+        right: -$pos;
+        top: -$pos;
+        transform: rotate(45deg);
+
+        a
+        {
+            bottom: $ipos;
+            left: $isize + (2 * $ipos);
+        }
+    }
+
+
+
+    &.pos-br
+    {
+        right: -$pos;
+        bottom: -$pos;
+        transform: rotate(-45deg);
+
+        a
+        {
+            top: $ipos;
+            left: $isize + (2 * $ipos);
+        }
+
+    }
+
+    &.pos-bl
+    {
+        left: -$pos;
+        bottom: -$pos;
+        transform: rotate(45deg);
+
+        a
+        {
+            top: $ipos;
+            left: $isize + (2 * $ipos);
+        }
+
+    }
+
+    @content;
+
+
+}
