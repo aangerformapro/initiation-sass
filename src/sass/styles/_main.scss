@@ -3,37 +3,37 @@
 @use 'featured-news' as *;
 
 
-#main
-{
+#main {
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 
-    .main-article
-    {
+    .main-article {
         display: flex;
         flex-direction: column;
 
     }
 
-    .news
-    {
+    .news {
         flex-direction: column;
         flex-shrink: 1 0 auto;
     }
 
-    @include lg
-    {
+    @include lg {
         flex-direction: row;
 
-        .main-article
-        {
+        .main-article {
             padding-right: 1rem;
         }
     }
 
 }
 
-@include main-article;
-@include featured-news;
+.main-article {
+    @extend %main-article;
+}
+
+.featured-news {
+    @extend %featured-news;
+}

@@ -148,8 +148,6 @@ body:not(.menu-shown) .nav {
 
     .nav {
         @include overlay($position: fixed, $z-index: 2);
-
-
         background-color: $overlay-bg-color;
         @include font-size(40px, $line-height: 48px);
         display: flex;

@@ -5,6 +5,7 @@
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -498,20 +499,6 @@ body.menu-shown.menu-closing .burger-btn {
   rotate: 0;
 }
 
-#main {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-#main .main-article {
-  display: flex;
-  flex-direction: column;
-}
-#main .news {
-  flex-direction: column;
-  flex-shrink: 1 0 auto;
-}
-
 .main-article .picture {
   width: 100%;
 }
@@ -557,32 +544,46 @@ body.menu-shown.menu-closing .burger-btn {
   border: 1px solid #333;
 }
 
-.news {
+.featured-news .news {
   padding: 2rem;
   background-color: #333;
   color: #FFF;
 }
-.news .news-heading {
+.featured-news .news .news-heading {
   font-size: 40px;
   line-height: 60px;
   font-weight: 900;
   color: #BBACC1;
 }
-.news .news-item {
+.featured-news .news .news-item {
   padding-top: 2rem;
 }
-.news .news-item .news-title {
+.featured-news .news .news-item .news-title {
   font-size: 19px;
   line-height: 25px;
   font-weight: 900;
   color: #F1DEDE;
   text-transform: capitalize;
 }
-.news .news-item .news-title:hover, .news .news-item .news-title:active {
+.featured-news .news .news-item .news-title:hover, .featured-news .news .news-item .news-title:active {
   color: #FFF;
 }
-.news .news-item:not(:last-of-type) {
+.featured-news .news .news-item:not(:last-of-type) {
   border-bottom: 1px solid #FFF;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+#main .main-article {
+  display: flex;
+  flex-direction: column;
+}
+#main .news {
+  flex-direction: column;
+  flex-shrink: 1 0 auto;
 }
 
 .related {
@@ -632,6 +633,10 @@ body.menu-shown.menu-closing .burger-btn {
   margin: 0;
 }
 
+footer {
+  height: 10vh;
+}
+
 @media (min-width: 768px){
   header .nav-btn {
     display: none;
@@ -642,17 +647,17 @@ body.menu-shown.menu-closing .burger-btn {
 }
 
 @media (min-width: 992px){
-  #main {
-    flex-direction: row;
-  }
-  #main .main-article {
-    padding-right: 1rem;
-  }
   .main-article .picture {
     aspect-ratio: 793/324;
   }
   .main-article .article {
     flex-direction: row;
+  }
+  #main {
+    flex-direction: row;
+  }
+  #main .main-article {
+    padding-right: 1rem;
   }
   .related {
     flex-direction: row;

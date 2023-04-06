@@ -3,27 +3,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 
-html
-{
+html {
     font-size: 100%;
+    scroll-behavior: smooth;
 }
 
 
 *,
 ::before,
-::after
-{
+::after {
     box-sizing: border-box;
 }
 
 [hidden],
-[hidden] *
-{
+[hidden] * {
     display: none !important;
 }
 
-body
-{
+body {
     min-height: 100vh;
     margin: 0;
     @include font-family('Inter', 16px);
@@ -31,13 +28,11 @@ body
     background-color: $main-bg-color;
 }
 
-a
-{
+a {
     text-decoration: none;
 }
 
-h1
-{
+h1 {
     @include font-size(60px, 900, 60px);
     color: $main-heading-color;
     @include padding-y(.5rem);
@@ -45,20 +40,17 @@ h1
 }
 
 
-p
-{
+p {
     @include font-size(15px, $line-height: 25px);
     padding: 1rem 0;
 
-    margin:
-    {
+    margin: {
         top: 0;
         bottom: 1rem;
     }
 }
 
-.container
-{
+.container {
     @extend %no-overflow;
     width: 90vw;
     max-width: 1200px;
@@ -67,8 +59,7 @@ p
     display: flex;
     flex-wrap: wrap;
 
-    & + .container
-    {
+    &+.container {
         margin-top: 1rem;
     }
 }

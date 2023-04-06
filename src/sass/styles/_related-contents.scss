@@ -1,16 +1,40 @@
 @use '../helpers' as *;
 
 
-.related
-{
+
+
+@mixin size-card($offset: 0) {
+
+    height: 139px * $offset ;
+    width: 350px * $offset;
+
+    .card-header {
+        @include font-size(31px * $offset, 900, 25px * $offset);
+    }
+
+    .card-title {
+        @include font-size(19px * $offset, 900, 25px * $offset);
+
+    }
+
+    .card-body {
+        @include font-size(15px * $offset, $line-height: 25px * $offset);
+    }
+
+    .card-img img {
+        @include sizer(109px * $offset, 139px * $offset);
+    }
+
+}
+
+.related {
 
 
     flex-direction: column;
-
     justify-content: space-between;
 
-    .card
-    {
+
+    .card {
 
         display: flex;
         @extend %no-overflow;
@@ -21,14 +45,11 @@
 
         @include margin-y(1.5rem);
 
-        .card-img
-        {
+        .card-img {
             margin-right: 1.5rem;
 
-            img
-            {
-                object:
-                {
+            img {
+                object: {
                     position: center;
                     fit: cover;
                 }
@@ -38,33 +59,28 @@
 
         }
 
-        .card-header
-        {
+        .card-header {
             @include font-size(31px, 900, 25px);
             color: $card-heading-color;
         }
 
-        .card-title
-        {
+        .card-title {
             @include font-size(19px, 900, 25px);
             text-transform: capitalize;
             color: $card-title-color;
 
             &:hover,
-            &:active
-            {
+            &:active {
                 color: $card-title-hover-color;
             }
         }
 
-        .card-body
-        {
+        .card-body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
-            & > *
-            {
+            &>* {
                 padding: 0;
                 margin: 0;
             }
@@ -76,8 +92,20 @@
 
     }
 
-    @include lg
-    {
+    @include lg {
         flex-direction: row;
     }
 }
+
+footer {
+    height: 10vh;
+}
+
+//.magics {
+//    @for $i from 3 through 99 {
+//
+//        .card:nth-child(#{$i}) {
+//            @include size-card($i);
+//        }
+//    }
+//}
