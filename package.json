@@ -11,7 +11,7 @@
         "watch:all": "run-p -n rollup:watch sass:watch postcss:watch",
         "rollup:watch": "rollup -c -w",
         "rollup": "rollup -c",
-        "serve": "node ./server.cjs"
+        "serve": "node ./express.config.cjs"
     },
     "browserslist": {
         "production": [
