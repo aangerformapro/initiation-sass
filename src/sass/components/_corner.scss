@@ -19,19 +19,32 @@ $bitbucket-bg-color: #205081 !default;
 
 @mixin corner($size: $default-corner-size, $background-color: $default-bg-color, $color: $default-icon-color, $z-index: 105)
 {
-    position: absolute;
-    z-index: $z-index;
-
-    background-color: $background-color;
-    color: $color;
-    overflow: hidden;
-
-    width: $size;
-    height: $size;
 
     $pos: math.div($size, 2);
     $isize: math.div($size, 4);
-    $ipos: math.div($isize, 4);
+    $ipos: math.div($isize, 1.5);
+
+    z-index: $z-index;
+    width: $size;
+    height: $size;
+    overflow: visible;
+
+    &::before
+    {
+        content: '';
+        position: absolute;
+        z-index: $z-index;
+
+        background-color: $background-color;
+        color: $color;
+        overflow: hidden;
+
+        width: $size;
+        height: $size;
+
+
+    }
+
 
     a
     {
@@ -39,8 +52,9 @@ $bitbucket-bg-color: #205081 !default;
         transition: 0.5s;
         display: flex;
         margin: 0;
-        padding: 0;
+        //padding: $ipos;
         position: absolute;
+        z-index: $z-index + 1;
 
 
 
@@ -63,17 +77,20 @@ $bitbucket-bg-color: #205081 !default;
     &.pos-tl
     {
 
-        left: 0;
-        top: 0;
+
         left: -$pos;
         top: -$pos;
-        transform: rotate(-45deg);
-        //transform: rotate(225deg);
+
+        &::before
+        {
+            transform: rotate(-45deg);
+        }
+
 
         a
         {
             bottom: $ipos;
-            right: $isize + (2 * $ipos);
+            right: $ipos;
         }
 
 
@@ -81,14 +98,20 @@ $bitbucket-bg-color: #205081 !default;
 
     &.pos-tr
     {
+
         right: -$pos;
         top: -$pos;
-        transform: rotate(45deg);
+
+
+        &::before
+        {
+            transform: rotate(45deg);
+        }
 
         a
         {
             bottom: $ipos;
-            left: $isize + (2 * $ipos);
+            left: $ipos;
         }
     }
 
@@ -96,28 +119,40 @@ $bitbucket-bg-color: #205081 !default;
 
     &.pos-br
     {
+
         right: -$pos;
         bottom: -$pos;
-        transform: rotate(-45deg);
+
+        &::before
+        {
+
+            transform: rotate(-45deg);
+        }
 
         a
         {
             top: $ipos;
-            left: $isize + (2 * $ipos);
+            left: $ipos;
         }
 
     }
 
     &.pos-bl
     {
+
         left: -$pos;
         bottom: -$pos;
-        transform: rotate(45deg);
+
+        &::before
+        {
+
+            transform: rotate(45deg);
+        }
 
         a
         {
             top: $ipos;
-            left: $isize + (2 * $ipos);
+            right: $ipos;
         }
 
     }
