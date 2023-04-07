@@ -1,0 +1,130 @@
+@use 'settings';
+
+
+@mixin composition($animation-composition: settings.$composition)
+{
+    animation-composition: $animation-composition;
+}
+
+
+@mixin delay($animation-delay: settings.$delay)
+{
+    animation-delay: $animation-delay;
+}
+
+@mixin direction($animation-direction: settings.$direction)
+{
+    animation-direction: $animation-direction;
+}
+
+@mixin duration($animation-duration: settings.$duration)
+{
+    animation-duration: $animation-duration;
+}
+
+@mixin fill($animation-fill-mode: settings.$fill)
+{
+    animation-fill-mode: $animation-fill-mode;
+}
+
+@mixin count($animation-iteration-count: settings.$count)
+{
+    animation-iteration-count: $animation-iteration-count;
+}
+
+
+@mixin name($animation-name)
+{
+    animation-name: $animation-name;
+}
+
+@mixin state($animation-play-state)
+{
+    animation-play-state: $animation-play-state;
+}
+
+@mixin function($animation-timing-function: settings.$function)
+{
+    animation-timing-function: $animation-timing-function;
+}
+
+@mixin transform($transform-origin)
+{
+    transform-origin: $transform-origin;
+}
+
+
+@mixin backface-visibility($backface-visibility)
+{
+    backface-visibility: $backface-visibility;
+}
+
+
+@mixin set-animation-properties($duration: null,
+    $delay: null,
+    $function: null,
+    $direction: null,
+    $fill: null,
+    $count: null,
+    $visibility: null,
+    $composition: null)
+{
+
+    @if $duration
+    {
+        @include duration($duration);
+    }
+
+    @if $fill
+    {
+        @include fill($fill);
+    }
+
+    @if $delay
+    {
+        @include delay($delay);
+    }
+
+    @if $function
+    {
+        @include function($function);
+    }
+
+    @if $direction
+    {
+        @include direction($direction);
+    }
+
+
+    @if $count
+    {
+        @include count($count);
+    }
+
+    @if $visibility
+    {
+        @include backface-visibility($visibility);
+    }
+
+    @if $composition
+    {
+        @include composition($composition);
+    }
+
+}
+
+
+@mixin load-animation ($name,
+    $duration: settings.$duration,
+    $delay: null,
+    $function: null,
+    $direction: null,
+    $fill: settings.$fill,
+    $count: null,
+    $visibility: null,
+    $composition: null)
+{
+    @include name($name);
+    @include set-animation-properties($duration, $delay, $function, $direction, $fill, $count, $visibility, $composition);
+    @content;
+}

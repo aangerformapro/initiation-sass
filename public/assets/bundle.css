@@ -68,6 +68,12 @@ p {
   margin-top: 1rem;
 }
 
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1;
+}
+
 @keyframes backInRight {
   0% {
     transform: translateX(2000px) scale(0.7);
@@ -83,14 +89,9 @@ p {
   }
 }
 .menu-shown .nav > a {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: backInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes backOutRight {
@@ -108,14 +109,9 @@ p {
   }
 }
 .menu-closing .nav > a {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: backOutRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeOut {
@@ -127,14 +123,9 @@ p {
   }
 }
 .menu-closing .nav {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes slideInDown {
@@ -147,14 +138,9 @@ p {
   }
 }
 .menu-shown .nav {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: slideInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeInBottomRight {
@@ -168,14 +154,9 @@ p {
   }
 }
 .overlay {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: fadeInBottomRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeOutBottomRight {
@@ -189,14 +170,9 @@ p {
   }
 }
 .menu-closing .overlay {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: fadeOutBottomRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes jello {
@@ -226,14 +202,9 @@ p {
   }
 }
 header .logo:hover {
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: 1;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
   animation-name: jello;
+  animation-duration: 1s;
+  animation-fill-mode: both;
   transform-origin: center;
 }
 

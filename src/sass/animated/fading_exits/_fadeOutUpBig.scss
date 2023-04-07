@@ -1,4 +1,4 @@
-@use '../settings' as s;
+@use '../animation';
 
 @keyframes fadeOutUpBig {
   from {
@@ -10,24 +10,30 @@
     transform: translate3d(0, -2000px, 0);
   }
 }
-@mixin animated-fadeOutUpBig (
-  $count: s.$count,
-  $duration: s.$duration,
-  $delay: s.$delay,
-  $timing-function: s.$timing-function,
-  $fill-mode: s.$fill-mode,
-  $visibility: s.$visibility)
-{
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: $count;
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-timing-function: $timing-function;
-  animation-fill-mode: $fill-mode;
-  backface-visibility: $visibility;
-  animation-name: fadeOutUpBig;
+%fadeOutUpBig {
+    @include animation.load-animation(fadeOutUpBig);
 }
 
-%fadeOutUpBig {
-    @include animated-fadeOutUpBig;
+@mixin animated-fadeOutUpBig (
+    $duration: null,
+    $delay: null,
+    $function: null,
+    $direction: null,
+    $fill: null,
+    $count: null,
+    $visibility: null,
+    $composition: null
+)
+{
+    @extend %fadeOutUpBig;
+    @include set-animation-properties(
+        $duration,
+        $delay,
+        $function,
+        $direction,
+        $fill,
+        $count,
+        $visibility,
+        $composition
+    );    
 }

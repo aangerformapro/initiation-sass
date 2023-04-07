@@ -1,0 +1,86 @@
+@use "sass:list";
+@use "index" as *;
+@use "animations" as *;
+
+
+
+
+@mixin basic-classes($prefix: $prefix)
+{
+    $animated: ".#{$prefix}animated";
+
+    #{$animated}
+    {
+        animation-duration: var(--animate-duration);
+        animation-fill-mode: both;
+    }
+
+    #{$animated}.#{$prefix}infinite
+    {
+        animation-iteration-count: infinite;
+    }
+
+    @for $i from 1 through 3
+    {
+        #{$animated}.#{$prefix}repeat-#{$i}
+        {
+            animation-iteration-count: calc(var(--animate-repeat) * $i);
+        }
+    }
+
+    @for $i from 1 through 5
+    {
+        #{$animated}.#{$prefix}delay-#{$i}s
+        {
+            animation-delay: calc(var(--animate-delay) * $i);
+        }
+    }
+
+
+    #{$animated}.#{$prefix}faster
+    {
+        animation-duration: calc(var(--animate-duration) / 2);
+    }
+
+    #{$animated}.#{$prefix}fast
+    {
+        animation-duration: calc(var(--animate-duration) * 0.8);
+    }
+
+    #{$animated}.#{$prefix}slow
+    {
+        animation-duration: calc(var(--animate-duration) * 2);
+    }
+
+    #{$animated}.#{$prefix}slower
+    {
+        animation-duration: calc(var(--animate-duration) * 3);
+    }
+
+
+    @media print,
+    (prefers-reduced-motion: reduce)
+    {
+        #{$animated}
+        {
+            animation-duration: 1ms !important;
+            transition-duration: 1ms !important;
+            animation-iteration-count: 1 !important;
+        }
+
+        #{$animated}[class*="Out"]
+        {
+            opacity: 0 !important;
+        }
+    }
+
+
+
+    @each $class in $animations
+    {
+        #{$prefix}#{$class}
+        {
+            @extend %#{$class};
+        }
+    }
+}

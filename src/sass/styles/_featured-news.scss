@@ -1,36 +1,43 @@
 @use '../helpers' as *;
 
-%featured-news {
+%featured-news
+{
 
 
 
-    .news {
+    .news
+    {
         padding: 2rem;
         background-color: $featured-news-bg-color;
         color: $featured-news-color;
 
-        .news-heading {
+        .news-heading
+        {
             @include font-size(40px, 900, 60px);
             color: $featured-news-main-heading-color;
         }
 
-        .news-item {
+        .news-item
+        {
             padding-top: 2rem;
 
-            .news-title {
+            .news-title
+            {
                 @include font-size(19px, 900, 25px);
                 color: $featured-news-title-color;
                 text-transform: capitalize;
 
                 &:hover,
-                &:active {
+                &:active
+                {
                     color: $featured-news-title-hover-color;
                 }
             }
 
 
 
-            &:not(:last-of-type) {
+            &:not(:last-of-type)
+            {
                 border-bottom: 1px solid $featured-news-separator-color;
             }
 

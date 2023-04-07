@@ -1,4 +1,4 @@
-@use '../settings' as s;
+@use '../animation';
 
 @keyframes flipInX {
   from {
@@ -25,25 +25,32 @@
     transform: perspective(400px);
   }
 }
-@mixin animated-flipInX (
-  $count: s.$count,
-  $duration: s.$duration,
-  $delay: s.$delay,
-  $timing-function: s.$timing-function,
-  $fill-mode: s.$fill-mode,
-  $visibility: s.$visibility)
-{
-  /** please use prefixer to add navigator prefixes */
-  animation-iteration-count: $count;
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-timing-function: $timing-function;
-  animation-fill-mode: $fill-mode;
-  backface-visibility: $visibility;
-  backface-visibility: visible !important;
-  animation-name: flipInX;
+%flipInX {
+    @include animation.load-animation(flipInX) {
+        @include animation.backface-visibility(visible !important);
+    }
 }
 
-%flipInX {
-    @include animated-flipInX;
+@mixin animated-flipInX (
+    $duration: null,
+    $delay: null,
+    $function: null,
+    $direction: null,
+    $fill: null,
+    $count: null,
+    $visibility: null,
+    $composition: null
+)
+{
+    @extend %flipInX;
+    @include set-animation-properties(
+        $duration,
+        $delay,
+        $function,
+        $direction,
+        $fill,
+        $count,
+        $visibility,
+        $composition
+    );    
 }

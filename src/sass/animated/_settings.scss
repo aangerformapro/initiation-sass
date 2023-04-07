@@ -1,7 +1,18 @@
   $count: 1 !default;
   $duration: 1s !default;
   $delay: 0s !default;
-  $timing-function: ease !default;
-  $fill-mode: both !default;
+  $function: ease !default;
+  $direction: normal !default;
+  $fill: both !default;
   $visibility: hidden !default;
+  $direction: normal !default;
+  $composition: replace !default;
   $prefix: "animate__" !default;
+
+
+  :root
+  {
+      --animate-duration: 1s;
+      --animate-delay: 1s;
+      --animate-repeat: 1;
+  }
