@@ -45,6 +45,7 @@ h1 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin: 0 2rem 2rem 0;
+  width: 370px;
 }
 
 p {
@@ -554,8 +555,8 @@ body.menu-shown.menu-closing .burger-btn {
   flex-direction: row;
   height: 139px;
   width: 350px;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .related .card .card-img {
   margin-right: 1.5rem;
@@ -592,10 +593,6 @@ body.menu-shown.menu-closing .burger-btn {
   margin: 0;
 }
 
-footer {
-  height: 10vh;
-}
-
 @media (min-width: 768px){
   header .nav-btn {
     display: none;
@@ -611,6 +608,13 @@ footer {
   }
   .main-article .article {
     flex-direction: row;
+    margin: 2rem 0 0 0;
+  }
+  .main-article .article h1 {
+    margin-bottom: 0;
+  }
+  .main-article .article .excerpt {
+    max-width: 390px;
   }
   #main {
     flex-direction: row;
