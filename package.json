@@ -4,13 +4,14 @@
     "description": "Projet Intégration avec SASS",
     "type": "module",
     "scripts": {
-        "sass": "sass --embed-sources ./src/sass/index.scss:./tmp/bundle.css",
-        "sass:watch": "sass --embed-sources --watch ./src/sass/index.scss:./tmp/bundle.css",
-        "postcss": "postcss tmp/bundle.css --verbose --map --output public/assets/bundle.css",
-        "postcss:watch": "postcss tmp/bundle.css --map --watch --output public/assets/bundle.css",
         "watch:all": "run-p -n rollup:watch sass:watch postcss:watch",
-        "rollup:watch": "rollup -c -w",
+        "sass": "sass --embed-sources ./src/sass/index.scss:./tmp/bundle.css",
+        "postcss": "postcss tmp/bundle.css --verbose --map --output public/assets/bundle.css",
+        "minify": "postcss tmp/bundle.css --output public/assets/bundle.min.css --verbose --no-map --env production",
         "rollup": "rollup -c",
+        "sass:watch": "sass --embed-sources --watch ./src/sass/index.scss:./tmp/bundle.css",
+        "postcss:watch": "postcss tmp/bundle.css --map --watch --output public/assets/bundle.css",
+        "rollup:watch": "rollup -c -w",
         "serve": "node ./express.config.cjs"
     },
     "browserslist": {
@@ -39,7 +40,6 @@
         "postcss-cli": "^10.1.0",
         "postcss-combine-media-query": "^1.0.1",
         "postcss-preset-env": "^8.3.0",
-        "postcss-remove-prefixes": "^1.2.0",
         "rollup": "^3.18.0",
         "rollup-plugin-postcss": "^4.0.2",
         "sass": "^1.59.2"

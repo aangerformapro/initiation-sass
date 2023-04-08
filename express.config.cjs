@@ -10,5 +10,5 @@ app.use(express.static('public'));
 
 
 app.listen(port, () => {
-    console.log('Server ' + path.basename(path.resolve('.')) + ' listening on port ' + port);
+    console.log('Server ' + path.basename(path.resolve()) + ' listening on port ' + port, 'http://127.0.0.1:' + port + '/');
 });

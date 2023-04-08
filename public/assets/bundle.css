@@ -186,8 +186,8 @@ header {
   color: #333;
   background: #FFF;
   -webkit-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 header a {
   color: #333;
