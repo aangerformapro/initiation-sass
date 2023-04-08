@@ -5,6 +5,6 @@ module.exports = {
         require('postcss-remove-prefixes')(),
         require('postcss-combine-media-query')(),
         require('autoprefixer')(),
-
+        require('cssnano')({ preset: 'default' }),
     ]
 };
